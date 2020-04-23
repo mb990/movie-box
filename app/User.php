@@ -2,13 +2,14 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +37,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => ['name']
+            ]
+        ];
+    }
+
+    public function products() {
+
+        return $this->belongsToMany(Product::class, 'whishlist')->withTimestamps();
+    }
 }
