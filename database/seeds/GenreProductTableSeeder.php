@@ -13,22 +13,25 @@ class GenreProductTableSeeder extends Seeder
      */
     public function run() {
 
-        $products = Product::all()->pluck('id')->toArray();
+        $products = Product::all();
+
 
         foreach ($products as $product) {
 
             $genres = Genre::all()->pluck('id')->toArray();
 
-            $times = range(1, rand(1,3));
-
-            foreach ($times as $time) {
+//            $times = range(1, rand(1,3));
+//
+//            foreach ($times as $time) {
 
                 $genre = array_rand($genres);
 
-                $product->genres()->attach($genre);
+                $product->genres()->attach($genre + 1);
 
-                unset($genre, $genres);
-            }
+//                unset($genre, $genres);
+//            }
+
+//            $genres = Genre::all()->pluck('id')->toArray();
         }
     }
 }
