@@ -17,4 +17,15 @@
 
 </form>
 
+@if($errors->any())
+    <h4>{{$errors->first()}}</h4>
+@endif
+
+    @foreach($products as $product)
+
+        <p>{{$product->title}}</p>
+        <img width="400" height="300" src="{{$product->image}}">
+
+    @endforeach
+
 @endsection

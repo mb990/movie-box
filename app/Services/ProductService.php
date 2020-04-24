@@ -47,7 +47,15 @@ class ProductService
 
         $query = $request->input('search');
 
-        $results = $this->apiService->search($query);
+        if (isset($query)) {
+
+            $results = $this->apiService->search($query);
+        }
+
+        else {
+
+            $results = null;
+        }
 
         return $results;
     }
@@ -56,18 +64,21 @@ class ProductService
 
         $movies = [];
 
-        foreach ($this->getSearchResults($request)->titles as $movie) {
+        if ($this->getSearchResults($request) !== null) {
 
-            $result = $this->apiService->find($movie->id);
+            foreach ($this->getSearchResults($request)->titles as $movie) {
 
-            if ($result->title != '') {
+                $result = $this->apiService->find($movie->id);
 
-                if (!$this->findByImdb($result->id)) {
+                if ($result->title != '') {
 
-                    $this->store($result);
+                    if (!$this->findByImdb($result->id)) {
+
+                        $this->store($result);
+                    }
+
+                    $movies[] = $this->findByImdb($result->id);
                 }
-
-                $movies[] = $this->findByImdb($result->id);
             }
         }
 
