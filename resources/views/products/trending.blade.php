@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" >
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
     </head>
     <body>
         <header class="header">
@@ -17,7 +18,7 @@
             </div>
             <div class="header-mid">
                 <div class="movieName">MOVIE NAME</div>
-                <div class="movie-info">    
+                <div class="movie-info">
                     <div class="movieGenre">Genre</div>
                     <div class="movieDuration">Duration</div>
                 </div>
@@ -44,29 +45,22 @@
                 </div>
             </div>
             <div class="allMovies">
-                <div class="box">
-                    <div class="boxPicture"></div>
-                    <div class="boxInfo">
-                        <label for="boxPictures">MOVIE NAME</label>
-                        <span>Genre</span>
-                        <span>4.0</span>
+
+                @foreach($products as $product)
+
+                    <div class="box">
+                        <div class="boxPicture"></div>
+                        <div class="boxInfo">
+                            <label for="boxPictures">{{$product->title}}</label>
+{{--                            <span>Genre</span>--}}
+                            <span>{{$product->rating}}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-            
+
+                @endforeach
+
+                {{$products->links()}}
+
             </div>
         </main>
         <footer>
