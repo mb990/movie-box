@@ -18,10 +18,10 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->integer('year');
-            $table->integer('duration');
-            $table->float('rating');
-            $table->string('image');
-            $table->bigInteger('type_id')->unsigned();
+            $table->integer('duration')->nullable();
+            $table->float('rating')->nullable();
+            $table->string('image')->nullable();
+//            $table->bigInteger('type_id')->unsigned();
             $table->timestamps();
         });
     }

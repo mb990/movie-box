@@ -28,6 +28,7 @@ class GenreProductTableSeeder extends Seeder
 
                 $product->genres()->attach($genre + 1);
 
+
 //                unset($genre, $genres);
 //            }
 

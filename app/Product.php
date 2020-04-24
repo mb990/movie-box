@@ -9,21 +9,21 @@ class Product extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['name', 'year', 'duration', 'rating', 'image', 'type_id'];
+    protected $fillable = ['title', 'year', 'duration', 'rating', 'image', 'imdb_id'];
 
     public function sluggable()
     {
         return [
             'slug' => [
-                'source' => ['name']
+                'source' => ['title']
             ]
         ];
     }
 
-    public function type() {
-
-        return $this->belongsTo(Type::class);
-    }
+//    public function type() {
+//
+//        return $this->belongsTo(Type::class);
+//    }
 
     public function users() {
 

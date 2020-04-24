@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 
-
-
 class TestController extends Controller
 {
 
@@ -18,26 +16,15 @@ class TestController extends Controller
     public function test()
     {
 
-        $response = "Ne radi smece!";
-     
-        // $response = Http::withHeaders([
-        //     'x-rapidapi-host' => 'imdb-internet-movie-database-unofficial.p.rapidapi.com',
-	    //     'x-rapidapi-key' => 'a1de5906e7mshe0cf46dd3e674cap1ba97ajsncdbf9fe795c4'
-        // ])
-        // ->setRequestUrl('https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/tt1375666')
-        // ->get();
-        
-        // $response = Http::withHeaders([
-        //     'x-rapidapi-host' => 'imdb-internet-movie-database-unofficial.p.rapidapi.com',
-	    //     'x-rapidapi-key' => 'a1de5906e7mshe0cf46dd3e674cap1ba97ajsncdbf9fe795c4'
-        // ])
-        // ->setRequestUrl('https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/tt1375666')
-        // ->post('http://localhost/test', [
-        //     'id' => 'tt1375666',
-        // ]);
+        $key = '3b3ea29688mshcc2d2156ae078bap18b3f5jsne59d77ae030e';
+        $request = Http::withHeaders(
+            ['x-rapidapi-key' => $key])
+//            ->get('https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/tt1375666');
+                ->get('https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/hulk');
+        $response = json_decode($request);
 
         return view("test")->with("response", $response);
 
     }
-    
+
 }
