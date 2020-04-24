@@ -23,6 +23,13 @@ class ProductController extends Controller
             ->with('products', $products);
     }
 
+    public function showSingle($slug) {
+
+        $product = $this->productService->findBySlug($slug);
+
+        return view('products.single')->with('product', $product);
+    }
+
     public function search(Request $request) {
 
         $movies = $this->productService->processSearch($request);

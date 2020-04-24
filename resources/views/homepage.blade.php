@@ -13,6 +13,8 @@
 
     <input type="search" name="search" placeholder="search">
 
+    <input type="submit" class="bnt btn-success">
+
 </form>
 
 @endsection

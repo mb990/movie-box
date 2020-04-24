@@ -24,6 +24,11 @@ class ProductRepository
         return $this->product->paginate($perPage);
     }
 
+    public function findBySlug($slug) {
+
+        return $this->product->where('slug', '=', $slug)->first();
+    }
+
     public function findByImdb($id) {
 
         return $this->product->where('imdb_id', '=', $id)->first();

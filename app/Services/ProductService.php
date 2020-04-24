@@ -28,6 +28,11 @@ class ProductService
         return $this->product->allPaginated($perPage);
     }
 
+    public function findBySlug($slug) {
+
+        return $this->product->findBySlug($slug);
+    }
+
     public function findByImdb($id) {
 
         return $this->product->findByImdb($id);

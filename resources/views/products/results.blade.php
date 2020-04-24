@@ -6,7 +6,7 @@
 
         @foreach($movies as $movie)
 
-            <p>{{$movie->title}}</p>
+            <a href="{{route('product.single', $movie->slug)}}"><p>{{$movie->title}}</p></a>
             <img width="320" height="180" src="{{$movie->image}}" alt="">
 
         @endforeach

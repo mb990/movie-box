@@ -18,6 +18,8 @@ Auth::routes();
 
 Route::get('/', 'ProductController@index')->name('homepage');
 Route::get('/search', 'ProductController@search')->name('search');
+Route::get('/movies/{slug}', 'ProductController@showSingle')->name('product.single');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get("/test", "TestController@test")->name("test");
