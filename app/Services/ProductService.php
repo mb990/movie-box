@@ -51,7 +51,7 @@ class ProductService
         $results = json_decode($request);
 
         $movies = [];
-
+//dd($results);
         foreach ($results->titles as $movie) {
 
             $url = $host . '/film/' . $movie->id;
@@ -61,12 +61,16 @@ class ProductService
 
             $result = json_decode($request);
 
-            if (!$this->findByImdb($result->id)) {
+            if ($result->title != '') {
 
-                $this->store($result);
+                if (!$this->findByImdb($result->id)) {
+
+                    $this->store($result);
+                }
+
+                $movies[] = $this->findByImdb($result->id);
+
             }
-
-            $movies[] = $this->findByImdb($result->id);
         }
 
         return $movies;

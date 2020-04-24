@@ -2,11 +2,15 @@
 
 @section('content')
 
-@foreach($movies as $movie)
+    @if(!empty($movies))
 
-    <p>{{$movie->title}}</p>
-    <img width="320" height="180" src="{{$movie->image}}" alt="">
+        @foreach($movies as $movie)
 
-@endforeach
+            <p>{{$movie->title}}</p>
+            <img width="320" height="180" src="{{$movie->image}}" alt="">
+
+        @endforeach
+
+    @endif
 
 @endsection
