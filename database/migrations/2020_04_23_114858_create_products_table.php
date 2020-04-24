@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->integer('year');
+            $table->string('year')->nullable();
             $table->integer('duration')->nullable();
-            $table->float('rating')->nullable();
+            $table->string('rating')->nullable();
             $table->string('image')->nullable();
 //            $table->bigInteger('type_id')->unsigned();
             $table->timestamps();
