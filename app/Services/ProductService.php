@@ -4,15 +4,18 @@
 namespace App\Services;
 
 use App\Repositories\ProductRepository;
+use App\Services\ApiService;
 use Illuminate\Support\Facades\Http;
 
 class ProductService
 {
     protected $product;
+    protected $apiService;
 
-    public function __construct(ProductRepository $product)
+    public function __construct(ProductRepository $product, ApiService $apiService)
     {
         $this->product = $product;
+        $this->apiService = $apiService;
     }
 
     public function all() {
@@ -35,31 +38,22 @@ class ProductService
         return $this->product->store($data);
     }
 
-    public function processSearch($request) {
+    public function getSearchResults($request) {
 
         $query = $request->input('search');
 
-        $host = config('services.rapid_api.host');
+        $results = $this->apiService->search($query);
 
-        $key = config('services.rapid_api.key');
+        return $results;
+    }
 
-        $url = $host . '/search/' . $query;
-
-        $request = Http::withHeaders(['x-rapidapi-key' => $key])
-            ->get($url);
-
-        $results = json_decode($request);
+    public function processSearch($request) {
 
         $movies = [];
-//dd($results);
-        foreach ($results->titles as $movie) {
 
-            $url = $host . '/film/' . $movie->id;
+        foreach ($this->getSearchResults($request)->titles as $movie) {
 
-            $request = Http::withHeaders(['x-rapidapi-key' => $key])
-                ->get($url);
-
-            $result = json_decode($request);
+            $result = $this->apiService->find($movie->id);
 
             if ($result->title != '') {
 
@@ -69,7 +63,6 @@ class ProductService
                 }
 
                 $movies[] = $this->findByImdb($result->id);
-
             }
         }
 
