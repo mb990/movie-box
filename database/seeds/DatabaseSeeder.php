@@ -15,8 +15,9 @@ class DatabaseSeeder extends Seeder
 //            TypesTableSeeder::class,
 //            GenresTableSeeder::class,
             UsersTableSeeder::class,
-//            ProductsTableSeeder::class,
+            ProductsTableSeeder::class,
 //            GenreProductTableSeeder::class,
+            WishlistTableSeeder::class,
         ]);
     }
 }

@@ -9,7 +9,7 @@ class Product extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['title', 'year', 'duration', 'rating', 'image', 'imdb_id'];
+    protected $fillable = ['title', 'year', 'duration', 'rating', 'image', 'imdb_id', 'plot', 'rating_votes', 'slug'];
 
     public function sluggable()
     {
@@ -33,5 +33,12 @@ class Product extends Model
     public function genres() {
 
         return $this->belongsToMany(Genre::class, 'genre_product')->withTimestamps();
+    }
+
+    public function actors() {
+
+        return $this->belongsToMany(Actor::class, 'actor_product')
+            ->withPivot('character')
+            ->withTimestamps();
     }
 }

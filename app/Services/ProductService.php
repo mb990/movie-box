@@ -5,17 +5,20 @@ namespace App\Services;
 
 use App\Repositories\ProductRepository;
 use App\Services\ApiService;
+use App\Services\ActorService;
 use Illuminate\Support\Facades\Http;
 
 class ProductService
 {
     protected $product;
     protected $apiService;
+    protected $actorService;
 
-    public function __construct(ProductRepository $product, ApiService $apiService)
+    public function __construct(ProductRepository $product, ApiService $apiService, ActorService $actorService)
     {
         $this->product = $product;
         $this->apiService = $apiService;
+        $this->actorService = $actorService;
     }
 
     public function all() {
@@ -43,9 +46,7 @@ class ProductService
         return $this->product->store($data);
     }
 
-    public function getSearchResults($request) {
-
-        $query = $request->input('search');
+    public function getSearchResults($query) {
 
         if (isset($query)) {
 
@@ -60,21 +61,23 @@ class ProductService
         return $results;
     }
 
-    public function processSearch($request) {
+    public function processSearch($query) {
 
         $movies = [];
 
-        if ($this->getSearchResults($request) !== null) {
+        if ($this->getSearchResults($query) !== null) {
 
-            foreach ($this->getSearchResults($request)->titles as $movie) {
+            foreach ($this->getSearchResults($query)->titles as $movie) {
 
                 $result = $this->apiService->find($movie->id);
 
                 if ($result->title != '') {
 
-                    if (!$this->findByImdb($result->id)) {
+                    if (!$this->findByImdb($result->id)) { // check if movie is already in db
 
-                        $this->store($result);
+                        $movie = $this->store($result);
+
+                        $this->actorService->processActors($result, $movie);
                     }
 
                     $movies[] = $this->findByImdb($result->id);

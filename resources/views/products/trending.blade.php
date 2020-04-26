@@ -28,6 +28,9 @@
             </div>
         </header>
         <main>
+            @if($errors->any())
+                <h4>{{$errors->first()}}</h4>
+            @endif
             <div class="movieNav">
                 <span class="nav-tab active-nav">Trending</span>
                 <span class="nav-tab">Top Rated</span>
@@ -49,7 +52,9 @@
                 @foreach($products as $product)
 
                     <div class="box">
-                        <div class="boxPicture"></div>
+                        <div class="boxPicture">
+{{--                            <img src="{{$product->image}}" alt="">--}}
+                        </div>
                         <div class="boxInfo">
                             <label for="boxPictures">{{$product->title}}</label>
 {{--                            <span>Genre</span>--}}
@@ -59,9 +64,9 @@
 
                 @endforeach
 
-                {{$products->links()}}
-
             </div>
+
+            {{$products->links()}} dodaj centriranje
         </main>
         <footer>
             <div class="footer-left">

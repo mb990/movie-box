@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Services\ProductService;
+use Doctrine\DBAL\Driver\IBMDB2\DB2Driver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
+use DebugBar\StandardDebugBar;
+use DebugBar\DataCollector\TimeDataCollector;
 
 class ProductController extends Controller
 {
@@ -33,15 +36,32 @@ class ProductController extends Controller
 
     public function search(Request $request) {
 
-        $movies = $this->productService->processSearch($request);
+        $debugbar = new StandardDebugBar();
+
+        $debugbar['time']->startMeasure('longop', 'My long operation');
+//        sleep(2);
+        $debugbar['time']->stopMeasure('longop');
+
+        $debugbar['time']->measure('My long operation', function() {
+//            sleep(2);
+        });
+
+        $query = $request->input('search');
+
+        $movies = $this->productService->processSearch($query);
 
         if (!empty($movies)) {
 
             return view('products.results')
                 ->with('movies', $movies);
         }
+        else if (empty($query)) {
 
-        return Redirect::back()
-            ->withErrors(['Type something into search', 'The Message']);
+            return Redirect::to('/')
+                ->withErrors(['Type something into search', 'The Message']);
+        }
+
+        return Redirect::to('/')
+            ->withErrors(['No results', 'The Message']);
     }
 }

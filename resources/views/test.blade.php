@@ -5,7 +5,6 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            @dd($response)
 {{--           @foreach($response->titles as $movie)--}}
 {{--           <p>{{$movie->title}}</p>--}}
 {{--           <img src="{{$movie->image}}">--}}

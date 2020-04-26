@@ -2,29 +2,30 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Support\Facades\Http;
+use App\Services\ActorService;
+use App\Services\ProductService;
+use App\Services\ApiService;
 
 class TestController extends Controller
 {
 
-    public function __construct()
-    {
+    protected $actorService;
+    protected $productService;
+    protected $apiService;
 
+    public function __construct(ActorService $actorService, ProductService $productService, ApiService $apiService)
+    {
+        $this->actorService = $actorService;
+        $this->productService = $productService;
+        $this->apiService = $apiService;
     }
 
     public function test()
     {
+        $this->productService->processSearch('bear');
 
-        $key = '3b3ea29688mshcc2d2156ae078bap18b3f5jsne59d77ae030e';
-        $request = Http::withHeaders(
-            ['x-rapidapi-key' => $key])
-//            ->get('https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/tt1375666');
-                ->get('https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/hulk');
-        $response = json_decode($request);
-
-        return view("test")->with("response", $response);
-
+        return view("test");
     }
 
 }
