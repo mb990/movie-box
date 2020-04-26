@@ -20,8 +20,8 @@ class ProductsTableSeeder extends Seeder
     {
 //        factory(App\Product::class, 100)->create();
 
-        $queries = ['terminator', 'hulk', 'matrix', 'rain man', 'rambo',
-                    'rocky', 'avatar', 'saw', 'numb', 'revenant'];
+        $queries = ['terminator', 'hulk', 'matrix', 'rambo',
+                    'rocky', 'avatar', 'saw'];
 
         foreach ($queries as $query) {
 
