@@ -76,4 +76,19 @@ class ProductRepository
 
         return $product->actors()->limit(2)->get();
     }
+
+    public function addToWishlist($product, $user) {
+
+        $product->users()->attach($user->id);
+    }
+
+    public function removeFromWishlist($product, $user) {
+
+        $product->users()->detach($user->id);
+    }
+
+    public function recommendedMovie() {
+
+
+    }
 }

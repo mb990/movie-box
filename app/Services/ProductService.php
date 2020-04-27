@@ -50,7 +50,7 @@ class ProductService
 
         $data = [];
 
-        $data['products'] = $this->$dataType(10);
+        $data['products'] = $this->$dataType(12);
 
         $data['actors'] = [];
 
@@ -149,5 +149,19 @@ class ProductService
     public function mainActors($product) {
 
         return $this->product->mainActors($product);
+    }
+
+    public function addToWishlist($product) {
+
+        $user = auth()->user();
+
+        return $this->product->addToWishlist($product, $user);
+    }
+
+    public function removeFromWishlist($product) {
+
+        $user = auth()->user();
+
+        return $this->product->removeFromWishlist($product, $user);
     }
 }

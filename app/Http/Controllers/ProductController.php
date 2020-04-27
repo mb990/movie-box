@@ -21,7 +21,7 @@ class ProductController extends Controller
 
     public function index() {
 
-        $data = $this->productService->getData('new');
+        $data = $this->productService->getData('topRated');
 
         return view('pavle/master')
             ->with('data', $data);
@@ -53,5 +53,14 @@ class ProductController extends Controller
 
         return Redirect::to('/')
             ->withErrors(['No results', 'The Message']);
+    }
+
+    public function addMovie($slug){
+
+        $product = $this->productService->findBySlug($slug);
+
+        $this->productService->addToWishlist($product);
+
+        return Redirect::back();
     }
 }

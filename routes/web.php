@@ -19,6 +19,8 @@ Auth::routes();
 Route::get('/', 'ProductController@index')->name('homepage');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/movies/{slug}', 'ProductController@showSingle')->name('product.single');
+Route::get('/movies/{slug}/add', 'ProductController@addMovie')->name('product.add');
+Route::get('/movies/{slug}/remove', 'ProductController@removeMovie')->name('product.remove');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
