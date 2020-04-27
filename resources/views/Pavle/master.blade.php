@@ -17,7 +17,7 @@
             </div>
             <div class="header-mid">
                 <div class="movieName">MOVIE NAME</div>
-                <div class="movie-info">    
+                <div class="movie-info">
                     <div class="movieGenre">Genre</div>
                     <div class="movieDuration">Duration</div>
                 </div>
@@ -58,7 +58,7 @@
                         <img  src="{{ $product->image }}" class="boxPicture"></img>
                         <div class="boxInfo">
                             <div class="box-name">
-                                <label for="boxPictures">{{$product->title}}</label>
+                                <label for="boxPictures">{{substr($product->title, 0, 20)}}...</label>
                                 <span class="actors">Glumci</span>
                             </div>
                             <button class="wishlist-box-btn box-rating">&#x2764;</button>
