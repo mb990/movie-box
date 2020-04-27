@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>@yield('title')</title>
+        <title>Trending</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,12 +14,11 @@
                 <div class="webName">THE MOVIE BOX</div>
                 <div class="logIn"><button class="btn-login">LOG IN</button></div>
                 <div class="signUp"><button class="active-color">SIGN UP</button></div>
-
             </div>
             <div class="header-mid">
                 <div class="movieName">{{$recommended->title}}</div>
                 <div class="movie-info">
-                    <div class="movieGenre">Genre</div>
+                    <div class="movieGenre">Actors: </div>
                     <div class="movieDuration">Duration: {{$recommended->duration}}</div>
                 </div>
                 <div class="header-bot">
@@ -53,7 +52,9 @@
             <div class="allMovies">
                 @foreach($data['products'] as $product)
                     <div class="box">
-                        <img  src="{{ $product->image }}" class="boxPicture">
+                        <a href="/">
+                            <img  src="{{ $product->image }}" class="boxPicture">
+                        </a>
                         <div class="boxInfo">
                             <div class="box-name">
                                 <label for="boxPictures">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)...@endif</label>
@@ -61,8 +62,8 @@
                                     {{$data['actors'][$product->slug]->implode('name', ', ')}}
                                 </span>
                             </div>
-                            <a href="/movies/{{$product->slug}}/add"><button class="wishlist-box-btn box-rating">&#x2764;</button></a>
-                            <div class="box-rating">{{$product->rating}}</div>
+                            <a href="/movies/{{$product->slug}}/add"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
+                            <div class="box-rating" title="Movie Rating">{{$product->rating}}</div>
                         </div>
                     </div>
                 @endforeach

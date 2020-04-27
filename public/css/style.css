@@ -39,6 +39,7 @@
   padding-top: 0px;
   font-size: 1.5rem;
   background: white;
+  border: none;
   
 }
 footer {
@@ -179,9 +180,6 @@ html, body {
 }
 
 .movieGenre, .movieDuration {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   padding: 5px 0;
   margin-right: 5px;
 }
@@ -297,6 +295,7 @@ button {
   color: #ff0079;
   border-color: #ff0079;
 }
+/*PAGE NUMBERS*/
 .pagination{
   margin-top: 20px;
   list-style: none;
@@ -323,4 +322,5 @@ button {
 .active{
   background-color: #ff0079;
 }
+/*END PAGE NUMBERS*/
 /*# sourceMappingURL=style.css.map */
