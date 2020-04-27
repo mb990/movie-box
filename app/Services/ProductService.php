@@ -164,4 +164,9 @@ class ProductService
 
         return $this->product->removeFromWishlist($product, $user);
     }
+
+    public function recommendedMovie() {
+
+        return $this->product->recommendedMovie();
+    }
 }

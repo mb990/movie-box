@@ -89,6 +89,8 @@ class ProductRepository
 
     public function recommendedMovie() {
 
-
+        return $this->product->withCount('users')
+            ->orderBy('users_count', 'desc')
+            ->first();
     }
 }

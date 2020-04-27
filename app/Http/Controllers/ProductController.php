@@ -23,7 +23,10 @@ class ProductController extends Controller
 
         $data = $this->productService->getData('topRated');
 
+        $recommended = $this->productService->recommendedMovie();
+
         return view('pavle/master')
+            ->with('recommended', $recommended)
             ->with('data', $data);
     }
 

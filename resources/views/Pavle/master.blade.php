@@ -17,10 +17,10 @@
 
             </div>
             <div class="header-mid">
-                <div class="movieName">MOVIE NAME</div>
+                <div class="movieName">{{$recommended->title}}</div>
                 <div class="movie-info">
                     <div class="movieGenre">Genre</div>
-                    <div class="movieDuration">Duration</div>
+                    <div class="movieDuration">Duration: {{$recommended->duration}}</div>
                 </div>
                 <div class="header-bot">
                     <button class="active-color">WATCH MOVIE</button>
@@ -29,7 +29,6 @@
                 </div>
             </div>
         </header>
-        <main>
             <div class="movieNav">
                 <a class="nav-tab active-nav">Trending</a>
                 <a href="" class="nav-tab">Top Rated</a>
