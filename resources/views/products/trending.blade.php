@@ -33,8 +33,12 @@
             <div class="movieNav">
                 <span class="nav-tab active-nav">Trending</span>
                 <span class="nav-tab">Top Rated</span>
-                <span class="nav-tab">New Arrivals</span>
-                <span class="nav-tab">Genre</span>
+                <span class="nav-tab">New Arrivals</span><!-- SEARCH BUTTON -->
+                <form action="{{route('search')}}" class="nav-tab-search">
+                    <input type="text" class="search-input" placeholder="Search movie.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <!-- END SEARCH BUTTON -->
                 <div class="nav-grid">
                     <button class="btn-nav active-nav">
                         <svg class="bi bi-grid active-nav grid-view" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -52,11 +56,9 @@
 
                     <div class="box">
                         <div class="boxPicture">
-{{--                            <img src="{{$product->image}}" alt="">--}}
                         </div>
                         <div class="boxInfo">
                             <label for="boxPictures">{{$product->title}}</label>
-{{--                            <span>Genre</span>--}}
                             <span>{{$product->rating}}</span>
                         </div>
                     </div>

@@ -24,6 +24,31 @@ class ProductRepository
         return $this->product->paginate($perPage);
     }
 
+    public function trending($perPage) {
+
+        return $this->product->withCount('users')
+            ->orderBy('users_count', 'desc')
+            ->paginate($perPage);
+    }
+
+    public function new($perPage) {
+
+        return $this->product->orderBy('year', 'desc')
+            ->paginate($perPage);
+    }
+
+    public function topRated($perPage) {
+
+        return $this->product->orderBy('rating', 'desc')
+            ->paginate($perPage);
+    }
+
+    public function search($query) {
+
+        return $this->product->where('title', 'like', '%' . $query . '%')
+            ->get();
+    }
+
     public function findBySlug($slug) {
 
         return $this->product->where('slug', '=', $slug)->first();

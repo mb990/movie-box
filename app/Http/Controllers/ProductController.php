@@ -21,7 +21,7 @@ class ProductController extends Controller
 
     public function index() {
 
-        $products = $this->productService->allPaginated(16);
+        $products = $this->productService->new(16);
 
         return view('products.trending')
             ->with('products', $products);
@@ -35,16 +35,6 @@ class ProductController extends Controller
     }
 
     public function search(Request $request) {
-
-        $debugbar = new StandardDebugBar();
-
-        $debugbar['time']->startMeasure('longop', 'My long operation');
-//        sleep(2);
-        $debugbar['time']->stopMeasure('longop');
-
-        $debugbar['time']->measure('My long operation', function() {
-//            sleep(2);
-        });
 
         $query = $request->input('search');
 

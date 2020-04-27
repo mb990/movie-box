@@ -31,6 +31,36 @@ class ProductService
         return $this->product->allPaginated($perPage);
     }
 
+    public function trending($perPage) {
+
+        return $this->product->trending($perPage);
+    }
+
+    public function new($perPage) {
+
+        return $this->product->new($perPage);
+    }
+
+    public function topRated($perPage) {
+
+        return $this->product->topRated($perPage);
+    }
+
+    public function search($query) {
+
+        return $this->product->search($query);
+    }
+
+    public function checkSearchCount($data) {
+
+        if (count($data) > 4) {
+
+            return true;
+        }
+
+        return false;
+    }
+
     public function findBySlug($slug) {
 
         return $this->product->findBySlug($slug);
@@ -64,6 +94,18 @@ class ProductService
     public function processSearch($query) {
 
         $movies = [];
+
+        $dbSearch = $this->search($query);
+
+        if ($this->checkSearchCount($dbSearch)) {
+
+            foreach ($dbSearch as $movie) {
+
+                $movies[] = $movie;
+            }
+
+            return $movies;
+        }
 
         if ($this->getSearchResults($query) !== null) {
 
