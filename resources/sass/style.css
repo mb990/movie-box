@@ -1,0 +1,248 @@
+.box {
+  background-color: red;
+  width: 20vw;
+  height: 55vh;
+  margin: 20px;
+}
+
+.boxPicture {
+  height: 45vh;
+  background-color: chartreuse;
+}
+
+.boxInfo {
+  background-color: cornflowerblue;
+}
+
+footer {
+  height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 20px;
+  color: #80818a;
+}
+
+.footer-left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 10vh;
+}
+
+.footer-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: right;
+  padding-right: 10vh;
+}
+
+.footer-right a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-nav-links {
+  margin: 10px;
+  color: #80818a;
+}
+
+.footer-webName {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+}
+
+.fa {
+  padding: 5px;
+  font-size: 15px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: #ebebed;
+  color: white;
+}
+
+.social {
+  padding-top: 20px;
+}
+
+.designed {
+  font-size: 0.8rem;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.header {
+  height: 70vh;
+  background-image: url(https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg);
+  background-repeat: no-repeat;
+  background-size: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+}
+
+.header-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header-mid {
+  padding-left: 10vh;
+}
+
+.header-bot {
+  padding-bottom: 20px;
+}
+
+.header-bot > button {
+  margin-right: 5px;
+}
+
+.webName {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+  padding-top: 5px;
+  padding-left: 10vh;
+  font-size: 1.5rem;
+}
+
+.logIn {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  padding: 5px;
+  text-align: right;
+}
+
+.signUp {
+  padding: 5px;
+  padding-right: 10vh;
+}
+
+.header {
+  text-align: left;
+}
+
+.movieName {
+  font-size: 2rem;
+}
+
+.movieGenre, .movieDuration {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 5px 0;
+  margin-right: 5px;
+}
+
+.movie-info {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.active {
+  background-color: #ff0079;
+}
+
+button {
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-wishlist {
+  background: none;
+}
+
+.btn-info {
+  background: none;
+  border: 1px solid white;
+}
+
+.btn-login {
+  background: none;
+}
+
+.allMovies {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  background-color: #f8f8f8;
+}
+
+.movieNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  padding-left: 10vh;
+}
+
+.nav-tab {
+  margin: 20px 0px 20px 0px;
+  font-size: 1.2rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  color: #80818a;
+  border-bottom: 2px solid #80818a;
+  padding-bottom: 10px;
+}
+
+.btn-nav {
+  background-color: white;
+  color: #80818a;
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.nav-grid {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+  text-align: right;
+  padding-right: 10vh;
+  border-bottom: 2px solid #80818a;
+  margin-bottom: 20px;
+}
+
+.active-nav {
+  color: #ff0079;
+  border-color: #ff0079;
+}
+/*# sourceMappingURL=style.css.map */
