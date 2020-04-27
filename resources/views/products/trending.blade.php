@@ -13,7 +13,7 @@
             <div class="header-top">
                 <div class="webName">THE MOVIE BOX</div>
                 <div class="logIn"><button class="btn-login">LOG IN</button></div>
-                <div class="signUp"><button class="active">SIGN UP</button></div>
+                <div class="signUp"><button class="active-color">SIGN UP</button></div>
             </div>
             <div class="header-mid">
                 <div class="movieName">MOVIE NAME</div>
@@ -22,7 +22,7 @@
                     <div class="movieDuration">Duration</div>
                 </div>
                 <div class="header-bot">
-                    <button class="active">WATCH MOVIE</button><button class="btn-info">VIEW INFO</button><button class="btn-wishlist">+ ADD TO WISHLIST</button>
+                    <button class="active-color">WATCH MOVIE</button><button class="btn-info">VIEW INFO</button><button class="btn-wishlist">+ ADD TO WISHLIST</button>
                 </div>
             </div>
         </header>

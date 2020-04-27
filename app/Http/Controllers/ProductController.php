@@ -21,9 +21,9 @@ class ProductController extends Controller
 
     public function index() {
 
-        $products = $this->productService->new(16);
+        $products = $this->productService->allPaginated(4);
 
-        return view('products.trending')
+        return view('pavle/master')
             ->with('products', $products);
     }
 

@@ -1,19 +1,45 @@
 .box {
-  background-color: red;
   width: 20vw;
-  height: 55vh;
+  height: 50vh;
   margin: 20px;
+  box-shadow:20px 20px 20px 20px #ebebed; 
 }
 
 .boxPicture {
   height: 45vh;
-  background-color: chartreuse;
+  width: 20vw;
 }
 
 .boxInfo {
-  background-color: cornflowerblue;
+  height: 5vh;
+  background-color: white;
+  padding: 10px;
+  display: flex;
 }
-
+.box-name{
+  flex: 6;
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.actors{
+  font-size: 0.8rem;
+}
+.box-rating{
+  flex: 1;
+  padding-top: 5px;
+  color: #ff0079;
+  border: 1px solid #ff0079;
+  border-radius: 2px;
+  text-align: center;
+  margin: 0 auto;
+}
+.wishlist-box-btn{
+  margin-right: 5px;
+  padding-top: 0px;
+  font-size: 1.5rem;
+  background: white;
+}
 footer {
   height: 30vh;
   display: -webkit-box;
@@ -165,7 +191,7 @@ html, body {
   display: inline-flex;
 }
 
-.active {
+.active-color{
   background-color: #ff0079;
 }
 

@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Movie-box</title>
+        <title>@yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <header class="header">
             <div class="header-top">
                 <div class="webName">THE MOVIE BOX</div>
                 <div class="logIn"><button class="btn-login">LOG IN</button></div>
-                <div class="signUp"><button class="active">SIGN UP</button></div>
+                <div class="signUp"><button class="active-color">SIGN UP</button></div>
             </div>
             <div class="header-mid">
                 <div class="movieName">MOVIE NAME</div>
@@ -23,7 +22,9 @@
                     <div class="movieDuration">Duration</div>
                 </div>
                 <div class="header-bot">
-                    <button class="active">WATCH MOVIE</button><button class="btn-info">VIEW INFO</button><button class="btn-wishlist">+ ADD TO WISHLIST</button>
+                    <button class="active-color">WATCH MOVIE</button>
+                    <button class="btn-info">VIEW INFO</button>
+                    <button class="btn-wishlist">+ ADD TO WISHLIST</button>
                 </div>
             </div>
         </header>
@@ -50,28 +51,36 @@
                 </div>
             </div>
             <div class="allMovies">
-                <div class="box">
-                    <div class="boxPicture"></div>
-                    <div class="boxInfo">
-                        <label for="boxPictures">MOVIE NAME</label>
-                        <span>Genre</span>
-                        <span>4.0</span>
+                @yield('trending')
+                @foreach($products as $product)
+
+                    <div class="box">
+                        <img  src="{{ $product->image }}" class="boxPicture"></img>
+                        <div class="boxInfo">
+                            <div class="box-name">
+                                <label for="boxPictures">{{$product->title}}</label>
+                                <span class="actors">Glumci</span>
+                            </div>
+                            <button class="wishlist-box-btn box-rating">&#x2764;</button>
+                            <div class="box-rating">{{$product->rating}}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
-                <div class="box"></div>            
+                @endforeach
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                            </div>
+                            <div class="flip-card-back">
+                            </div>
+                        </div>
+                        </div>
+
+
+
+
+
+
             </div>
         </main>
         <footer>
