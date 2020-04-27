@@ -52,14 +52,18 @@
             </div>
             <div class="allMovies">
                 @yield('trending')
-                @foreach($products as $product)
+                @foreach($data['products'] as $product)
 
                     <div class="box">
                         <img  src="{{ $product->image }}" class="boxPicture"></img>
                         <div class="boxInfo">
                             <div class="box-name">
-                                <label for="boxPictures">{{substr($product->title, 0, 20)}}...</label>
-                                <span class="actors">Glumci</span>
+                                <label for="boxPictures">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)...@endif</label>
+                                <span class="actors">
+                                    @foreach($data['actors'][$product->slug] as $actor)
+                                        {{$actor->name}}
+                                    @endforeach
+                                </span>
                             </div>
                             <button class="wishlist-box-btn box-rating">&#x2764;</button>
                             <div class="box-rating">{{$product->rating}}</div>
@@ -75,13 +79,8 @@
                             </div>
                         </div>
                         </div>
-
-
-
-
-
-
             </div>
+            {{$data['products']->links()}}}
         </main>
         <footer>
             <div class="footer-left">

@@ -46,6 +46,22 @@ class ProductService
         return $this->product->topRated($perPage);
     }
 
+    public function getData($dataType) {
+
+        $data = [];
+
+        $data['products'] = $this->$dataType(10);
+
+        $data['actors'] = [];
+
+        foreach ($data['products'] as $product) {
+
+           $data['actors'][$product->slug] = $this->mainActors($product);
+        }
+
+        return $data;
+    }
+
     public function search($query) {
 
         return $this->product->search($query);
@@ -128,5 +144,10 @@ class ProductService
         }
 
         return $movies;
+    }
+
+    public function mainActors($product) {
+
+        return $this->product->mainActors($product);
     }
 }

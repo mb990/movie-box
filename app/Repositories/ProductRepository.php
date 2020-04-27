@@ -71,4 +71,9 @@ class ProductRepository
            'imdb_id' => $data->id,
         ]);
     }
+
+    public function mainActors($product) {
+
+        return $product->actors()->limit(2)->get();
+    }
 }

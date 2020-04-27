@@ -21,10 +21,10 @@ class ProductController extends Controller
 
     public function index() {
 
-        $products = $this->productService->allPaginated(4);
+        $data = $this->productService->getData('new');
 
         return view('pavle/master')
-            ->with('products', $products);
+            ->with('data', $data);
     }
 
     public function showSingle($slug) {
