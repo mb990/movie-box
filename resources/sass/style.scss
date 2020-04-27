@@ -95,6 +95,26 @@ button{
     color: #80818a;
     border-bottom: 2px solid #80818a;
     padding-bottom: 10px;
+    text-decoration: none;
+}
+.nav-tab-search{
+    margin: 10px 0px 20px 0px;
+    font-size: 1rem;
+    flex: 2;
+    text-align: center;
+    color: #80818a;
+    border-bottom: 2px solid #80818a;
+    .fa-search{
+        font-size: 1rem;
+        padding: 0px;
+        color: #80818a;
+        background-color: white;
+    }
+}
+.search-input{
+    border: 2px solid #80818a;
+    padding: 4px;
+    border-radius: 4px;
 }
 .btn-nav{
     background-color: white;

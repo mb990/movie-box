@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" >
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
     </head>
     <body>
         <header class="header">
@@ -72,7 +72,6 @@
                 <div class="box"></div>            
                 <div class="box"></div>            
                 <div class="box"></div>            
-            
             </div>
         </main>
         <footer>

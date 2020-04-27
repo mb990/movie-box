@@ -24,3 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get("/test", "TestController@test")->name("test");
 Route::post("/test", "TestController@test")->name("test");
+
+// front-end testing purposes
+Route::get("/pavle/{route}", function () {
+
+    return view('pavle.' . request()->route);
+});
