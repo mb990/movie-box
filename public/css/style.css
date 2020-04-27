@@ -23,7 +23,7 @@
   flex-direction: column;
 }
 .actors{
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 .box-rating{
   flex: 1;
@@ -39,6 +39,7 @@
   padding-top: 0px;
   font-size: 1.5rem;
   background: white;
+  
 }
 footer {
   height: 30vh;
@@ -295,5 +296,31 @@ button {
 .active-nav {
   color: #ff0079;
   border-color: #ff0079;
+}
+.pagination{
+  margin-top: 20px;
+  list-style: none;
+  display: inline-flex;
+  margin: 0 auto;
+}
+.center{
+  margin-top: 30px;
+  text-align: center;
+}
+.page-item{
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.page-link{
+  text-decoration: none;
+  padding: 8px;
+}
+.page-item:hover{
+  background-color: #ff0079;
+}
+.active{
+  background-color: #ff0079;
 }
 /*# sourceMappingURL=style.css.map */

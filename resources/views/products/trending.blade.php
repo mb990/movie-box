@@ -33,7 +33,8 @@
             <div class="movieNav">
                 <span class="nav-tab active-nav">Trending</span>
                 <span class="nav-tab">Top Rated</span>
-                <span class="nav-tab">New Arrivals</span><!-- SEARCH BUTTON -->
+                <span class="nav-tab">New Arrivals</span>
+                <!-- SEARCH BUTTON -->
                 <form action="{{route('search')}}" class="nav-tab-search">
                     <input type="text" class="search-input" placeholder="Search movie.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
