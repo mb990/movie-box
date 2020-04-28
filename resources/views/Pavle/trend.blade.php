@@ -23,14 +23,14 @@
 
         @guest()
 
-            <div class="logIn"><a href="/login"><button class="btn-login">LOG IN</button></div></a>
-            <div class="signUp"><a href="/register"><button class="active-color">SIGN UP</button></div></a>
+            <div class="logIn"><a href="{{route('login')}}"><button class="btn-login">LOG IN</button></div></a>
+            <div class="signUp"><a href="{{route('register')}}"><button class="active-color">SIGN UP</button></div></a>
 
         @endguest
 
         @auth()
 
-            <div class="logIn"><a href="/logout"><button class="btn-login">LOGOUT</button></div></a>
+            <div class="logIn"><a href="{{route('logout')}}"><button class="btn-login">LOGOUT</button></div></a>
 
         @endauth
     </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="header-bot">
             <button class="active-color">WATCH MOVIE</button>
-            <a href="/movies/{{$recommended['data']->slug}}"><button class="btn-info">VIEW INFO</button></a>
+            <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
             <button class="btn-wishlist">+ ADD TO WISHLIST</button>
             <div class="header-rating">Rating: {{$recommended['data']->rating}}</div>
         </div>
@@ -51,9 +51,9 @@
 @endsection
 @section('main')
 <div class="movieNav">
-                <a href="/" class="nav-tab {{ Request::is('/') ? 'active-nav' : ''}}">Trending</a>
-                <a href="/top" class="nav-tab {{ Request::is('top') ? 'active-nav' : ''}}">Top Rated</a>
-                <a href="/new" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
+                <a href="{{route('homepage.trending')}}" class="nav-tab {{ Request::is('/') ? 'active-nav' : ''}}">Trending</a>
+                <a href="{{route('homepage.top')}}" class="nav-tab {{ Request::is('top') ? 'active-nav' : ''}}">Top Rated</a>
+                <a href="{{route('homepage.new')}}" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
                 <!-- SEARCH BUTTON -->
                 <form action="{{route('search')}}" class="nav-tab-search">
                     @csrf
@@ -78,7 +78,7 @@
 
                     @foreach($data['products'] as $product)
                         <div class="box">
-                            <a href="/movies/{{$product->slug}}">
+                            <a href="{{route('product.single', $product->slug)}}">
                                 <img src="{{ $product->image }}" class="boxPicture">
                             </a>
                             <div class="boxInfo">
@@ -98,12 +98,12 @@
 
                                     @if(!auth()->user()->hasProduct($product))
 
-                                        <a href="/movies/{{$product->slug}}/add"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
+                                        <a href="{{route('product.add', $product->slug)}}"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
 
 
                                     @else
 
-                                        <a href="/movies/{{$product->slug}}/remove"><button class="wishlist-box-btn box-rating" title="Remove from wishlist">&#x2764;</button></a>
+                                        <a href="{{route('product.remove', $product->slug)}}"><button class="wishlist-box-btn box-rating" title="Remove from wishlist">&#x2764;</button></a>
 
                                     @endif
 
