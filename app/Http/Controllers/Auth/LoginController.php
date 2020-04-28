@@ -39,6 +39,6 @@ class LoginController extends Controller
     }
 
     public function showLoginForm() {
-        return view('pavle.login-sign');
+        return view('pavle.login');
     }
 }

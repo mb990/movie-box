@@ -72,6 +72,6 @@ class RegisterController extends Controller
     }
 
     public function showRegistrationForm() {
-        return view('pavle.login-sign');
+        return view('pavle.signup');
     }
 }
