@@ -69,6 +69,7 @@ class ProductRepository
            'plot' => $data->plot,
            'image' => $data->poster,
            'imdb_id' => $data->id,
+           'rating_votes' => $data->rating_votes,
            'trailer' => $data->trailer->link
         ]);
     }

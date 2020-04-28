@@ -129,7 +129,7 @@ class ProductService
 
                 $result = $this->apiService->find($movie->id);
 
-                if ($result->title != '') {
+                if ($this->validateFile($result)) {
 
                     if (!$this->findByImdb($result->id)) { // check if movie is already in db
 
@@ -144,6 +144,30 @@ class ProductService
         }
 
         return $movies;
+    }
+
+    public function validateFile($product) {
+
+        $data = [
+            $product->title,
+            $product->year,
+            $product->rating,
+            $product->length,
+            $product->rating_votes,
+            $product->poster,
+            $product->plot,
+            $product->trailer->link
+            ];
+
+        foreach ($data as $field) {
+
+            if (empty($field)) {
+
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public function mainActors($product) {
