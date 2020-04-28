@@ -20,8 +20,19 @@
 <header class="header">
     <div class="header-top">
         <div class="webName">THE MOVIE BOX</div>
-        <div class="logIn"><a href="/login"><button class="btn-login">LOG IN</button></div></a>
-        <div class="signUp"><a href="/register"><button class="active-color">SIGN UP</button></div></a>
+
+        @guest()
+
+            <div class="logIn"><a href="/login"><button class="btn-login">LOG IN</button></div></a>
+            <div class="signUp"><a href="/register"><button class="active-color">SIGN UP</button></div></a>
+
+        @endguest
+
+        @auth()
+
+            <div class="logIn"><a href="/logout"><button class="btn-login">LOGOUT</button></div></a>
+
+        @endauth
     </div>
     <div class="header-mid">
         <div class="movieName">{{$recommended['data']->title}}</div>

@@ -65,7 +65,7 @@ class ProductController extends Controller
 
         $query = $request->input('search');
 
-        $movies = $this->productService->processSearch($query);
+        $data = $this->productService->processSearch($query);
 
         if (empty($query)) {
 
@@ -73,10 +73,10 @@ class ProductController extends Controller
                 ->withErrors(['Type something into search', 'The Message']);
         }
 
-        else if (!empty($movies)) {
+        else if (!empty($data)) {
 
-            return view('products.results')
-                ->with('movies', $movies);
+            return view('pavle.trend')
+                ->with('data', $data);
         }
 
         return Redirect::to('/')

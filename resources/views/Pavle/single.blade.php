@@ -3,7 +3,7 @@
 
 @section('header')
 <div class="header-top header-top-wishlist">
-    <div class="webName">THE MOVIE BOX</div>
+    <a href="{{route('homepage.trending')}}"><div class="webName">THE MOVIE BOX</div></a>
     <div class="logIn"><a href=""><button class="btn-login">LOG IN</button></a></div>
     <div class="signUp"><a href=""><button class="active-color">SIGN UP</button></a></div>
 </div>
@@ -31,9 +31,16 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="trailer">
-            <iframe width="640" height="480" src="https://www.youtube.com/embed/v_SyrpYk-Ik" frameborder="0" 
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
+{{--            <iframe width="640" height="480" src="{{$product->trailer}}" frameborder="0"--}}
+{{--                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>--}}
+{{--            </iframe>--}}
+
+                <video controls width="640" height="480">
+                    <source src="{{$product->trailer}}"
+                            type="video/webm">
+                    <source src="{{$product->trailer}}"
+                            type="video/mp4">
+                </video>
 
                 <span class="close" onclick="document.getElementById('myModal').style.display='none'">CLOSE &times;</span>
             </div>
