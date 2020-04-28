@@ -21,6 +21,28 @@ class ProductController extends Controller
 
     public function index() {
 
+        $data = $this->productService->getData('trending');
+
+        $recommended = $this->productService->recommendedMovie();
+
+        return view('pavle/trend')
+            ->with('recommended', $recommended)
+            ->with('data', $data);
+    }
+
+    public function new() {
+
+        $data = $this->productService->getData('new');
+
+        $recommended = $this->productService->recommendedMovie();
+
+        return view('pavle/trend')
+            ->with('recommended', $recommended)
+            ->with('data', $data);
+    }
+
+    public function topRated() {
+
         $data = $this->productService->getData('topRated');
 
         $recommended = $this->productService->recommendedMovie();

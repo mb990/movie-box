@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', 'ProductController@index')->name('homepage');
+Route::get('/', 'ProductController@index')->name('homepage.trending');
+Route::get('/new', 'ProductController@new')->name('homepage.new');
+Route::get('/top', 'ProductController@topRated')->name('homepage.top');
+Route::get('/trending', 'ProductController@index')->name('homepage.trending');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/movies/{slug}', 'ProductController@showSingle')->name('product.single');
 Route::get('/movies/{slug}/add', 'ProductController@addMovie')->name('product.add');
