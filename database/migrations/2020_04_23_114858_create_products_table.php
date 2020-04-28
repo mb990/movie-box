@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('rating_votes')->nullable();
             $table->string('rating')->nullable();
             $table->string('image')->nullable();
+            $table->string('trailer')->nullable();
 //            $table->bigInteger('type_id')->unsigned();
             $table->timestamps();
         });

@@ -9,7 +9,10 @@ class Product extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['title', 'year', 'duration', 'rating', 'image', 'imdb_id', 'plot', 'rating_votes', 'slug'];
+    protected $fillable = [
+
+        'title', 'year', 'duration', 'rating', 'image', 'imdb_id', 'plot', 'rating_votes', 'slug', 'trailer'
+        ];
 
     public function sluggable()
     {

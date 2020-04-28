@@ -23,7 +23,7 @@ class TestController extends Controller
 
     public function test()
     {
-        $this->productService->processSearch('bear');
+        $this->productService->processSearch('blade');
 
         return view("test");
     }
