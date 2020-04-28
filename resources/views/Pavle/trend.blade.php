@@ -1,5 +1,21 @@
 @extends('pavle.master')
-@section('title', 'Trending')
+@section('title')
+
+    @if(Request::is('/'))
+
+        Trending
+
+    @elseif (Request::is('top'))
+
+        Top Rated
+
+    @else
+
+        New Arrivals
+
+    @endif
+
+@endsection
 @section('header')
 <header class="header">
     <div class="header-top">
@@ -24,9 +40,9 @@
 @endsection
 @section('main')
 <div class="movieNav">
-                <a href="/" class="nav-tab active-nav">Trending</a>
-                <a href="/top" class="nav-tab">Top Rated</a>
-                <a href="new" class="nav-tab">New Arrivals</a>
+                <a href="/" class="nav-tab {{ Request::is('/') ? 'active-nav' : ''}}">Trending</a>
+                <a href="/top" class="nav-tab {{ Request::is('top') ? 'active-nav' : ''}}">Top Rated</a>
+                <a href="/new" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
                 <!-- SEARCH BUTTON -->
                 <form action="{{route('search')}}" class="nav-tab-search">
                     <input type="text" class="search-input" placeholder="Search movie.." name="search">
