@@ -387,6 +387,8 @@ button {
   font-size: 28px;
   font-weight: bold;
   padding: 10px;
+  z-index: 1;
+  background-color: black;
 }
 .close:hover,
 .close:focus {

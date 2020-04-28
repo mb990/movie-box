@@ -31,7 +31,11 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="trailer">
-                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <iframe width="640" height="480" src="https://www.youtube.com/embed/v_SyrpYk-Ik" frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">CLOSE &times;</span>
             </div>
         </div>
     </div>
