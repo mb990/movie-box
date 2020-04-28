@@ -11,19 +11,40 @@
             Login
             <span class="underline"></span>
             </button>
-            <form class="form form-login">
+            <form action="{{route('login')}}" method="POST" class="form form-login">
+                @csrf
             <fieldset>
                 <legend>Please, enter your email and password for login.</legend>
                 <div class="input-block">
-                <label for="login-email">E-mail</label>
-                <input id="login-email" type="email" required>
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" required>
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                 </div>
                 <div class="input-block">
-                <label for="login-password">Password</label>
-                <input id="login-password" type="password" required>
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" required>
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                 </div>
             </fieldset>
             <button type="submit" class="btn-login">Login</button>
+
+                @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif
             </form>
         </div>
         <div class="form-wrapper">
@@ -31,24 +52,50 @@
             Sign Up
             <span class="underline"></span>
             </button>
-            <form class="form form-signup">
+            <form action="{{route('register')}}" method="POST" class="form form-signup">
+                @csrf
             <fieldset>
                 <legend>Please, enter your email, password and password confirmation for sign up.</legend>
                 <div class="input-block">
-                    <label for="username">Username</label>
-                    <input id="username" type="text" required>
+                    <label for="name">Username</label>
+                    <input id="name" class="@error('name') is-invalid @enderror" name="name" type="text" required>
+
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                 </div>
                 <div class="input-block">
-                    <label for="signup-email">E-mail</label>
-                    <input id="signup-email" type="email" required>
+                    <label for="register-email">E-mail</label>
+                    <input id="register-email" name="register-email" type="email" required>
+
+                    <div class="col-md-6">
+
+
+                    @error('register-email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </div>
+
                 </div>
                 <div class="input-block">
-                    <label for="signup-password">Password</label>
-                    <input id="signup-password" type="password" required>
+                    <label for="register-password">Password</label>
+                    <input id="register-password" name="register-password" type="password" required>
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                 </div>
                 <div class="input-block">
-                    <label for="signup-password-confirm">Confirm password</label>
-                    <input id="signup-password-confirm" type="password" required>
+                    <label for="password-confirm">Confirm password</label>
+                    <input id="password-confirm" name="password-confirm" type="password" required>
                 </div>
             </fieldset>
             <button type="submit" class="btn-signup">Continue</button>

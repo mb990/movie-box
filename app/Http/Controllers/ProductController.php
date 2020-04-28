@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Services\ProductService;
 use Doctrine\DBAL\Driver\IBMDB2\DB2Driver;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class ProductController extends Controller
 
         $recommended = $this->productService->getRecommendedMovieData();
 
+//        dd(auth()->user()->hasProduct($recommended['data']));
         return view('pavle/trend')
             ->with('recommended', $recommended)
             ->with('data', $data);
@@ -65,26 +67,36 @@ class ProductController extends Controller
 
         $movies = $this->productService->processSearch($query);
 
-        if (!empty($movies)) {
-
-            return view('products.results')
-                ->with('movies', $movies);
-        }
-        else if (empty($query)) {
+        if (empty($query)) {
 
             return Redirect::to('/')
                 ->withErrors(['Type something into search', 'The Message']);
+        }
+
+        else if (!empty($movies)) {
+
+            return view('products.results')
+                ->with('movies', $movies);
         }
 
         return Redirect::to('/')
             ->withErrors(['No results', 'The Message']);
     }
 
-    public function addMovie($slug){
+    public function addMovie(UserRequest $request, $slug){
 
         $product = $this->productService->findBySlug($slug);
 
         $this->productService->addToWishlist($product);
+
+        return Redirect::back();
+    }
+
+    public function removeMovie(UserRequest $request, $slug) {
+
+        $product = $this->productService->findBySlug($slug);
+
+        $this->productService->removeFromWishlist($product);
 
         return Redirect::back();
     }

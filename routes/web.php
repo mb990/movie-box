@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/', 'ProductController@index')->name('homepage.trending');
 Route::get('/new', 'ProductController@new')->name('homepage.new');
 Route::get('/top', 'ProductController@topRated')->name('homepage.top');
+Route::get('/movies/sorted/{sort}', 'ProductController@sorted')->name('products.sorted');
 Route::get('/trending', 'ProductController@index')->name('homepage.trending');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/movies/{slug}', 'ProductController@showSingle')->name('product.single');

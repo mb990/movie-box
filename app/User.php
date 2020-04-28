@@ -52,8 +52,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Product::class, 'whishlist')->withTimestamps();
     }
 
-    public function hasProduct($slug) {
+    public function hasProduct($product) {
 
-        return $this->products()->find($slug);
+        return $this->products()->find($product->id);
     }
 }

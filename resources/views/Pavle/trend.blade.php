@@ -20,8 +20,8 @@
 <header class="header">
     <div class="header-top">
         <div class="webName">THE MOVIE BOX</div>
-        <div class="logIn"><button class="btn-login">LOG IN</button></div>
-        <div class="signUp"><button class="active-color">SIGN UP</button></div>
+        <div class="logIn"><a href="/login"><button class="btn-login">LOG IN</button></div></a>
+        <div class="signUp"><a href="/register"><button class="active-color">SIGN UP</button></div></a>
     </div>
     <div class="header-mid">
         <div class="movieName">{{$recommended['data']->title}}</div>
@@ -31,9 +31,9 @@
         </div>
         <div class="header-bot">
             <button class="active-color">WATCH MOVIE</button>
-            <button class="btn-info">VIEW INFO</button>
+            <a href="/movies/{{$recommended['data']->slug}}"><button class="btn-info">VIEW INFO</button></a>
             <button class="btn-wishlist">+ ADD TO WISHLIST</button>
-            <div class="header-rating">Rating: 4.5</div>
+            <div class="header-rating">Rating: {{$recommended['data']->rating}}</div>
         </div>
     </div>
 </header>
@@ -76,7 +76,7 @@
 
                             @auth()
 
-                                @if(auth()->user()->hasProduct($product->slug))
+                                @if(!auth()->user()->hasProduct($product))
 
                                     <a href="/movies/{{$product->slug}}/add"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
 
