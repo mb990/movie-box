@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="login-style.css" >
+<link rel="stylesheet" type="text/css" href="{{ asset('css/login-sign.css') }}" >
 </head>
 <body>
     <section class="forms-section">

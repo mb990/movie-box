@@ -25,7 +25,7 @@ class ProductController extends Controller
 
         $recommended = $this->productService->recommendedMovie();
 
-        return view('pavle/master')
+        return view('pavle/trend')
             ->with('recommended', $recommended)
             ->with('data', $data);
     }

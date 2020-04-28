@@ -136,7 +136,9 @@ html, body {
   display: -ms-flexbox;
   display: flex;
 }
-
+.header-top-wishlist{
+  background-color: #636363;
+}
 .header-mid {
   padding-left: 10vh;
 }
