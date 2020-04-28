@@ -6,6 +6,7 @@ namespace App\Services;
 use App\Repositories\ProductRepository;
 use App\Services\ApiService;
 use App\Services\ActorService;
+use App\Services\PaginationService;
 use Illuminate\Support\Facades\Http;
 
 class ProductService
@@ -13,12 +14,15 @@ class ProductService
     protected $product;
     protected $apiService;
     protected $actorService;
+    protected $paginationService;
 
-    public function __construct(ProductRepository $product, ApiService $apiService, ActorService $actorService)
+    public function __construct(ProductRepository $product, ApiService $apiService, ActorService $actorService,
+                                PaginationService $paginationService)
     {
         $this->product = $product;
         $this->apiService = $apiService;
         $this->actorService = $actorService;
+        $this->paginationService = $paginationService;
     }
 
     public function all() {
@@ -52,8 +56,6 @@ class ProductService
 
         $data['products'] = $this->$dataType(12);
 
-//        $data['actors'] = [];
-
         foreach ($data['products'] as $product) {
 
            $data['actors'][$product->slug] = $this->mainActors($product);
@@ -71,6 +73,22 @@ class ProductService
         $movie['actors'] = $this->mainActors($movie['data']);
 
         return $movie;
+    }
+
+    public function getSearchedData($query) {
+
+        $data = [];
+
+        $data['products'] = $this->processSearch($query);
+
+        foreach ($data['products'] as $product) {
+
+            $data['actors'][$product->slug] = $this->mainActors($product);
+        }
+
+        $data['products'] = $this->paginationService->paginate($data['products'], 8);
+
+        return $data;
     }
 
     public function search($query) {

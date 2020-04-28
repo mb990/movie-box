@@ -65,7 +65,9 @@ class ProductController extends Controller
 
         $query = $request->input('search');
 
-        $data = $this->productService->processSearch($query);
+        $data = $this->productService->getSearchedData($query);
+
+        $recommended = $this->productService->getRecommendedMovieData();
 
         if (empty($query)) {
 
@@ -76,6 +78,7 @@ class ProductController extends Controller
         else if (!empty($data)) {
 
             return view('pavle.trend')
+                ->with('recommended', $recommended)
                 ->with('data', $data);
         }
 
