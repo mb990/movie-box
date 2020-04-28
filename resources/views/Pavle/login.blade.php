@@ -9,7 +9,7 @@
         <form action="{{route('login')}}" method="POST" class="login-form">
             @csrf
 
-            <input class="@error('email') is-invalid @enderror" value="{{ old('email') }}" type="text" name="email" id="email" placeholder="email"/>
+            <input class="@error('email') is-invalid @enderror" value="{{ old('email') }}" type="text" name="email" id="email" placeholder="email" required autocomplete="email" autofocus/>
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
             @enderror
 
 
-            <input class="@error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="password"/>
+            <input class="@error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="password" required autocomplete="current-password"/>
 
             @error('password')
                 <span class="invalid-feedback" role="alert">
