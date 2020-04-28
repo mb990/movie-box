@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Route::get('/', 'ProductController@index')->name('homepage.trending');
 Route::get('/new', 'ProductController@new')->name('homepage.new');
 Route::get('/top', 'ProductController@topRated')->name('homepage.top');
