@@ -25,6 +25,7 @@
                     <button class="active-color">WATCH MOVIE</button>
                     <button class="btn-info">VIEW INFO</button>
                     <button class="btn-wishlist">+ ADD TO WISHLIST</button>
+                    <div class="header-rating">Rating: 4.5</div>
                 </div>
             </div>
         </header>

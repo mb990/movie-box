@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>LogIn/Sign Up</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/login-sign.css') }}" >
+    <link rel="stylesheet" type="text/css" href="login-style.css" >
 </head>
 <body>
     <section class="forms-section">
@@ -37,16 +35,20 @@
             <fieldset>
                 <legend>Please, enter your email, password and password confirmation for sign up.</legend>
                 <div class="input-block">
-                <label for="signup-email">E-mail</label>
-                <input id="signup-email" type="email" required>
+                    <label for="username">Username</label>
+                    <input id="username" type="text" required>
                 </div>
                 <div class="input-block">
-                <label for="signup-password">Password</label>
-                <input id="signup-password" type="password" required>
+                    <label for="signup-email">E-mail</label>
+                    <input id="signup-email" type="email" required>
                 </div>
                 <div class="input-block">
-                <label for="signup-password-confirm">Confirm password</label>
-                <input id="signup-password-confirm" type="password" required>
+                    <label for="signup-password">Password</label>
+                    <input id="signup-password" type="password" required>
+                </div>
+                <div class="input-block">
+                    <label for="signup-password-confirm">Confirm password</label>
+                    <input id="signup-password-confirm" type="password" required>
                 </div>
             </fieldset>
             <button type="submit" class="btn-signup">Continue</button>
@@ -58,10 +60,10 @@
     <script>
         const switchers = [...document.querySelectorAll('.switcher')]
         switchers.forEach(item => {
-            item.addEventListener('click', function() {
-            switchers.forEach(item => item.parentElement.classList.remove('is-active'))
-            this.parentElement.classList.add('is-active')
-            })
-        })
+        item.addEventListener('click', function() {
+        switchers.forEach(item => item.parentElement.classList.remove('is-active'))
+        this.parentElement.classList.add('is-active')
+    })
+})
     </script>
 </body>

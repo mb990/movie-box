@@ -148,7 +148,13 @@ html, body {
 .header-bot > button {
   margin-right: 5px;
 }
-
+.header-rating{
+  background-color: rgb(155, 155, 155);
+  float: right;
+  margin: 0px 40px 20px 0px;
+  padding: 10px;
+  border: 1px solid rgb(82, 82, 82);
+}
 .webName {
   -webkit-box-flex: 4;
       -ms-flex: 4;
