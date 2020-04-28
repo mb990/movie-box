@@ -33,5 +33,7 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript" src="{{ URL::asset('js/javascript.js') }}">
+        </script>
     </body>
 </html>
