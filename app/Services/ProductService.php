@@ -52,7 +52,7 @@ class ProductService
 
         $data['products'] = $this->$dataType(12);
 
-        $data['actors'] = [];
+//        $data['actors'] = [];
 
         foreach ($data['products'] as $product) {
 
@@ -60,6 +60,17 @@ class ProductService
         }
 
         return $data;
+    }
+
+    public function getRecommendedMovieData() {
+
+        $movie = [];
+
+        $movie['data'] = $this->recommendedMovie();
+
+        $movie['actors'] = $this->mainActors($movie['data']);
+
+        return $movie;
     }
 
     public function search($query) {

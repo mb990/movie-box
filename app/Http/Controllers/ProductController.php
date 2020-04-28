@@ -23,7 +23,7 @@ class ProductController extends Controller
 
         $data = $this->productService->getData('trending');
 
-        $recommended = $this->productService->recommendedMovie();
+        $recommended = $this->productService->getRecommendedMovieData();
 
         return view('pavle/trend')
             ->with('recommended', $recommended)
@@ -34,7 +34,7 @@ class ProductController extends Controller
 
         $data = $this->productService->getData('new');
 
-        $recommended = $this->productService->recommendedMovie();
+        $recommended = $this->productService->getRecommendedMovieData();
 
         return view('pavle/trend')
             ->with('recommended', $recommended)
@@ -45,7 +45,7 @@ class ProductController extends Controller
 
         $data = $this->productService->getData('topRated');
 
-        $recommended = $this->productService->recommendedMovie();
+        $recommended = $this->productService->getRecommendedMovieData();
 
         return view('pavle/single')
             ->with('recommended', $recommended)
@@ -56,7 +56,7 @@ class ProductController extends Controller
 
         $product = $this->productService->findBySlug($slug);
 
-        return view('products.single')->with('product', $product);
+        return view('pavle.single')->with('product', $product);
     }
 
     public function search(Request $request) {

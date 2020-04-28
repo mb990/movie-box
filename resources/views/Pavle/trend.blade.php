@@ -8,10 +8,10 @@
         <div class="signUp"><button class="active-color">SIGN UP</button></div>
     </div>
     <div class="header-mid">
-        <div class="movieName">{{$recommended->title}}</div>
+        <div class="movieName">{{$recommended['data']->title}}</div>
         <div class="movie-info">
-            <div class="movieGenre">Actors: </div>
-            <div class="movieDuration">Duration: {{$recommended->duration}}</div>
+            <div class="movieGenre">{{$recommended['actors']->implode('name', ', ')}}</div>
+            <div class="movieDuration">Duration: {{$recommended['data']->duration}}</div>
         </div>
         <div class="header-bot">
             <button class="active-color">WATCH MOVIE</button>
@@ -24,11 +24,11 @@
 @endsection
 @section('main')
 <div class="movieNav">
-                <a class="nav-tab active-nav">Trending</a>
-                <a href="" class="nav-tab">Top Rated</a>
-                <a href="" class="nav-tab">New Arrivals</a>
+                <a href="/" class="nav-tab active-nav">Trending</a>
+                <a href="/top" class="nav-tab">Top Rated</a>
+                <a href="new" class="nav-tab">New Arrivals</a>
                 <!-- SEARCH BUTTON -->
-                <form class="nav-tab-search">
+                <form action="{{route('search')}}" class="nav-tab-search">
                     <input type="text" class="search-input" placeholder="Search movie.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
@@ -47,7 +47,7 @@
             <div class="allMovies">
                 @foreach($data['products'] as $product)
                     <div class="box">
-                        <a href="/">
+                        <a href="/movies/{{$product->slug}}">
                             <img  src="{{ $product->image }}" class="boxPicture">
                         </a>
                         <div class="boxInfo">
@@ -57,7 +57,22 @@
                                     {{$data['actors'][$product->slug]->implode('name', ', ')}}
                                 </span>
                             </div>
-                            <a href="/movies/{{$product->slug}}/add"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
+
+                            @auth()
+
+                                @if(auth()->user()->hasProduct($product->slug))
+
+                                    <a href="/movies/{{$product->slug}}/add"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
+
+
+                                @else
+
+                                    <a href="/movies/{{$product->slug}}/remove"><button class="wishlist-box-btn box-rating" title="Remove from wishlist">&#x2764;</button></a>
+
+                                @endif
+
+                            @endauth
+
                             <div class="box-rating" title="Movie Rating">{{$product->rating}}</div>
                         </div>
                     </div>
