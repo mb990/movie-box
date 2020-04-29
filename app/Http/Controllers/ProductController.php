@@ -92,7 +92,8 @@ class ProductController extends Controller
 
         $this->productService->addToWishlist($product);
 
-        return Redirect::back();
+        return Redirect::back()
+            ->withErrors(['Movie is already added', 'The Message']);
     }
 
     public function removeMovie(UserRequest $request, $slug) {

@@ -28,7 +28,7 @@
             <button class="active-color">WATCH MOVIE</button>
             <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
             <button class="btn-wishlist">+ ADD TO WISHLIST</button>
-            <div class="header-rating"> 
+            <div class="header-rating">
             Rating: {{$recommended['data']->rating}}
             <span class="rating-votes">based on {{$recommended['data']->rating_votes}} reviews</span>
             </div>
@@ -60,6 +60,10 @@
                 </div>
             </div>
             <div class="allMovies">
+
+                @if($errors->any())
+                    <h4>{{$errors->first()}}</h4>
+                @endif
 
                 @if(!empty($data['products']))
 

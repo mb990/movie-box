@@ -13,7 +13,7 @@ class AddForeignKeysToWhishlist extends Migration
      */
     public function up()
     {
-        Schema::table('whishlist', function (Blueprint $table) {
+        Schema::table('wishlist', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
@@ -26,7 +26,7 @@ class AddForeignKeysToWhishlist extends Migration
      */
     public function down()
     {
-        Schema::table('whishlist', function (Blueprint $table) {
+        Schema::table('wishlist', function (Blueprint $table) {
             //
         });
     }

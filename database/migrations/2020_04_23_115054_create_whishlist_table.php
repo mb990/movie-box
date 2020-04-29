@@ -13,7 +13,7 @@ class CreateWhishlistTable extends Migration
      */
     public function up()
     {
-        Schema::create('whishlist', function (Blueprint $table) {
+        Schema::create('wishlist', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
@@ -28,6 +28,6 @@ class CreateWhishlistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('whishlist');
+        Schema::dropIfExists('wishlist');
     }
 }
