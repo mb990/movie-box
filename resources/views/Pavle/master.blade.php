@@ -49,7 +49,11 @@
                 </div>
             </div>
         </footer>
-        <script type="text/javascript" src="{{ URL::asset('js/javascript.js') }}">
+        <script>
+function myFunction() {
+    document.getElementById("myFrame").src = "{{$product->embed_trailer}}";
+    document.getElementById('myModal').style.display='none'
+}
         </script>
     </body>
 </html>

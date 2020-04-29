@@ -38,9 +38,9 @@
 @endsection
 @section('main')
 <div class="movieNav">
-                <a href="{{route('homepage.trending')}}" class="nav-tab {{ Request::is('/') ? 'active-nav' : ''}}">Trending</a>
-                <a href="{{route('homepage.top')}}" class="nav-tab {{ Request::is('top') ? 'active-nav' : ''}}">Top Rated</a>
-                <a href="{{route('homepage.new')}}" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
+                <a title="Trending" href="{{route('homepage.trending')}}" class="nav-tab {{ Request::is('/') ? 'active-nav' : ''}}">Trending</a>
+                <a title="Top Rated" href="{{route('homepage.top')}}" class="nav-tab {{ Request::is('top') ? 'active-nav' : ''}}">Top Rated</a>
+                <a title="New Arrivals" href="{{route('homepage.new')}}" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
                 <!-- SEARCH BUTTON -->
                 <form action="{{route('search')}}" class="nav-tab-search">
                     @csrf
@@ -71,7 +71,7 @@
                             <div class="boxInfo">
                                 <div class="box-name">
                                     <label for="boxPictures">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)...@endif</label>
-                                    <span class="actors">
+                                    <span class="actors fontNew">
 
                                         @if(!empty($data['actors'][$product->slug]))
 
@@ -80,6 +80,8 @@
                                         @endif
                                     </span>
                                 </div>
+
+                                <a class="trash" href="/"><button class="fa fa-trash trash"></button></a>
 
                                 @auth()
 

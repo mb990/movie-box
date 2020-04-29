@@ -32,7 +32,6 @@
   border: 1px solid #ff0079;
   border-radius: 2px;
   text-align: center;
-  margin: 0 auto;
 }
 .wishlist-box-btn{
   margin-right: 5px;
@@ -100,6 +99,12 @@ footer {
   background-color: #ebebed;
   color: white;
 }
+.trash{
+  color: #ff0079;
+  margin-right: 10px;
+  background-color: white;
+  font-size: 1.4rem;
+}
 
 .social {
   padding-top: 20px;
@@ -138,7 +143,7 @@ html, body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #636363;
+  background-image: linear-gradient(rgb(216, 216, 216), rgb(197, 197, 197), rgb(117, 117, 117));
 }
 .header-mid {
   padding-left: 10vh;
@@ -174,6 +179,7 @@ html, body {
   padding-top: 5px;
   padding-left: 10vh;
   font-size: 1.5rem;
+  color: white;
 }
 .noUnderline{
   text-decoration: none;
@@ -368,6 +374,7 @@ button {
   background-color: lightgrey;
   border: none;
   padding-bottom: 0px;
+  margin: 4px;
 }
 /* The Modal (background) */
 .modal {
@@ -414,3 +421,12 @@ button {
 }
 /*END SINGLE MOVIE PAGE*/
 /*# sourceMappingURL=style.css.map */
+.commas::after {
+    content: ",";
+}
+.commas:last-child:after {
+  content: ".";
+}
+.fontNew{
+  font-family: TiemposTextWeb-Regular,Georgia,serif;
+}

@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function products() {
 
-        return $this->belongsToMany(Product::class, 'whishlist')->withTimestamps();
+        return $this->belongsToMany(Product::class, 'wishlist')->withTimestamps();
     }
 
     public function hasProduct($product) {
