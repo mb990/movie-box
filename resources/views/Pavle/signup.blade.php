@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/login-sign.css') }}" >
+<title>Sign Up</title>
 </head>
 <body>
     <div class="login-page">
@@ -35,7 +36,7 @@
             <input name="password_confirmation" type="password" placeholder="confirm password" required autocomplete="new-password"/>
             <button>create</button>
             <p class="message">Already registered? <a href="/login">Sign In</a></p>
-            <p class="message"><a href="">Go back</a></p>
+            <p class="message"><a href="/">Go back</a></p>
         </form>
         </div>
     </div>

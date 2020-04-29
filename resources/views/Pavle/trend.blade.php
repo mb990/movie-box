@@ -28,7 +28,7 @@
             <button class="active-color">WATCH MOVIE</button>
             <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
             <button class="btn-wishlist">+ ADD TO WISHLIST</button>
-            <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews"> 
+            <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews">
             Rating: {{$recommended['data']->rating}}
             </div>
         </div>
@@ -101,7 +101,7 @@
 
                                 @endauth
 
-                                <div class="box-rating" title="Movie Rating">{{$product->rating}}</div>
+                                <div class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</div>
                             </div>
                         </div>
                     @endforeach

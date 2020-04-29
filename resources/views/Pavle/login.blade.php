@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/login-sign.css') }}" >
+<title>Login</title>
 </head>
 <body>
     <div class="login-page">
@@ -36,7 +37,7 @@
                 </p>
             @endif
 
-            <p class="message"><a href="">Go back</a></p>
+            <p class="message"><a href="/">Go back</a></p>
 
         </form>
         </div>

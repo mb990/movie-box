@@ -51,7 +51,7 @@
         </footer>
         <script>
 function myFunction() {
-    document.getElementById("myFrame").src = "{{$product->embed_trailer}}";
+    document.getElementById("myFrame").src = document.getElementById("myFrame").src;
     document.getElementById('myModal').style.display='none'
 }
         </script>
