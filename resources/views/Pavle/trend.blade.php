@@ -28,9 +28,8 @@
             <button class="active-color">WATCH MOVIE</button>
             <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
             <button class="btn-wishlist">+ ADD TO WISHLIST</button>
-            <div class="header-rating">
+            <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews"> 
             Rating: {{$recommended['data']->rating}}
-            <span class="rating-votes">based on {{$recommended['data']->rating_votes}} reviews</span>
             </div>
         </div>
     </div>

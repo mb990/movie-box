@@ -7,7 +7,7 @@
     </div>
     <div class="single-info">
         <span class="movieName fontNew">{{$product->title}} ({{$product->year}})
-            <span class="box-rating">{{$product->rating}}</span>
+            <span class="box-rating help" title="Based on {{$product->rating_votes}} reviews">{{$product->rating}}</span>
             <button class="wishlist-box-btn box-rating single-btn" title="Add to wishlist">&#x2764;</button>
             <button class="fa fa-trash trash single-btn"></button>
             <button class="wishlist-box-btn box-rating single-btn" title="Watch Trailer"onclick="document.getElementById('myModal').style.display='block'">&#x25b6; Play Trailer</button>
