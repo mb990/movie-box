@@ -11,7 +11,7 @@ class Product extends Model
 
     protected $fillable = [
 
-        'title', 'year', 'duration', 'rating', 'image', 'imdb_id', 'plot', 'rating_votes', 'slug', 'trailer'
+        'title', 'year', 'duration', 'rating', 'image', 'imdb_id', 'plot', 'rating_votes', 'slug', 'trailer', 'embed_trailer'
         ];
 
     public function sluggable()

@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('rating')->nullable();
             $table->string('image')->nullable();
             $table->string('trailer')->nullable();
+            $table->string('embed_trailer')->nullable();
 //            $table->bigInteger('type_id')->unsigned();
             $table->timestamps();
         });

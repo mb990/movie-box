@@ -70,7 +70,8 @@ class ProductRepository
            'image' => $data->poster,
            'imdb_id' => $data->id,
            'rating_votes' => $data->rating_votes,
-           'trailer' => $video
+           'trailer' => $data->trailer->link,
+           'embed_trailer' => $video
         ]);
     }
 
