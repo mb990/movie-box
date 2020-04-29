@@ -118,7 +118,16 @@ class ProductService
 
     public function store($data) {
 
-        return $this->product->store($data);
+        $video = $this->embedVideo($data->trailer->link);
+
+        return $this->product->store($data, $video);
+    }
+
+    public function embedVideo($url) {
+
+        $link = substr_replace($url,"embed",26, 6);
+
+        return $link;
     }
 
     public function getSearchResults($query) {

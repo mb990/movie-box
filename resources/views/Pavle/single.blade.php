@@ -17,9 +17,15 @@
         <p>{{$product->plot}}
         </p>
         <span>
-            Actors: {{$product->actors->implode('name', ', ')}}
+
+            @foreach($product->actors as $actor)
+
+                <p>{{$actor->name}} as {{$actor->pivot->character}}</p>
+
+            @endforeach
+{{--            Actors: {{$product->actors->implode('name', ', ')}}--}}
         </span>
-    </div>
+
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="trailer">
@@ -27,12 +33,12 @@
 {{--                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>--}}
 {{--            </iframe>--}}
 
-                <video controls width="640" height="480">
-                    <source src="{{$product->trailer}}"
-                            type="video/webm">
-                    <source src="{{$product->trailer}}"
-                            type="video/mp4">
-                </video>
+{{--                <video controls width="640" height="480">--}}
+{{--                    <source src="{{$product->trailer}}"--}}
+{{--                            type="video/webm">--}}
+{{--                    <source src="{{$product->trailer}}"--}}
+{{--                            type="video/mp4">--}}
+{{--                </video>--}}
 
                 <span class="close" onclick="document.getElementById('myModal').style.display='none'">CLOSE &times;</span>
             </div>

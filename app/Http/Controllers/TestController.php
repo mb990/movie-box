@@ -23,7 +23,11 @@ class TestController extends Controller
 
     public function test()
     {
-//        $this->productService->processSearch('blade');
+
+        $product = $this->productService->findBySlug('hulk');
+
+        $link = $this->productService->embedVideo($product->trailer);
+        dd($link);
 
         return view("test");
     }

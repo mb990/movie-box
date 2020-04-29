@@ -59,7 +59,7 @@ class ProductRepository
         return $this->product->where('imdb_id', '=', $id)->first();
     }
 
-    public function store($data) {
+    public function store($data, $video) {
 
         return $this->product->create([
            'title' => $data->title,
@@ -70,7 +70,7 @@ class ProductRepository
            'image' => $data->poster,
            'imdb_id' => $data->id,
            'rating_votes' => $data->rating_votes,
-           'trailer' => $data->trailer->link
+           'trailer' => $video
         ]);
     }
 
