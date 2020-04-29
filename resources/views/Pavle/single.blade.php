@@ -1,14 +1,6 @@
 @extends('pavle.master')
 @section('title', "Movie Name")
 
-@section('header')
-<div class="header-top header-top-wishlist">
-    <a href="{{route('homepage.trending')}}"><div class="webName">THE MOVIE BOX</div></a>
-    <div class="logIn"><a href=""><button class="btn-login">LOG IN</button></a></div>
-    <div class="signUp"><a href=""><button class="active-color">SIGN UP</button></a></div>
-</div>
-@endsection
-
 @section('main')
 <div class="single-movie">
     <div class="box single-box">

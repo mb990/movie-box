@@ -116,6 +116,7 @@ html, body {
 }
 
 .header {
+  position: relative;
   height: 70vh;
   background-image: url(https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg);
   background-repeat: no-repeat;
@@ -137,12 +138,13 @@ html, body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-.header-top-wishlist{
   background-color: #636363;
 }
 .header-mid {
   padding-left: 10vh;
+  position: absolute;
+  bottom: 0;
+  width: 90vw;
 }
 
 .header-bot {
@@ -158,6 +160,12 @@ html, body {
   margin: 0px 40px 20px 0px;
   padding: 10px;
   border: 1px solid rgb(82, 82, 82);
+  display: flex;
+  flex-direction: column;
+}
+.rating-votes{
+  font-size: 0.8rem;
+  color: rgb(110, 110, 110);
 }
 .webName {
   -webkit-box-flex: 4;
@@ -166,6 +174,9 @@ html, body {
   padding-top: 5px;
   padding-left: 10vh;
   font-size: 1.5rem;
+}
+.noUnderline{
+  text-decoration: none;
 }
 
 .logIn {

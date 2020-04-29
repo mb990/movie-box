@@ -18,22 +18,6 @@
 @endsection
 @section('header')
 <header class="header">
-    <div class="header-top">
-        <div class="webName">THE MOVIE BOX</div>
-
-        @guest()
-
-            <div class="logIn"><a href="{{route('login')}}"><button class="btn-login">LOG IN</button></div></a>
-            <div class="signUp"><a href="{{route('register')}}"><button class="active-color">SIGN UP</button></div></a>
-
-        @endguest
-
-        @auth()
-
-            <div class="logIn"><a href="{{route('logout')}}"><button class="btn-login">LOGOUT</button></div></a>
-
-        @endauth
-    </div>
     <div class="header-mid">
         <div class="movieName">{{$recommended['data']->title}}</div>
         <div class="movie-info">
@@ -44,7 +28,10 @@
             <button class="active-color">WATCH MOVIE</button>
             <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
             <button class="btn-wishlist">+ ADD TO WISHLIST</button>
-            <div class="header-rating">Rating: {{$recommended['data']->rating}}</div>
+            <div class="header-rating"> 
+            Rating: {{$recommended['data']->rating}}
+            <span class="rating-votes">based on {{$recommended['data']->rating_votes}} reviews</span>
+            </div>
         </div>
     </div>
 </header>
