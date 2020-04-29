@@ -17,23 +17,24 @@
 
 @endsection
 @section('header')
-<header class="header">
-    <div class="header-mid">
-        <div class="movieName">{{$recommended['data']->title}}</div>
-        <div class="movie-info">
-            <div class="movieGenre">{{$recommended['actors']->implode('name', ', ')}}</div>
-            <div class="movieDuration">Duration: {{$recommended['data']->duration}}</div>
-        </div>
-        <div class="header-bot">
-            <button class="active-color">WATCH MOVIE</button>
-            <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
-            <button class="btn-wishlist">+ ADD TO WISHLIST</button>
-            <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews">
-            Rating: {{$recommended['data']->rating}}
+    <header class="header">
+        <img class="header" src="https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg">
+        <div class="header-mid">
+            <div class="movieName">{{$recommended['data']->title}}</div>
+            <div class="movie-info">
+                <div class="movieGenre">{{$recommended['actors']->implode('name', ', ')}}</div>
+                <div class="movieDuration">Duration: {{$recommended['data']->duration}}</div>
+            </div>
+            <div class="header-bot">
+                <button class="active-color">WATCH MOVIE</button>
+                <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
+                <button class="btn-wishlist">+ ADD TO WISHLIST</button>
+                <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews">
+                Rating: {{$recommended['data']->rating}}
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 @endsection
 @section('main')
 <div class="movieNav">
@@ -58,57 +59,57 @@
                     </button>
                 </div>
             </div>
-            <div class="allMovies">
+<div class="allMovies">
 
-                @if($errors->any())
-                    <h4>{{$errors->first()}}</h4>
-                @endif
+    @if($errors->any())
+        <h4>{{$errors->first()}}</h4>
+    @endif
 
-                @if(!empty($data['products']))
+    @if(!empty($data['products']))
 
-                    @foreach($data['products'] as $product)
-                        <div class="box">
-                            <a href="{{route('product.single', $product->slug)}}">
-                                <img src="{{ $product->image }}" class="boxPicture">
-                            </a>
-                            <div class="boxInfo">
-                                <div class="box-name">
-                                    <label for="boxPictures">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)...@endif</label>
-                                    <span class="actors fontNew">
+        @foreach($data['products'] as $product)
+            <div class="box">
+                <a href="{{route('product.single', $product->slug)}}">
+                    <img src="{{ $product->image }}" class="boxPicture">
+                </a>
+                <div class="boxInfo">
+                    <div class="box-name">
+                        <label for="boxPictures">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)...@endif</label>
+                        <span class="actors fontNew">
 
-                                        @if(!empty($data['actors'][$product->slug]))
+                            @if(!empty($data['actors'][$product->slug]))
 
-                                            {{$data['actors'][$product->slug]->implode('name', ', ')}}
+                                {{$data['actors'][$product->slug]->implode('name', ', ')}}
 
-                                        @endif
-                                    </span>
-                                </div>
+                            @endif
+                        </span>
+                    </div>
 
-                                <a class="trash" href="/"><button class="fa fa-trash trash"></button></a>
+                    <a class="trash" href="/"><button class="fa fa-trash trash"></button></a>
 
-                                @auth()
+                    @auth()
 
-                                    @if(!auth()->user()->hasProduct($product))
+                        @if(!auth()->user()->hasProduct($product))
 
-                                        <a href="{{route('product.add', $product->slug)}}"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
+                            <a href="{{route('product.add', $product->slug)}}"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
 
 
-                                    @else
+                        @else
 
-                                        <a href="{{route('product.remove', $product->slug)}}"><button class="wishlist-box-btn box-rating" title="Remove from wishlist">&#x2764;</button></a>
+                            <a href="{{route('product.remove', $product->slug)}}"><button class="wishlist-box-btn box-rating" title="Remove from wishlist">&#x2764;</button></a>
 
-                                    @endif
+                        @endif
 
-                                @endauth
+                    @endauth
 
-                                <div class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</div>
-                            </div>
-                        </div>
-                    @endforeach
-
-                @endif
+                    <div class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</div>
+                </div>
             </div>
-            <div class="center">
-                {{$data['products']->links()}}
-            </div>
+        @endforeach
+
+    @endif
+</div>
+<div class="center">
+    {{$data['products']->links()}}
+</div>
 @endsection

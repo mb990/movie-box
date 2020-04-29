@@ -3,11 +3,10 @@
 
 @section('main')
 <div class="single-movie">
-    <div class="box single-box">
-    </div>
+        <img class="box single-box" src="{{ $product->image }}">
     <div class="single-info">
         <span class="movieName fontNew">{{$product->title}} ({{$product->year}})
-            <span class="box-rating help" title="Based on {{$product->rating_votes}} reviews">{{$product->rating}}</span>
+            <span class="box-rating">{{$product->rating}}</span>
             <button class="wishlist-box-btn box-rating single-btn" title="Add to wishlist">&#x2764;</button>
             <button class="fa fa-trash trash single-btn"></button>
             <button class="wishlist-box-btn box-rating single-btn" title="Watch Trailer"onclick="document.getElementById('myModal').style.display='block'">&#x25b6; Play Trailer</button>
@@ -22,7 +21,7 @@
         <span>
             @foreach($product->actors as $actor)
 
-                <span class="commas fontNew">{{$actor->name}} as {{$actor->pivot->character}}</span>
+                <span class="commas fontNew"> <strong>{{$actor->name}}</strong> as {{$actor->pivot->character}}</span>
 
             @endforeach
         </span>

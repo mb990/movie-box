@@ -123,7 +123,7 @@ html, body {
 .header {
   position: relative;
   height: 70vh;
-  background-image: url(https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg);
+  /* background-image: url(https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg); */
   background-repeat: no-repeat;
   background-size: inherit;
   display: -webkit-box;
@@ -254,6 +254,7 @@ button {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   background-color: #f8f8f8;
+  padding-bottom: 50px;
 }
 
 .movieNav {
