@@ -7,9 +7,9 @@
     <div class="single-info">
         <span class="movieName fontNew">{{$product->title}} ({{$product->year}})
             <span class="box-rating">{{$product->rating}}</span>
-            <button class="wishlist-box-btn box-rating single-btn" title="Add to wishlist">&#x2764;</button>
-            <button class="fa fa-trash trash single-btn"></button>
-            <button class="wishlist-box-btn box-rating single-btn" title="Watch Trailer"onclick="document.getElementById('myModal').style.display='block'">&#x25b6; Play Trailer</button>
+            <button class="wishlist-box-btn box-rating single-btn font-big" title="Add to wishlist">&#x2764;</button>
+            <button class="fa fa-trash trash single-btn font-big"></button>
+            <button class="wishlist-box-btn box-rating single-btn font-big" title="Watch Trailer"onclick="document.getElementById('myModal').style.display='block'">&#x25b6; Play Trailer</button>
         </span>
         <span>Duration: {{$product->duration}}</span>
         <br>
@@ -39,4 +39,13 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    function myFunction() {
+        document.getElementById("myFrame").src = document.getElementById("myFrame").src;
+        document.getElementById('myModal').style.display='none'
+    }
+</script>
 @endsection
