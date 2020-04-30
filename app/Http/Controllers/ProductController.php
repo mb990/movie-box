@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddToWishlistRequest;
+use App\Http\Requests\RemoveFromWishlistRequest;
 use App\Http\Requests\UserRequest;
 use App\Services\ProductService;
 use Doctrine\DBAL\Driver\IBMDB2\DB2Driver;
@@ -86,17 +88,18 @@ class ProductController extends Controller
             ->withErrors(['No results', 'The Message']);
     }
 
-    public function addMovie(UserRequest $request, $slug){
+    public function addMovie(AddToWishlistRequest $request, $slug){
 
         $product = $this->productService->findBySlug($slug);
 
+//        $request->request->add(['product_id', $product->id]);
+
         $this->productService->addToWishlist($product);
 
-        return Redirect::back()
-            ->withErrors(['Movie is already added', 'The Message']);
+        return Redirect::back();
     }
 
-    public function removeMovie(UserRequest $request, $slug) {
+    public function removeMovie(RemoveFromWishlistRequest $request, $slug) {
 
         $product = $this->productService->findBySlug($slug);
 

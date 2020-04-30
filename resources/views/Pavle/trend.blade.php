@@ -85,18 +85,23 @@
                         </span>
                     </div>
 
-                    <a class="trash" href="/"><button class="fa fa-trash trash"></button></a>
-
                     @auth()
 
                         @if(!auth()->user()->hasProduct($product))
 
-                            <a href="{{route('product.add', $product->slug)}}"><button class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button></a>
-
-
+                            <form method="GET" action="{{route('product.add', $product->slug)}}">
+                                @csrf
+                                <button type="submit" class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button>
+                            </form>
                         @else
 
-                            <a href="{{route('product.remove', $product->slug)}}"><button class="wishlist-box-btn box-rating" title="Remove from wishlist">&#x2764;</button></a>
+                            <form method="GET" action="{{route('product.remove', $product->slug)}}">
+                                @csrf
+{{--                                @method('DELETE')--}}
+                                <input name="product_id" type="text" value="{{$product->id}}">
+                                <button type="submit" title="Remove from wishlist" class="fa fa-trash trash"></button>
+
+                            </form>
 
                         @endif
 

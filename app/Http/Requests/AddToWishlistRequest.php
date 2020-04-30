@@ -7,16 +7,24 @@ use App\Services\ProductService;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Factory;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class AddToWishlistRequest extends FormRequest
 {
 
     protected $productService;
+    protected $product;
 
-    public function __construct(ProductService $productService, array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [], $content = null)
+    public function __construct(Request $request1, ProductService $productService, array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [], $content = null)
     {
         parent::__construct($query, $request, $attributes, $cookies, $files, $server, $content);
         $this->productService = $productService;
+
+        $this->product = $this->productService->findBySlug(request()->slug);
+
+        $request1->merge(['product_id' => $this->product->id]);
     }
 
     /**
@@ -41,11 +49,23 @@ class AddToWishlistRequest extends FormRequest
      */
     public function rules()
     {
+//        $this->product_id;
 
-        return [
-            'product_id' => Rule::unique('wishlist')->where(function ($query) {
+        $rules = [
+            'product_id' => [Rule::unique('wishlist', 'product_id')->where(function ($query) {
                 $query->where('user_id', \auth()->user()->id);
-            })
+            }),
+            ],
+        ];
+
+        return $rules;
+    }
+
+    public function messages()
+    {
+
+        return[
+            'product_id.unique' => 'Item is already in your wishlist'
         ];
     }
 }
