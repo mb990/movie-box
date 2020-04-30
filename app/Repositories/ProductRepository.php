@@ -44,9 +44,9 @@ class ProductRepository
     }
 
     public function filteredData($request, $perPage) {
-
-        return $this->product->whereBetween('rating', [intval($request->min_rating), intval($request->max_rating)])
-            ->whereBetween('year', [intval($request->min_year), intval($request->max_year)])
+//dd($request->max_rating);
+        return $this->product->whereBetween('rating', [floatval($request->min_rating), floatval($request->max_rating)])
+            ->whereBetween('year', [(intval($request->min_year)), (intval($request->max_year))])
             ->orderBy('year', $request['sort_year'])
             ->orderBy('rating', $request['sort_rating'])
             ->paginate($perPage);
@@ -79,7 +79,7 @@ class ProductRepository
            'title' => $data->title,
            'year' => $data->year,
            'duration' => $data->length,
-           'rating' => $data->rating,
+           'rating' => preg_replace("/[^0-9.]/", '', $data->rating),
            'plot' => $data->plot,
            'image' => $data->poster,
            'imdb_id' => $data->id,

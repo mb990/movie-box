@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('year')->nullable();
             $table->integer('duration')->nullable();
             $table->integer('rating_votes')->nullable();
-            $table->string('rating')->nullable();
+            $table->decimal('rating', 2, 1)->nullable();
             $table->string('image')->nullable();
             $table->string('trailer')->nullable();
             $table->string('embed_trailer')->nullable();

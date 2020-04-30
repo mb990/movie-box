@@ -30,12 +30,12 @@ class ValidationService
 
         if ($request->min_rating > $request->max_rating) {
 
-            $request->max_rating = $request->min_rating + 0.1;
+            $request->max_rating = floatval(10);
         }
 
         if ($request->min_year > $request->max_year) {
 
-            $request->max_year = $request->min_year + 1;
+            $request->max_year = intval(date("Y"));
         }
     }
 
@@ -43,12 +43,12 @@ class ValidationService
 
         if (!$request->filled('min_rating')) {
 
-            $request->min_rating = intval(1);
+            $request->min_rating = floatval(1);
         }
 
         if (!$request->filled('max_rating')) {
 
-            $request->max_rating = intval(10);
+            $request->max_rating = floatval(10);
         }
 
         if (!$request->filled('min_year')) {
