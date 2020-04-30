@@ -20,7 +20,7 @@
     <header class="header">
         <img class="header" src="https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg">
         <div class="header-mid">
-            <div class="movieName">{{$recommended['data']->title}}</div>
+            <a href="{{route('product.single', $recommended['data']->slug)}}" class="noUnderline" ><div class="movieName">{{$recommended['data']->title}}</div></a>
             <div class="movie-info">
                 <div class="movieGenre">{{$recommended['actors']->implode('name', ', ')}}</div>
                 <div class="movieDuration">Duration: {{$recommended['data']->duration}}</div>
@@ -87,24 +87,23 @@
 
                     @auth()
 
-                        @if(!auth()->user()->hasProduct($product))
+                    @if(!auth()->user()->hasProduct($product))
 
-                            <form method="GET" action="{{route('product.add', $product->slug)}}">
-                                @csrf
-                                <button type="submit" class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button>
-                            </form>
-                        @else
+                        <form method="GET" action="{{route('product.add', $product->slug)}}">
+                            @csrf
+                            <button type="submit" class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button>
+                        </form>
+                    @else
 
-                            <form method="GET" action="{{route('product.remove', $product->slug)}}">
-                                @csrf
-{{--                                @method('DELETE')--}}
-                                <button type="submit" title="Remove from wishlist" class="fa fa-trash trash"></button>
+                        <form method="GET" action="{{route('product.remove', $product->slug)}}">
+                            @csrf
+                            <button type="submit" title="Remove from wishlist" class="fa fa-trash trash"></button>
 
-                            </form>
+                        </form>
 
-                        @endif
+                    @endif
 
-                    @endauth
+                @endauth
 
                     <div class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</div>
                 </div>

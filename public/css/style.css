@@ -183,6 +183,7 @@ html, body {
 }
 .noUnderline{
   text-decoration: none;
+  color: white;
 }
 
 .logIn {
