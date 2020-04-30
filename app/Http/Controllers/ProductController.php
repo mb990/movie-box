@@ -92,11 +92,9 @@ class ProductController extends Controller
 
         $product = $this->productService->findBySlug($slug);
 
-//        $request->request->add(['product_id', $product->id]);
-
         $this->productService->addToWishlist($product);
 
-        return Redirect::back();
+        return Redirect::back()->with('success', 'Item added to wishlist');
     }
 
     public function removeMovie(RemoveFromWishlistRequest $request, $slug) {
@@ -105,6 +103,6 @@ class ProductController extends Controller
 
         $this->productService->removeFromWishlist($product);
 
-        return Redirect::back();
+        return Redirect::back()->with('success', 'Item is removed from wishlist');
     }
 }

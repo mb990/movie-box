@@ -65,6 +65,12 @@
         <h4>{{$errors->first()}}</h4>
     @endif
 
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
+
     @if(!empty($data['products']))
 
         @foreach($data['products'] as $product)
