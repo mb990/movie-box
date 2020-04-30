@@ -98,7 +98,6 @@
                             <form method="GET" action="{{route('product.remove', $product->slug)}}">
                                 @csrf
 {{--                                @method('DELETE')--}}
-                                <input name="product_id" type="text" value="{{$product->id}}">
                                 <button type="submit" title="Remove from wishlist" class="fa fa-trash trash"></button>
 
                             </form>
