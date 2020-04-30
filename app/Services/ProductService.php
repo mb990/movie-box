@@ -7,6 +7,7 @@ use App\Repositories\ProductRepository;
 use App\Services\ApiService;
 use App\Services\ActorService;
 use App\Services\PaginationService;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
 
 class ProductService
@@ -50,11 +51,23 @@ class ProductService
         return $this->product->topRated($perPage);
     }
 
-    public function getData($dataType) {
+    public function filteredData($filters, $perPage) {
+
+        return $this->product->filteredData($filters, $perPage);
+    }
+
+    public function getData($perPage, $dataType, FormRequest $request = null) {
 
         $data = [];
 
-        $data['products'] = $this->$dataType(12);
+        if (!empty($request)) {
+
+            $data['products'] = $this->$dataType($request, $perPage);
+        }
+        else {
+
+            $data['products'] = $this->$dataType($perPage);
+        }
 
         foreach ($data['products'] as $product) {
 

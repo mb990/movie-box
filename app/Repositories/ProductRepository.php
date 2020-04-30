@@ -43,6 +43,15 @@ class ProductRepository
             ->paginate($perPage);
     }
 
+    public function filteredData($request, $perPage) {
+
+        return $this->product->whereBetween('rating', [intval($request->min_rating), intval($request->max_rating)])
+            ->whereBetween('year', [intval($request->min_year), intval($request->max_year)])
+            ->orderBy('year', $request['sort_year'])
+            ->orderBy('rating', $request['sort_rating'])
+            ->paginate($perPage);
+    }
+
     public function search($query) {
 
         return $this->product->where('title', 'like', '%' . $query . '%')

@@ -24,6 +24,7 @@ Route::get('/top', 'ProductController@topRated')->name('homepage.top');
 Route::get('/movies/sorted/{sort}', 'ProductController@sorted')->name('products.sorted');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/movies/{slug}', 'ProductController@showSingle')->name('product.single');
+Route::get('/movies/filtered/results', 'ProductController@showFiltered')->name('products.filtered');
 Route::get('/movies/{slug}/add', 'ProductController@addMovie')->name('product.add');
 Route::get('/movies/{slug}/remove', 'ProductController@removeMovie')->name('product.remove');
 

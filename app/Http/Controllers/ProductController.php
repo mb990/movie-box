@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddToWishlistRequest;
+use App\Http\Requests\FilterProductsRequest;
 use App\Http\Requests\RemoveFromWishlistRequest;
 use App\Http\Requests\UserRequest;
 use App\Services\ProductService;
@@ -24,7 +25,7 @@ class ProductController extends Controller
 
     public function index() {
 
-        $data = $this->productService->getData('trending');
+        $data = $this->productService->getData(12, 'trending');
 
         $recommended = $this->productService->getRecommendedMovieData();
 
@@ -36,7 +37,7 @@ class ProductController extends Controller
 
     public function new() {
 
-        $data = $this->productService->getData('new');
+        $data = $this->productService->getData('12', 'new');
 
         $recommended = $this->productService->getRecommendedMovieData();
 
@@ -47,7 +48,7 @@ class ProductController extends Controller
 
     public function topRated() {
 
-        $data = $this->productService->getData('topRated');
+        $data = $this->productService->getData('12', 'topRated');
 
         $recommended = $this->productService->getRecommendedMovieData();
 
@@ -104,5 +105,16 @@ class ProductController extends Controller
         $this->productService->removeFromWishlist($product);
 
         return Redirect::back()->with('success', 'Item is removed from wishlist');
+    }
+
+    public function showFiltered(FilterProductsRequest $request) {
+
+        $data = $this->productService->getData(12, 'filteredData', $request);
+
+        $recommended = $this->productService->getRecommendedMovieData();
+
+        return view('pavle.trend')
+            ->with('data', $data)
+            ->with('recommended', $recommended);
     }
 }
