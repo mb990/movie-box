@@ -106,6 +106,11 @@ class ProductService
         return false;
     }
 
+    public function find($id) {
+
+        return $this->product->find($id);
+    }
+
     public function findBySlug($slug) {
 
         return $this->product->findBySlug($slug);

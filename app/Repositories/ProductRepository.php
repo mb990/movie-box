@@ -49,6 +49,11 @@ class ProductRepository
             ->get();
     }
 
+    public function find($id) {
+
+        return $this->product->find($id);
+    }
+
     public function findBySlug($slug) {
 
         return $this->product->where('slug', '=', $slug)->first();

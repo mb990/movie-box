@@ -5,8 +5,8 @@ namespace App\Http\Requests;
 use App\Services\ProductService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use App\Rules\IsInWishlist;
 
 class RemoveFromWishlistRequest extends FormRequest
 {
@@ -47,7 +47,7 @@ class RemoveFromWishlistRequest extends FormRequest
     public function rules()
     {
         return [
-//            'product_id' => Rule::
+            'product_id' => new IsInWishlist($this->productService)
         ];
     }
 
