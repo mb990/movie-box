@@ -9,9 +9,17 @@
 
         Top Rated
 
-    @else
+    @elseif (Request::is('new'))
 
         New Arrivals
+
+    @elseif (Request::has('search'))
+
+        Search
+
+    @elseif (Request::is('movies/filtered/*'))
+
+        Filtered
 
     @endif
 
@@ -58,12 +66,12 @@
             <i class="material-icons">&#xe164;</i>
         </button>
     </div>
-</div>     
+</div>
 @if(session()->has('success'))
     <div class="alert alert-success hide">
         {{ session()->get('success') }}
     </div>
-@endif      
+@endif
 <div class="allMovies moviesColumn">
     @if($errors->any())
     <h4 class="noResults">{{$errors->first()}}</h4>

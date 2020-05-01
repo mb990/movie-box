@@ -44,7 +44,7 @@ class ProductRepository
     }
 
     public function filteredData($request, $perPage) {
-//dd($request->max_rating);
+
         return $this->product->whereBetween('rating', [floatval($request->min_rating), floatval($request->max_rating)])
             ->whereBetween('year', [(intval($request->min_year)), (intval($request->max_year))])
             ->orderBy('year', $request['sort_year'])
