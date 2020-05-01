@@ -25,6 +25,7 @@ class AddToWishlistRequest extends FormRequest
         $this->product = $this->productService->findBySlug(request()->slug);
 
         $request1->merge(['product_id' => $this->product->id]);
+//        dd($this->request);
     }
 
     /**

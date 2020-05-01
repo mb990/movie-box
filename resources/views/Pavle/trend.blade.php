@@ -80,17 +80,20 @@
 
         <form method="GET" action="{{route('products.filtered')}}">
             @csrf
+
+            <label for="per_page">Show</label>
+            <select name="per_page" id="per_page">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+
             <label for="min_rating">Min rating</label>
             <input type="number" name="min_rating" id="min_rating" min="1.0" max="9.9" step="0.1">
 
             <label for="max_rating">Max rating</label>
             <input type="number" name="max_rating" id="max_rating" min="1.1" max="10" step="0.1">
-
-            <label for="sort_rating_asc">asc</label>
-            <input type="radio" name="sort_rating" id="sort_rating_asc" value="asc">
-
-            <label for="sort_rating_desc">desc</label>
-            <input type="radio" name="sort_rating" checked="checked" id="sort_rating_desc" value="desc">
 
             <label for="min_year">Min year</label>
             <input type="number" name="min_year" id="min_year" min="1900" max="{{date("Y") - 1}}">
@@ -98,11 +101,12 @@
             <label for="max_year">Max year</label>
             <input type="number" name="max_year" id="max_year" min="1960" max="{{date("Y")}}">
 
-            <label for="sort_year_asc">asc</label>
-            <input type="radio" name="sort_year" id="sort_year_asc" value="asc">
-
-            <label for="sort_year_desc">desc</label>
-            <input type="radio" name="sort_year" checked="checked" id="sort_year_desc" value="desc">
+            <select name="sorting" id="sort">
+                <option value="rating desc">Rating descending</option>
+                <option value="rating asc">Rating ascending</option>
+                <option value="year desc">Year descending</option>
+                <option value="year asc">Year ascending</option>
+            </select>
 
             <button class="btn btn-success" type="submit">Filter</button>
 

@@ -24,32 +24,31 @@ class ProductRepository
         return $this->product->paginate($perPage);
     }
 
-    public function trending($perPage) {
+    public function trending($request) {
 
         return $this->product->withCount('users')
             ->orderBy('users_count', 'desc')
-            ->paginate($perPage);
+            ->paginate(intval($request['per_page']));
     }
 
-    public function new($perPage) {
+    public function new($request) {
 
         return $this->product->orderBy('year', 'desc')
-            ->paginate($perPage);
+            ->paginate(intval($request['per_page']));
     }
 
-    public function topRated($perPage) {
+    public function topRated($request) {
 
         return $this->product->orderBy('rating', 'desc')
-            ->paginate($perPage);
+            ->paginate(intval($request['per_page']));
     }
 
-    public function filteredData($request, $perPage) {
+    public function filteredData($request, $sortingColumn, $sortingOrder) {
 
         return $this->product->whereBetween('rating', [floatval($request->min_rating), floatval($request->max_rating)])
             ->whereBetween('year', [(intval($request->min_year)), (intval($request->max_year))])
-            ->orderBy('year', $request['sort_year'])
-            ->orderBy('rating', $request['sort_rating'])
-            ->paginate($perPage);
+            ->orderBy($sortingColumn, $sortingOrder)
+            ->paginate(intval($request['per_page']));
     }
 
     public function search($query) {

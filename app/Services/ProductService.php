@@ -36,38 +36,35 @@ class ProductService
         return $this->product->allPaginated($perPage);
     }
 
-    public function trending($perPage) {
+    public function trending($request) {
 
-        return $this->product->trending($perPage);
+        return $this->product->trending($request);
     }
 
-    public function new($perPage) {
+    public function new($request) {
 
-        return $this->product->new($perPage);
+        return $this->product->new($request);
     }
 
-    public function topRated($perPage) {
+    public function topRated($request) {
 
-        return $this->product->topRated($perPage);
+        return $this->product->topRated($request);
     }
 
-    public function filteredData($filters, $perPage) {
+    public function filteredData($request) {
 
-        return $this->product->filteredData($filters, $perPage);
+        $sortingColumn = $this->getSortingData($request)['column'];
+
+        $sortingOrder = $this->getSortingData($request)['order'];
+
+        return $this->product->filteredData($request, $sortingColumn, $sortingOrder);
     }
 
-    public function getData($perPage, $dataType, FormRequest $request = null) {
+    public function getData($dataType, FormRequest $request) {
 
         $data = [];
 
-        if (!empty($request)) {
-
-            $data['products'] = $this->$dataType($request, $perPage);
-        }
-        else {
-
-            $data['products'] = $this->$dataType($perPage);
-        }
+        $data['products'] = $this->$dataType($request);
 
         foreach ($data['products'] as $product) {
 
@@ -248,5 +245,16 @@ class ProductService
     public function recommendedMovie() {
 
         return $this->product->recommendedMovie();
+    }
+
+    public function getSortingData($request) {
+
+        $sorting = [];
+
+        $sorting ['column'] = $first = strstr($request['sorting'], " ", true);
+
+        $sorting ['order'] = $first = ltrim(strstr($request['sorting'], " ", false), ' ');
+
+        return $sorting;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddToWishlistRequest;
 use App\Http\Requests\FilterProductsRequest;
+use App\Http\Requests\GetProductsRequest;
 use App\Http\Requests\RemoveFromWishlistRequest;
 use App\Http\Requests\UserRequest;
 use App\Services\ProductService;
@@ -23,21 +24,9 @@ class ProductController extends Controller
         $this->productService = $productService;
     }
 
-    public function index() {
+    public function index(GetProductsRequest $request) {
 
-        $data = $this->productService->getData(12, 'trending');
-
-        $recommended = $this->productService->getRecommendedMovieData();
-
-//        dd(auth()->user()->hasProduct($recommended['data']));
-        return view('pavle/trend')
-            ->with('recommended', $recommended)
-            ->with('data', $data);
-    }
-
-    public function new() {
-
-        $data = $this->productService->getData('12', 'new');
+        $data = $this->productService->getData( 'trending', $request);
 
         $recommended = $this->productService->getRecommendedMovieData();
 
@@ -46,9 +35,20 @@ class ProductController extends Controller
             ->with('data', $data);
     }
 
-    public function topRated() {
+    public function new(GetProductsRequest $request) {
 
-        $data = $this->productService->getData('12', 'topRated');
+        $data = $this->productService->getData('new', $request);
+
+        $recommended = $this->productService->getRecommendedMovieData();
+
+        return view('pavle/trend')
+            ->with('recommended', $recommended)
+            ->with('data', $data);
+    }
+
+    public function topRated(GetProductsRequest $request) {
+
+        $data = $this->productService->getData('topRated', $request);
 
         $recommended = $this->productService->getRecommendedMovieData();
 
@@ -109,7 +109,7 @@ class ProductController extends Controller
 
     public function showFiltered(FilterProductsRequest $request) {
 
-        $data = $this->productService->getData(12, 'filteredData', $request);
+        $data = $this->productService->getData( 'filteredData', $request);
 
         $recommended = $this->productService->getRecommendedMovieData();
 
