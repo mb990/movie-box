@@ -145,7 +145,6 @@
                         <form method="GET" action="{{route('product.remove', $product->slug)}}">
                             @csrf
                             <button type="submit" title="Remove from wishlist" class="fa fa-trash trash"></button>
-
                         </form>
 
                     @endif
@@ -163,9 +162,14 @@
 
     @endif
 </div>
-<div class="center">
-    {{$data['products']->links()}}
-</div>
+
+@if(!empty($data['products']))
+
+    <div class="center">
+        {{$data['products']->links()}}
+    </div>
+
+@endif
 @endsection
 
 @section('script')
