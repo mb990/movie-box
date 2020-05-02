@@ -64,7 +64,7 @@ class ProductRepository
 
     public function findBySlug($slug) {
 
-        return $this->product->where('slug', '=', $slug)->first();
+        return $this->product->where('slug', '=', $slug)->firstOrFail();
     }
 
     public function findByImdb($id) {
