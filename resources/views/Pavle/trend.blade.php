@@ -83,9 +83,9 @@
 
             <label for="per_page">Show</label>
             <select name="per_page" id="per_page">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
+                <option value="4">4</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
                 <option value="20">20</option>
             </select>
 
