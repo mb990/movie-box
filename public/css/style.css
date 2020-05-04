@@ -246,6 +246,13 @@
   cursor: pointer;
 }
 
+.box-rating-single {
+  padding: 5px;
+  color: #ff0079;
+  border: 1px solid #ff0079;
+  border-radius: 2px;
+}
+
 /* TRAILER */
 
 .modal {
@@ -356,7 +363,8 @@
   color: #ff0079;
   border: 1px solid #ff0079;
   border-radius: 2px;
-  text-align: center;
+  max-width: 20px;
+  max-height: 20px;
 }
 
 .wishlist-box-btn {

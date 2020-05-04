@@ -10,8 +10,8 @@
 <div class="single-movie">
         <img class="box single-box" src="{{ $product->image }}">
     <div class="single-info">
-        <span class="movie-name font-new inline">{{$product->title}} ({{$product->year}}) <!--test-->
-            <span class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</span>
+        <span class="movie-name font-new inline">{{$product->title}} ({{$product->year}})
+            <span class=" box-rating-single help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</span>
             <span>
             @auth()
                 @if(!auth()->user()->hasProduct($product))

@@ -30,7 +30,6 @@
     outline: 0;
     cursor: pointer;
     font-size: 1.6rem;
-
 }
 .trash{
     color: #ff0079;
@@ -39,6 +38,13 @@
     font-size: 1.4rem;
     border: none;
     cursor: pointer;
+}
+.box-rating-single{
+    padding: 5px;
+    color: #ff0079;
+    border: 1px solid #ff0079;
+    border-radius: 2px;
+
 }
 /* TRAILER */
 .modal {
