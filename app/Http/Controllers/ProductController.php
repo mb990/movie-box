@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AddToWishlistRequest;
 use App\Http\Requests\FilterProductsRequest;
 use App\Http\Requests\GetProductsRequest;
-use App\Http\Requests\RemoveFromWishlistRequest;
-use App\Http\Requests\UserRequest;
 use App\Services\ProductService;
-use Doctrine\DBAL\Driver\IBMDB2\DB2Driver;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
-use DebugBar\StandardDebugBar;
-use DebugBar\DataCollector\TimeDataCollector;
 
 class ProductController extends Controller
 {
@@ -100,23 +93,7 @@ class ProductController extends Controller
 //            ->withErrors(['No results', 'The Message']);
     }
 
-    public function addMovie(AddToWishlistRequest $request, $slug){
 
-        $product = $this->productService->findBySlug($slug);
-
-        $this->productService->addToWishlist($product);
-
-        return Redirect::back()->with('success', 'Item added to wishlist');
-    }
-
-    public function removeMovie(RemoveFromWishlistRequest $request, $slug) {
-
-        $product = $this->productService->findBySlug($slug);
-
-        $this->productService->removeFromWishlist($product);
-
-        return Redirect::back()->with('success', 'Item is removed from wishlist');
-    }
 
     public function showFiltered(FilterProductsRequest $request) {
 

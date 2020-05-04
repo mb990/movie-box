@@ -5,7 +5,7 @@ namespace App\Repositories;
 
 use App\Product;
 
-class ProductRepository implements ProductRepositoryInterface {
+class ProductRepository {
     protected $product;
 
     public function __construct(Product $product)
@@ -90,16 +90,6 @@ class ProductRepository implements ProductRepositoryInterface {
     public function mainActors($product) {
 
         return $product->actors()->limit(2)->get();
-    }
-
-    public function addToWishlist($product, $user) {
-
-        $product->users()->attach($user->id);
-    }
-
-    public function removeFromWishlist($product, $user) {
-
-        $product->users()->detach($user->id);
     }
 
     public function recommendedMovie() {

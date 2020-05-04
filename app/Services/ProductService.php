@@ -209,20 +209,6 @@ class ProductService
         return $this->product->mainActors($product);
     }
 
-    public function addToWishlist($product) {
-
-        $user = auth()->user();
-
-        return $this->product->addToWishlist($product, $user);
-    }
-
-    public function removeFromWishlist($product) {
-
-        $user = auth()->user();
-
-        return $this->product->removeFromWishlist($product, $user);
-    }
-
     public function recommendedMovie() {
 
         return $this->product->recommendedMovie();
