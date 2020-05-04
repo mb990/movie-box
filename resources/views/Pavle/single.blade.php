@@ -11,7 +11,7 @@
         <img class="box single-box" src="{{ $product->image }}">
     <div class="single-info">
         <span class="movieName fontNew test">{{$product->title}} ({{$product->year}}) <!--test-->
-            <span class="box-rating">{{$product->rating}}</span>
+            <span class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</span>
             <span>
             @auth()
                 @if(!auth()->user()->hasProduct($product))
@@ -25,7 +25,7 @@
 
                     <form method="GET" action="{{route('product.remove', $product->slug)}}">
                         @csrf
-                        <button class="fa fa-trash single-btn font-big"></button>
+                        <button class="fa fa-trash single-btn font-big" title="Remove from wishlist"></button>
                     </form>
 
                 @endif

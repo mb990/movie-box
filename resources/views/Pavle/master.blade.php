@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="header-top">
-            <a class="noUnderline" href="{{route('homepage.trending')}}"><div class="webName">THE MOVIE BOX</div></a>
+            <a class="noUnderline" href="{{route('homepage.trending')}}"><div class="web-logo">THE MOVIE BOX</div></a>
 
         @guest()
 
@@ -21,7 +21,7 @@
         @endguest
 
         @auth()
-
+            <div class="logIn"><a href=""><button class="active-color">YOUR WISHLIST</button></div></a>
             <div class="logIn"><a href="{{route('logout')}}"><button class="btn-login">LOGOUT</button></div></a>
 
         @endauth
@@ -30,13 +30,13 @@
         <main>
             @yield('main')
         </main>
-        <footer>
+        <footer class="footer">
             <div class="footer-left">
                 <span class="footer-webName">THE MOVIE BOX</span>
                 <span>Designed by Quantox. All rights reserved.</span>
             </div>
-            <div class="links footer-right">
-                <div class="footer-nav">
+            <div class="footer-right">
+                <div>
                     <a class="footer-nav-links" href="">About</a>
                     <a class="footer-nav-links" href="">Movies</a>
                     <a class="footer-nav-links" href="">Rating</a>
