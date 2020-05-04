@@ -1,0 +1,70 @@
+.header {
+    position: relative;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-size: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    color: white;
+}
+.header-mid {
+    padding-left: 10vh;
+    position: absolute;
+    bottom: 0;
+    width: 90vw;
+}
+.header-bot {
+    padding-bottom: 20px;
+}
+.header-rating{
+    background-color: rgb(155, 155, 155);
+    float: right;
+    margin: 0px 40px 20px 0px;
+    padding: 10px;
+    border: 1px solid rgb(82, 82, 82);
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-info {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+.rating-votes{
+    font-size: 0.8rem;
+    color: rgb(110, 110, 110);
+}
+.movie-name {
+    font-size: 2rem;
+}
+.movie-actors, .movie-duration {
+    padding: 5px 0;
+    margin-right: 5px;
+}
+.btn-wishlist {
+    background: none;
+}
+.btn-info {
+    background: none;
+    border: 1px solid white;
+}
+.button-recommended{
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    &:hover{
+        background-color: gray;
+    }
+}

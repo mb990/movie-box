@@ -1,9 +1,11 @@
 @import 'footer';
 @import '_header';
+@import '_headerTrending';
 @import '_singleMovie';
 @import '_movieBox';
 @import '_pagination';
 @import '_navigation';
+@import '_trailer';
 html, body {
     margin: 0;
     padding: 0;

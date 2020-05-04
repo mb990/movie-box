@@ -1,11 +1,10 @@
-.movieNav {
+.movie-nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     margin-top: 20px;
     padding-left: 10vh;
 }
-
 .nav-tab {
     margin: 20px 0px 20px 0px;
     font-size: 1.2rem;
@@ -18,7 +17,6 @@
     padding-bottom: 10px;
     text-decoration: none;
 }
-
 .nav-tab-search {
     margin: 10px 0px 20px 0px;
     font-size: 1rem;
@@ -29,27 +27,23 @@
     color: #80818a;
     border-bottom: 2px solid #80818a;
 }
-
 .nav-tab-search .fa-search {
     font-size: 1rem;
     padding: 0px;
     color: #80818a;
     background-color: white;
 }
-
 .search-input {
     border: 2px solid #80818a;
     padding: 4px;
     border-radius: 4px;
 }
-
 .btn-nav {
     background-color: white;
     color: #80818a;
     font-size: 1.2rem;
-    text-align: right;
+    border: none;
 }
-
 .nav-grid {
     -webkit-box-flex: 4;
         -ms-flex: 4;
@@ -59,7 +53,6 @@
     border-bottom: 2px solid #80818a;
     margin-bottom: 20px;
 }
-
 .active-nav {
     color: #ff0079;
     border-color: #ff0079;

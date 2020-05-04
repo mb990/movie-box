@@ -10,7 +10,7 @@
 <div class="single-movie">
         <img class="box single-box" src="{{ $product->image }}">
     <div class="single-info">
-        <span class="movieName fontNew test">{{$product->title}} ({{$product->year}}) <!--test-->
+        <span class="movie-name fontNew inline">{{$product->title}} ({{$product->year}}) <!--test-->
             <span class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</span>
             <span>
             @auth()

@@ -6,14 +6,15 @@
     <header class="header">
         <img class="header" src="https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg">
         <div class="header-mid">
-            <a href="{{route('product.single', $recommended['data']->slug)}}" class="noUnderline" ><div class="movieName">{{$recommended['data']->title}}</div></a>
+            <a href="{{route('product.single', $recommended['data']->slug)}}" class="no-underline" ><div class="movie-name">{{$recommended['data']->title}}</div></a>
             <div class="movie-info">
-                <div class="movieGenre">{{$recommended['actors']->implode('name', ', ')}}</div>
-                <div class="movieDuration">Duration: {{$recommended['data']->duration}}</div>
+                <div class="movie-actors">{{$recommended['actors']->implode('name', ', ')}}</div>
+                <div class="movie-duration">Duration: {{$recommended['data']->duration}}</div>
             </div>
             <div class="header-bot">
-                <a href="https://google.com/search?q={{$recommended['data']->title}}watch online"><button class="active-color">WATCH MOVIE</button></a>
-                <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
+                <span class="inline">
+                <a href="https://google.com/search?q={{$recommended['data']->title}}watch online"><button class="active-color  button-recommended">WATCH MOVIE</button></a>
+                <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info  button-recommended">VIEW INFO</button></a>
 
                 @auth()
 
@@ -22,7 +23,7 @@
                         <form action="{{route('product.add', $recommended['data']->slug)}}" method="GET">
 
                             @csrf
-                            <button class="btn-wishlist">+ ADD TO WISHLIST</button>
+                            <button class="btn-wishlist button-recommended">+ ADD TO WISHLIST</button>
 
                         </form>
 
@@ -31,14 +32,14 @@
                         <form action="{{route('product.remove', $recommended['data']->slug)}}">
 
                             @csrf
-                            <button class="btn-wishlist">REMOVE FROM WISHLIST</button>
+                            <button class="btn-wishlist button-recommended">REMOVE FROM WISHLIST</button>
 
                         </form>
 
                     @endif
 
                 @endauth
-
+</span>
 
 
                 <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews">
@@ -49,7 +50,7 @@
     </header>
 @endsection
 @section('main')
-<div class="movieNav">
+<div class="movie-nav">
     <a title="Trending" href="{{route('homepage.trending')}}" class="nav-tab {{ Request::is('/') ? 'active-nav' : ''}}">Trending</a>
     <a title="Top Rated" href="{{route('homepage.top')}}" class="nav-tab {{ Request::is('top') ? 'active-nav' : ''}}">Top Rated</a>
     <a title="New Arrivals" href="{{route('homepage.new')}}" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
@@ -57,7 +58,7 @@
     <form action="{{route('search')}}" class="nav-tab-search">
         @csrf
         <input type="text" class="search-input" placeholder="Search movie.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit" class='button-recommended'><i class="fa fa-search"></i></button>
     </form>
     <!-- END SEARCH BUTTON -->
     <div class="nav-grid">
@@ -107,7 +108,7 @@
                 <option value="year asc">Year ascending</option>
             </select>
 
-            <button class=" active-color" type="submit">Filter</button>
+            <button class="button-recommended active-color" type="submit">Filter</button>
 
         </form>
 </div>
@@ -126,7 +127,7 @@
                 <a href="{{route('product.single', $product->slug)}}">
                     <img src="{{ $product->image }}" class="boxPicture">
                 </a>
-                <div class="boxInfo">
+                <div class="box-info">
                     <div class="box-name">
                         <label for="boxPictures">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)...@endif</label>
                         <span class="actors fontNew">

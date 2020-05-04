@@ -22,7 +22,7 @@
     width: 20vw;
 }
 
-.boxInfo {
+.box-info {
     background-color: white;
     padding: 10px;
     display: flex;
@@ -49,6 +49,8 @@
     font-size: 1rem;
     background: white;
     border: none;
+    cursor: pointer;
+    outline: none;
 }
 .font-big{
     font-size: 1.6rem;

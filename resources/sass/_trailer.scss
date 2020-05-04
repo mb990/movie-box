@@ -1,0 +1,29 @@
+/* MODAL TRAILER */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 640px;
+    height: 480px;
+}
+.trailer{
+    background-color: black;
+    width: 640px;
+    height: 480px;
+}
+/*CLOSE BUTTON*/
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
+    z-index: 1;
+    background-color: black;
+}
+.close:hover,
+.close:focus {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    cursor: pointer;
+}
