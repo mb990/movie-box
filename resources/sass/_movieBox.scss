@@ -1,4 +1,4 @@
-.allMovies {
+.all-movies {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -17,11 +17,10 @@
     margin: 20px;
     box-shadow:1px 1px 10px 10px #ebebed; 
 }
-.boxPicture {
+.box-picture {
     height: 45vh;
     width: 20vw;
 }
-
 .box-info {
     background-color: white;
     padding: 10px;
@@ -51,9 +50,6 @@
     border: none;
     cursor: pointer;
     outline: none;
-}
-.font-big{
-    font-size: 1.6rem;
 }
 .wishlist-delete{
     content: "/&#xf014";

@@ -10,7 +10,7 @@
 <div class="single-movie">
         <img class="box single-box" src="{{ $product->image }}">
     <div class="single-info">
-        <span class="movie-name fontNew inline">{{$product->title}} ({{$product->year}}) <!--test-->
+        <span class="movie-name font-new inline">{{$product->title}} ({{$product->year}}) <!--test-->
             <span class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</span>
             <span>
             @auth()
@@ -18,14 +18,14 @@
 
                     <form method="GET" action="{{route('product.add', $product->slug)}}">
                         @csrf
-                        <button class="single-btn font-big" title="Add to wishlist">&#x2764;</button>
+                        <button class="single-btn" title="Add to wishlist">&#x2764;</button>
                     </form>
 
                 @else
 
                     <form method="GET" action="{{route('product.remove', $product->slug)}}">
                         @csrf
-                        <button class="fa fa-trash single-btn font-big" title="Remove from wishlist"></button>
+                        <button class="fa fa-trash single-btn" title="Remove from wishlist"></button>
                     </form>
 
                 @endif
@@ -33,7 +33,7 @@
             @endauth
             </span>
             <span>
-                <button class="single-btn font-big" title="Watch Trailer"onclick="document.getElementById('myModal').style.display='block'">&#x25b6; Play Trailer</button>
+                <button class="single-btn" title="Watch Trailer"onclick="document.getElementById('myModal').style.display='block'">&#x25b6; Play Trailer</button>
             </span>
         </span>
 
@@ -41,7 +41,7 @@
 
         <br>
         <span>PLOT:</span>
-        <p class="fontNew">
+        <p class="font-new">
             {{$product->plot}}
         </p>
         <span>ACTORS: </span>
@@ -49,7 +49,7 @@
         <span>
             @foreach($product->actors as $actor)
 
-                <span class="commas fontNew"> <strong>{{$actor->name}}</strong> as {{$actor->pivot->character}}</span>
+                <span class="commas font-new"> <strong>{{$actor->name}}</strong> as {{$actor->pivot->character}}</span>
 
             @endforeach
         </span>

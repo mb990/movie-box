@@ -27,7 +27,7 @@
     color: #80818a;
     border-bottom: 2px solid #80818a;
 }
-.nav-tab-search .fa-search {
+.fa-search {
     font-size: 1rem;
     padding: 0px;
     color: #80818a;
@@ -43,6 +43,7 @@
     color: #80818a;
     font-size: 1.2rem;
     border: none;
+    cursor: pointer;
 }
 .nav-grid {
     -webkit-box-flex: 4;
@@ -56,4 +57,7 @@
 .active-nav {
     color: #ff0079;
     border-color: #ff0079;
+}
+.filters{
+    text-align: center;
 }

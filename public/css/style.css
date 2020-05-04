@@ -161,6 +161,44 @@
   background-color: gray;
 }
 
+/*NO SEARCH RESULTS*/
+
+.no-results {
+  padding-top: 20px;
+  font-size: 1.2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #aaaaaa;
+  width: 100vw;
+  text-align: center;
+}
+
+/*ADDED or DELETED MOVIE INFO*/
+
+.hide {
+  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+          animation: cssAnimation 0s ease-in 5s forwards;
+  text-align: center;
+  background-color: #ebebed;
+  color: #ff0079;
+  font-size: 1.5rem;
+}
+
+@keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+@-webkit-keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
 /*SINGLE MOVIE PAGE*/
 
 .single-movie {
@@ -196,6 +234,7 @@
   color: #ff0079;
   outline: 0;
   cursor: pointer;
+  font-size: 1.6rem;
 }
 
 .trash {
@@ -207,7 +246,7 @@
   cursor: pointer;
 }
 
-/* MODAL */
+/* TRAILER */
 
 .modal {
   display: none;
@@ -223,6 +262,39 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+  width: 640px;
+  height: 480px;
+}
+
+.trailer {
+  background-color: black;
+  width: 640px;
+  height: 480px;
+}
+
+/*CLOSE BUTTON*/
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px;
+  z-index: 1;
+  background-color: black;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /*ACTORS AND ROLES*/
 
 .commas::after {
@@ -235,7 +307,7 @@
 
 /*END ACTORS AND ROLES*/
 
-.fontNew {
+.font-new {
   font-family: TiemposTextWeb-Regular, Georgia, serif;
 }
 
@@ -243,7 +315,7 @@
   cursor: help;
 }
 
-.allMovies {
+.all-movies {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
@@ -257,7 +329,7 @@
   box-shadow: 1px 1px 10px 10px #ebebed;
 }
 
-.boxPicture {
+.box-picture {
   height: 45vh;
   width: 20vw;
 }
@@ -297,15 +369,9 @@
   outline: none;
 }
 
-.font-big {
-  font-size: 1.6rem;
-}
-
 .wishlist-delete {
   content: "/&#xf014";
 }
-
-/*PAGE NUMBERS*/
 
 .pagination {
   margin-top: 20px;
@@ -339,8 +405,6 @@
   background-color: #ff0079;
 }
 
-/*END PAGE NUMBERS*/
-
 .movie-nav {
   display: flex;
   margin-top: 20px;
@@ -367,7 +431,7 @@
   border-bottom: 2px solid #80818a;
 }
 
-.nav-tab-search .fa-search {
+.fa-search {
   font-size: 1rem;
   padding: 0px;
   color: #80818a;
@@ -385,6 +449,7 @@
   color: #80818a;
   font-size: 1.2rem;
   border: none;
+  cursor: pointer;
 }
 
 .nav-grid {
@@ -400,39 +465,13 @@
   border-color: #ff0079;
 }
 
-/* MODAL TRAILER */
-
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  border: 1px solid #888;
-  width: 640px;
-  height: 480px;
+.filters {
+  text-align: center;
 }
 
-.trailer {
-  background-color: black;
-  width: 640px;
-  height: 480px;
-}
-
-/*CLOSE BUTTON*/
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding: 10px;
-  z-index: 1;
-  background-color: black;
-}
-
-.close:hover,
-.close:focus {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
+.wishlist {
+  color: #ff0079;
+  text-align: center;
 }
 
 html,
@@ -440,47 +479,5 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
-
-.noResults {
-  padding-top: 20px;
-  font-size: 1.2rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #aaaaaa;
-  width: 100vw;
-  text-align: center;
-}
-
-.hide {
-  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-          animation: cssAnimation 0s ease-in 5s forwards;
-  text-align: center;
-  background-color: #ebebed;
-  color: #ff0079;
-  font-size: 1.5rem;
-}
-
-@keyframes cssAnimation {
-  to {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-  }
-}
-
-@-webkit-keyframes cssAnimation {
-  to {
-    width: 0;
-    height: 0;
-    visibility: hidden;
-  }
-}
-
-.filters {
-  text-align: center;
-}
-
-.wishlist {
-  padding-left: 10vh;
 }
 

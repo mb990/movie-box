@@ -77,7 +77,7 @@
         {{ session()->get('success') }}
     </div>
 @endif
-<div class="filters fontNew" >
+<div class="filters font-new" >
     <form method="GET" action="{{route('products.filtered')}}">
             @csrf
 
@@ -112,10 +112,10 @@
 
         </form>
 </div>
-<div class="allMovies moviesColumn">
+<div class="all-movies js-moviesColumn">
 
     @if($errors->any())
-    <h4 class="noResults">{{$errors->first()}}</h4>
+    <h4 class="no-results">{{$errors->first()}}</h4>
 
     @endif
 
@@ -125,12 +125,12 @@
         @foreach($data['products'] as $product)
             <div class="box">
                 <a href="{{route('product.single', $product->slug)}}">
-                    <img src="{{ $product->image }}" class="boxPicture">
+                    <img src="{{ $product->image }}" class="box-picture">
                 </a>
                 <div class="box-info">
                     <div class="box-name">
-                        <label for="boxPictures">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)...@endif</label>
-                        <span class="actors fontNew">
+                        <label for="boxPicture">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)...@endif</label>
+                        <span class="actors font-new">
 
                             @if(!empty($data['actors'][$product->slug]))
 
@@ -184,7 +184,7 @@
 <script>
     var list = document.querySelector(".js-list")
     var grid = document.querySelector(".js-grid")
-    var listGrid = document.querySelector(".moviesColumn")
+    var listGrid = document.querySelector(".js-moviesColumn")
     function listView() {
         list.classList.add("active-nav");
         grid.classList.remove("active-nav");
