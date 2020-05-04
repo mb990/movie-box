@@ -129,7 +129,7 @@
                 </a>
                 <div class="box-info">
                     <div class="box-name">
-                        <label for="boxPicture">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)... @endif {{($product->year)}}</label>
+                        <label for="boxPicture">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)... @endif <span>({{($product->year)}})</span></label>
                         
                         <span class="actors font-new">
 
