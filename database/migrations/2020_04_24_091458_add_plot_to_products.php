@@ -14,7 +14,7 @@ class AddPlotToProducts extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->text('plot')->nullable()->after('rating');
+            $table->mediumText('plot')->nullable()->after('rating');
         });
     }
 

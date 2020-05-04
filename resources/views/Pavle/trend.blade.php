@@ -1,29 +1,7 @@
 @extends('pavle.master')
-@section('title')
 
-    @if(Request::is('/'))
+@section('title', '')
 
-        Trending
-
-    @elseif (Request::is('top'))
-
-        Top Rated
-
-    @elseif (Request::is('new'))
-
-        New Arrivals
-
-    @elseif (Request::has('search'))
-
-        Search
-
-    @elseif (Request::is('movies/filtered/*'))
-
-        Filtered
-
-    @endif
-
-@endsection
 @section('header')
     <header class="header">
         <img class="header" src="https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg">
@@ -34,10 +12,35 @@
                 <div class="movieDuration">Duration: {{$recommended['data']->duration}}</div>
             </div>
             <div class="header-bot">
-                <button class="active-color">WATCH MOVIE</button>
+                <a href="https://google.com/search?q={{$recommended['data']->title}}watch online"><button class="active-color">WATCH MOVIE</button></a>
                 <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info">VIEW INFO</button></a>
-                <button class="btn-wishlist">+ ADD TO WISHLIST</button>
-                <button class="btn-wishlist">REMOVE FROM WISHLIST</button>
+
+                @auth()
+
+                    @if(!auth()->user()->hasProduct($recommended['data']))
+
+                        <form action="{{route('product.add', $recommended['data']->slug)}}" method="GET">
+
+                            @csrf
+                            <button class="btn-wishlist">+ ADD TO WISHLIST</button>
+
+                        </form>
+
+                    @else
+
+                        <form action="{{route('product.remove', $recommended['data']->slug)}}">
+
+                            @csrf
+                            <button class="btn-wishlist">REMOVE FROM WISHLIST</button>
+
+                        </form>
+
+                    @endif
+
+                @endauth
+
+
+
                 <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews">
                 Rating: {{$recommended['data']->rating}}
                 </div>
@@ -67,12 +70,12 @@
             <i class="material-icons">&#xe164;</i>
         </button>
     </div>
-</div> 
+</div>
 @if(session()->has('success'))
     <div class="alert alert-success hide">
         {{ session()->get('success') }}
     </div>
-@endif 
+@endif
 <div class="filters fontNew" >
     <form method="GET" action="{{route('products.filtered')}}">
             @csrf
@@ -108,14 +111,14 @@
 
         </form>
 </div>
-        
+
 <div class="allMovies moviesColumn">
     @if($errors->any())
     <h4 class="noResults">{{$errors->first()}}</h4>
 
     @endif
 
-        
+
     @if(!empty($data['products']))
 
         @foreach($data['products'] as $product)

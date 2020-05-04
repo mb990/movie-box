@@ -5,8 +5,7 @@ namespace App\Repositories;
 
 use App\Product;
 
-class ProductRepository
-{
+class ProductRepository implements ProductRepositoryInterface {
     protected $product;
 
     public function __construct(Product $product)

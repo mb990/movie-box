@@ -12,6 +12,30 @@ class ValidationService
         //
     }
 
+    public function validateFile($product) {
+
+        $data = [
+            $product->title,
+            $product->year,
+            $product->rating,
+            $product->length,
+            $product->rating_votes,
+            $product->poster,
+            $product->plot,
+            $product->trailer->link
+        ];
+
+        foreach ($data as $field) {
+
+            if (empty($field)) {
+
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function validateFilterData(FormRequest $request) {
 
         if ($this->checkIfEmpty($request)) {

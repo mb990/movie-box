@@ -12,7 +12,7 @@ class GetProductsRequest extends FormRequest
     {
         parent::__construct($query, $request, $attributes, $cookies, $files, $server, $content);
 
-        $myRequest->merge(['per_page' => 10]);
+        $myRequest->merge(['per_page' => 12]);
     }
 
     /**

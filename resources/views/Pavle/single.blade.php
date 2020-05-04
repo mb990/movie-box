@@ -1,5 +1,5 @@
 @extends('pavle.master')
-@section('title', "Movie Name")
+@section('title', "")
 
 @section('main')
 @if(session()->has('success'))

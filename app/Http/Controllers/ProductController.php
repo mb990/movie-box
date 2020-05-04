@@ -30,9 +30,12 @@ class ProductController extends Controller
 
         $recommended = $this->productService->getRecommendedMovieData();
 
+        $title = 'Trending';
+
         return view('pavle/trend')
-            ->with('recommended', $recommended)
-            ->with('data', $data);
+            ->with(compact('title'))
+            ->with(compact('recommended'))
+            ->with(compact('data'));
     }
 
     public function new(GetProductsRequest $request) {
@@ -41,9 +44,12 @@ class ProductController extends Controller
 
         $recommended = $this->productService->getRecommendedMovieData();
 
+        $title = 'New arrivals';
+
         return view('pavle/trend')
-            ->with('recommended', $recommended)
-            ->with('data', $data);
+            ->with(compact('title'))
+            ->with(compact('recommended'))
+            ->with(compact('data'));
     }
 
     public function topRated(GetProductsRequest $request) {
@@ -52,16 +58,23 @@ class ProductController extends Controller
 
         $recommended = $this->productService->getRecommendedMovieData();
 
+        $title = 'Top rated';
+
         return view('pavle/trend')
-            ->with('recommended', $recommended)
-            ->with('data', $data);
+            ->with(compact('title'))
+            ->with(compact('recommended'))
+            ->with(compact('data'));
     }
 
     public function showSingle($slug) {
 
         $product = $this->productService->findBySlug($slug);
 
-        return view('pavle.single')->with('product', $product);
+        $title = $product->title;
+
+        return view('pavle.single')
+            ->with(compact('title'))
+            ->with(compact('product'));
     }
 
     public function search(Request $request) {
@@ -72,6 +85,8 @@ class ProductController extends Controller
 
         $recommended = $this->productService->getRecommendedMovieData();
 
+        $title = 'Search results';
+
         if (empty($query)) {
 
             return Redirect::to('/')
@@ -81,8 +96,9 @@ class ProductController extends Controller
         else if (!empty($data)) {
 
             return view('pavle.trend')
-                ->with('recommended', $recommended)
-                ->with('data', $data);
+                ->with(compact('title'))
+                ->with(compact('recommended'))
+                ->with(compact('data'));
         }
 
         return Redirect::to('/')
@@ -113,8 +129,11 @@ class ProductController extends Controller
 
         $recommended = $this->productService->getRecommendedMovieData();
 
+        $title = 'Filtered';
+
         return view('pavle.trend')
-            ->with('data', $data)
-            ->with('recommended', $recommended);
+            ->with(compact('title'))
+            ->with(compact('recommended'))
+            ->with(compact('data'));
     }
 }

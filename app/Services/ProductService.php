@@ -16,14 +16,19 @@ class ProductService
     protected $apiService;
     protected $actorService;
     protected $paginationService;
+    /**
+     * @var ValidationService
+     */
+    private $validationService;
 
     public function __construct(ProductRepository $product, ApiService $apiService, ActorService $actorService,
-                                PaginationService $paginationService)
+                                PaginationService $paginationService, ValidationService $validationService)
     {
         $this->product = $product;
         $this->apiService = $apiService;
         $this->actorService = $actorService;
         $this->paginationService = $paginationService;
+        $this->validationService = $validationService;
     }
 
     public function all() {
@@ -182,7 +187,7 @@ class ProductService
 
                 $result = $this->apiService->find($movie->id);
 
-                if ($this->validateFile($result)) {
+                if ($this->validationService->validateFile($result)) {
 
                     if (!$this->findByImdb($result->id)) { // check if movie is already in db
 
@@ -197,30 +202,6 @@ class ProductService
         }
 
         return $movies;
-    }
-
-    public function validateFile($product) {
-
-        $data = [
-            $product->title,
-            $product->year,
-            $product->rating,
-            $product->length,
-            $product->rating_votes,
-            $product->poster,
-            $product->plot,
-            $product->trailer->link
-            ];
-
-        foreach ($data as $field) {
-
-            if (empty($field)) {
-
-                return false;
-            }
-        }
-
-        return true;
     }
 
     public function mainActors($product) {
