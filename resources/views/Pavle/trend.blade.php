@@ -66,19 +66,14 @@
             <i class="material-icons">&#xe164;</i>
         </button>
     </div>
-</div>
+</div> 
 @if(session()->has('success'))
     <div class="alert alert-success hide">
         {{ session()->get('success') }}
     </div>
-@endif
-<div class="allMovies moviesColumn">
-    @if($errors->any())
-    <h4 class="noResults">{{$errors->first()}}</h4>
-
-    @endif
-
-        <form method="GET" action="{{route('products.filtered')}}">
+@endif 
+<div class="filters fontNew" >
+    <form method="GET" action="{{route('products.filtered')}}">
             @csrf
 
             <label for="per_page">Show</label>
@@ -90,16 +85,16 @@
             </select>
 
             <label for="min_rating">Min rating</label>
-            <input type="number" name="min_rating" id="min_rating" min="1.0" max="9.9" step="0.1">
+            <input class="search-input" type="number" name="min_rating" id="min_rating" min="1.0" max="9.9" step="0.1">
 
             <label for="max_rating">Max rating</label>
-            <input type="number" name="max_rating" id="max_rating" min="1.1" max="10" step="0.1">
+            <input class="search-input" type="number" name="max_rating" id="max_rating" min="1.1" max="10" step="0.1">
 
             <label for="min_year">Min year</label>
-            <input type="number" name="min_year" id="min_year" min="1900" max="{{date("Y") - 1}}">
+            <input class="search-input" type="number" name="min_year" id="min_year" min="1900" max="{{date("Y") - 1}}">
 
             <label for="max_year">Max year</label>
-            <input type="number" name="max_year" id="max_year" min="1960" max="{{date("Y")}}">
+            <input class="search-input" type="number" name="max_year" id="max_year" min="1960" max="{{date("Y")}}">
 
             <select name="sorting" id="sort">
                 <option value="rating desc">Rating descending</option>
@@ -108,10 +103,18 @@
                 <option value="year asc">Year ascending</option>
             </select>
 
-            <button class="btn btn-success" type="submit">Filter</button>
+            <button class=" active-color" type="submit">Filter</button>
 
         </form>
+</div>
+        
+<div class="allMovies moviesColumn">
+    @if($errors->any())
+    <h4 class="noResults">{{$errors->first()}}</h4>
 
+    @endif
+
+        
     @if(!empty($data['products']))
 
         @foreach($data['products'] as $product)

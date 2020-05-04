@@ -2,43 +2,47 @@
 @section('title', "Movie Name")
 
 @section('main')
+@if(session()->has('success'))
+<div class="alert alert-success hide">
+    {{ session()->get('success') }}
+</div>
+@endif
 <div class="single-movie">
         <img class="box single-box" src="{{ $product->image }}">
     <div class="single-info">
-        <span class="movieName fontNew">{{$product->title}} ({{$product->year}})
+        <span class="movieName fontNew test">{{$product->title}} ({{$product->year}}) <!--test-->
             <span class="box-rating">{{$product->rating}}</span>
-{{--            stavio sam ovo ovde za testiranje, ti namesti gde hoces, to je poruka kad neko doda/obrise film na ovoj stranici--}}
-            @if(session()->has('success'))
-                            <div class="alert alert-success hide">
-                    {{ session()->get('success') }}
-                </div>
-            @endif
-{{--            -----}}
+            <span>
             @auth()
-
                 @if(!auth()->user()->hasProduct($product))
 
                     <form method="GET" action="{{route('product.add', $product->slug)}}">
                         @csrf
-                        <button class="wishlist-box-btn box-rating single-btn font-big" title="Add to wishlist">&#x2764;</button>
+                        <button class="single-btn font-big" title="Add to wishlist">&#x2764;</button>
                     </form>
 
                 @else
 
                     <form method="GET" action="{{route('product.remove', $product->slug)}}">
                         @csrf
-                        <button class="fa fa-trash trash single-btn font-big"></button>
+                        <button class="fa fa-trash single-btn font-big"></button>
                     </form>
 
                 @endif
 
             @endauth
-            <button class="wishlist-box-btn box-rating single-btn font-big" title="Watch Trailer"onclick="document.getElementById('myModal').style.display='block'">&#x25b6; Play Trailer</button>
+            </span>
+            <span>
+                <button class="single-btn font-big" title="Watch Trailer"onclick="document.getElementById('myModal').style.display='block'">&#x25b6; Play Trailer</button>
+            </span>
         </span>
-        <span>Duration: {{$product->duration}}</span>
+
+            <span>Duration: {{$product->duration}}</span>
+
         <br>
         <span>PLOT:</span>
-        <p class="fontNew">{{$product->plot}}
+        <p class="fontNew">
+            {{$product->plot}}
         </p>
         <span>ACTORS: </span>
 
@@ -49,7 +53,7 @@
 
             @endforeach
         </span>
-
+    </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="trailer">
