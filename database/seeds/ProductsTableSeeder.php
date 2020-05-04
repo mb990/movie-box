@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Services\productService;
+use App\Services\ProductSearchService;
 class ProductsTableSeeder extends Seeder
 {
     /**
@@ -9,23 +9,27 @@ class ProductsTableSeeder extends Seeder
      *
      * @return void
      */
-    protected $productService;
 
-    public function __construct(ProductService $productService)
+    /**
+     * @var ProductSearchService
+     */
+    private $productSearchService;
+
+    public function __construct(ProductSearchService $productSearchService)
     {
-        $this->productService = $productService;
+        $this->productSearchService = $productSearchService;
     }
 
     public function run()
     {
 //        factory(App\Product::class, 100)->create();
 
-        $queries = ['terminator', 'hulk', 'matrix', 'rambo',
+        $queries = ['teminator', 'hulk', 'matrix', 'rambo',
                     'rocky', 'avatar', 'saw'];
 
         foreach ($queries as $query) {
 
-            $this->productService->processSearch($query);
+            $this->productSearchService->processSearch($query);
         }
     }
 }
