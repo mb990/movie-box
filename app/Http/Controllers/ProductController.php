@@ -70,31 +70,6 @@ class ProductController extends Controller
             ->with(compact('product'));
     }
 
-    public function search(Request $request) {
-
-        $query = $request->input('search');
-
-        $data = $this->productService->getSearchedData($query);
-
-        $recommended = $this->productService->getRecommendedMovieData();
-
-        $title = 'Search results';
-
-        if (empty($query)) {
-
-            return Redirect::to('/')
-                ->withErrors(['Type something into search', 'The Message']);
-        }
-
-        return view('pavle.trend')
-            ->with(compact('title'))
-            ->with(compact('recommended'))
-            ->with(compact('data'));
-//            ->withErrors(['No results', 'The Message']);
-    }
-
-
-
     public function showFiltered(FilterProductsRequest $request) {
 
         $data = $this->productService->getData( 'filteredData', $request);

@@ -22,7 +22,7 @@ Route::get('/', 'ProductController@index')->name('homepage.trending');
 Route::get('/new', 'ProductController@new')->name('homepage.new');
 Route::get('/top', 'ProductController@topRated')->name('homepage.top');
 Route::get('/movies/sorted/{sort}', 'ProductController@sorted')->name('products.sorted');
-Route::get('/search', 'ProductController@search')->name('search');
+Route::get('/search', 'ProductSearchController@index')->name('search');
 Route::get('/movies/{slug}', 'ProductController@showSingle')->name('product.single');
 Route::get('/movies/filtered/results', 'ProductController@showFiltered')->name('products.filtered');
 Route::get('/movies/{slug}/add', 'WishlistController@addMovie')->name('product.add');

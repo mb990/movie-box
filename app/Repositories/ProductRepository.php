@@ -50,12 +50,6 @@ class ProductRepository {
             ->paginate(intval($request['per_page']));
     }
 
-    public function search($query) {
-
-        return $this->product->where('title', 'like', '%' . $query . '%')
-            ->get();
-    }
-
     public function find($id) {
 
         return $this->product->find($id);
@@ -89,7 +83,9 @@ class ProductRepository {
 
     public function mainActors($product) {
 
-        return $product->actors()->limit(2)->get();
+        return $product->actors()
+            ->limit(2)
+            ->get();
     }
 
     public function recommendedMovie() {

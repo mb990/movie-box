@@ -26,5 +26,4 @@ class WishlistRepository {
 
         $product->users()->detach($user->id);
     }
-
 }
