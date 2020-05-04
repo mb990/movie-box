@@ -1,4 +1,4 @@
-footer {
+.footer {
     height: 30vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -19,6 +19,10 @@ footer {
             flex-direction: column;
     padding-left: 10vh;
 }
+.footer-webName {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+}
 .footer-right {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -26,17 +30,15 @@ footer {
     text-align: right;
     padding-right: 10vh;
 }
-.footer-right a {
-  text-decoration: none;
-  cursor: pointer;
-}
 .footer-nav-links {
   margin: 10px;
   color: #80818a;
+  text-decoration: none;
+  cursor: pointer;
 }
-.footer-webName {
-  font-size: 1.3rem;
-  margin-bottom: 40px;
+/*SOCIAL NETWORKS LINKS*/
+.social {
+  padding-top: 20px;
 }
 .fa-social {
   padding: 5px;
@@ -47,7 +49,7 @@ footer {
   border-radius: 50%;
   background-color: #ebebed;
   color: white;
-}
-.social {
-  padding-top: 20px;
+  &:hover{
+    color: #ff0079;
+  }
 }

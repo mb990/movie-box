@@ -1,4 +1,4 @@
-footer {
+.footer {
   height: 30vh;
   display: flex;
   padding-top: 20px;
@@ -12,25 +12,28 @@ footer {
   padding-left: 10vh;
 }
 
+.footer-webName {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+}
+
 .footer-right {
   flex: 1;
   text-align: right;
   padding-right: 10vh;
 }
 
-.footer-right a {
+.footer-nav-links {
+  margin: 10px;
+  color: #80818a;
   text-decoration: none;
   cursor: pointer;
 }
 
-.footer-nav-links {
-  margin: 10px;
-  color: #80818a;
-}
+/*SOCIAL NETWORKS LINKS*/
 
-.footer-webName {
-  font-size: 1.3rem;
-  margin-bottom: 40px;
+.social {
+  padding-top: 20px;
 }
 
 .fa-social {
@@ -44,8 +47,8 @@ footer {
   color: white;
 }
 
-.social {
-  padding-top: 20px;
+.fa-social:hover {
+  color: #ff0079;
 }
 
 .header {
@@ -94,7 +97,7 @@ footer {
   color: #6e6e6e;
 }
 
-.webName {
+.web-logo {
   flex: 4;
   padding-top: 5px;
   padding-left: 10vh;
@@ -194,6 +197,7 @@ button {
   padding-bottom: 0px;
   margin: 4px;
   color: #ff0079;
+  outline: 0;
 }
 
 .trash {
