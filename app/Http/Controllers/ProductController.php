@@ -93,16 +93,11 @@ class ProductController extends Controller
                 ->withErrors(['Type something into search', 'The Message']);
         }
 
-        else if (!empty($data)) {
-
-            return view('pavle.trend')
-                ->with(compact('title'))
-                ->with(compact('recommended'))
-                ->with(compact('data'));
-        }
-
-        return Redirect::to('/')
-            ->withErrors(['No results', 'The Message']);
+        return view('pavle.trend')
+            ->with(compact('title'))
+            ->with(compact('recommended'))
+            ->with(compact('data'));
+//            ->withErrors(['No results', 'The Message']);
     }
 
     public function addMovie(AddToWishlistRequest $request, $slug){

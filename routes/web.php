@@ -28,7 +28,7 @@ Route::get('/movies/filtered/results', 'ProductController@showFiltered')->name('
 Route::get('/movies/{slug}/add', 'ProductController@addMovie')->name('product.add');
 Route::get('/movies/{slug}/remove', 'ProductController@removeMovie')->name('product.remove');
 
-Route::get('/wishlist', 'WishlistController@index');
+Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
 
 Route::get("/test", "TestController@test")->name("test");
 Route::post("/test", "TestController@test")->name("test");

@@ -120,7 +120,7 @@
     @endif
 
 
-    @if(!empty($data['products']))
+    @if(!empty($data['products']['items']))
 
         @foreach($data['products'] as $product)
             <div class="box">
@@ -166,7 +166,7 @@
 
         @else
 
-        <p>no movies</p>
+        <p>No movies</p>
 
     @endif
 </div>
