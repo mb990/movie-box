@@ -112,15 +112,15 @@
 
         </form>
 </div>
-
 <div class="allMovies moviesColumn">
+
     @if($errors->any())
     <h4 class="noResults">{{$errors->first()}}</h4>
 
     @endif
 
 
-    @if(!empty($data['products']['items']))
+    @if(($data['products']->isNotEmpty()))
 
         @foreach($data['products'] as $product)
             <div class="box">
