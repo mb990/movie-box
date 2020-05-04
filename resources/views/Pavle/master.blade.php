@@ -21,7 +21,13 @@
         @endguest
 
         @auth()
-            <div class="logIn"><a href=""><button class="active-color">YOUR WISHLIST</button></div></a>
+
+            @if(!Request::is('wishlist'))
+
+            <div class="logIn"><a href="/wishlist"><button class="active-color">YOUR WISHLIST</button></div></a>
+
+            @endif
+
             <div class="logIn"><a href="{{route('logout')}}"><button class="btn-login">LOGOUT</button></div></a>
 
         @endauth
