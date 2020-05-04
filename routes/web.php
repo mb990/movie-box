@@ -28,7 +28,7 @@ Route::get('/movies/filtered/results', 'ProductController@showFiltered')->name('
 Route::get('/movies/{slug}/add', 'WishlistController@addMovie')->name('product.add');
 Route::get('/movies/{slug}/remove', 'WishlistController@removeMovie')->name('product.remove');
 
-Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
+Route::get('/wishlist', 'WishlistController@index')->name('wishlist')->middleware('auth');
 
 Route::get("/test", "TestController@test")->name("test");
 Route::post("/test", "TestController@test")->name("test");
