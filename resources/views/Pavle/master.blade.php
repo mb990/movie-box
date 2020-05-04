@@ -33,7 +33,7 @@
         <footer>
             <div class="footer-left">
                 <span class="footer-webName">THE MOVIE BOX</span>
-                <span class="designed">Designed by Quantox. All rights reserved.</span>
+                <span>Designed by Quantox. All rights reserved.</span>
             </div>
             <div class="links footer-right">
                 <div class="footer-nav">
@@ -43,10 +43,10 @@
                     <a class="footer-nav-links" href="">Contact</a>
                 </div>
                 <div class="social">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-pinterest"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-facebook fa-social"></a>
+                    <a href="#" class="fa fa-pinterest fa-social"></a>
+                    <a href="#" class="fa fa-twitter fa-social"></a>
+                    <a href="#" class="fa fa-linkedin fa-social"></a>
                 </div>
             </div>
         </footer>

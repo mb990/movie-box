@@ -1,0 +1,28 @@
+/*PAGE NUMBERS*/
+.pagination{
+    margin-top: 20px;
+    list-style: none;
+    display: inline-flex;
+    margin: 0 auto;
+}
+.center{
+    margin-top: 30px;
+    text-align: center;
+}
+.page-item{
+    margin: 5px;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+.page-link{
+    text-decoration: none;
+    padding: 8px;
+}
+.page-item:hover{
+    background-color: #ff0079;
+}
+.active{
+    background-color: #ff0079;
+}
+/*END PAGE NUMBERS*/

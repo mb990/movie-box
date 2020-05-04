@@ -1,0 +1,58 @@
+.allMovies {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    background-color: #f8f8f8;
+    padding-bottom: 50px;
+}
+.box {
+    width: 20vw;
+    margin: 20px;
+    box-shadow:1px 1px 10px 10px #ebebed; 
+}
+.boxPicture {
+    height: 45vh;
+    width: 20vw;
+}
+
+.boxInfo {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+}
+.box-name{
+    flex: 6;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+}
+.actors{
+    font-size: 0.6rem;
+}
+.box-rating{
+    padding: 5px;
+    color: #ff0079;
+    border: 1px solid #ff0079;
+    border-radius: 2px;
+    text-align: center;
+}
+.wishlist-box-btn{
+    margin-right: 5px;
+    padding-top: 0px;
+    font-size: 1rem;
+    background: white;
+    border: none;
+}
+.font-big{
+    font-size: 1.6rem;
+}
+.wishlist-delete{
+    content: "/&#xf014";
+}
