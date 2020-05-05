@@ -1,8 +1,6 @@
 .header {
     position: relative;
     height: 70vh;
-    background-repeat: no-repeat;
-    background-size: inherit;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -14,6 +12,12 @@
         -ms-flex-pack: justify;
             justify-content: space-between;
     color: white;
+    overflow: hidden;
+}
+.header-image{
+    position: absolute;
+    height: 140vh;
+    width: 100vw;
 }
 .header-mid {
     padding-left: 10vh;

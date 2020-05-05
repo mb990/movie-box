@@ -91,12 +91,17 @@
 .header {
   position: relative;
   height: 70vh;
-  background-repeat: no-repeat;
-  background-size: inherit;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: white;
+  overflow: hidden;
+}
+
+.header-image {
+  position: absolute;
+  height: 140vh;
+  width: 100vw;
 }
 
 .header-mid {

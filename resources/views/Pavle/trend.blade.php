@@ -4,7 +4,7 @@
 
 @section('header')
     <header class="header">
-        <img class="header" src="{{ $recommended['data']->image }}">
+        <img class="header-image" src="{{ $recommended['data']->image }}">
         <div class="header-mid">
             <a href="{{route('product.single', $recommended['data']->slug)}}" class="no-underline" ><div class="movie-name">{{$recommended['data']->title}}</div></a>
             <div class="movie-info">

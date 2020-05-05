@@ -27,7 +27,7 @@
                 <div class="logIn"><a href="{{route('wishlist')}}"><button class="active-color button-recommended">YOUR WISHLIST</button></div></a>
 
             @endif
-            <div class="logIn"><a href="{{route('logout')}}"><button class="btn-login button-recommended">LOGOUT</button></div></a>
+            <div class="signUp"><a href="{{route('logout')}}"><button class="btn-login button-recommended">LOGOUT</button></div></a>
 
         @endauth
     </div>
