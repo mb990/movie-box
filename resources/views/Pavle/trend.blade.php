@@ -6,40 +6,40 @@
     <header class="header">
         <img class="header-image" src="{{ $recommended['data']->image }}">
         <div class="header-mid">
-            <a href="{{route('product.single', $recommended['data']->slug)}}" class="no-underline" ><div class="movie-name">{{$recommended['data']->title}}</div></a>
+            <a href="{{route('product.single', $recommended['data']->slug)}}" class="no-underline" ><div class="movie-name pink">{{$recommended['data']->title}}</div></a>
             <div class="movie-info">
-                <div class="movie-actors">{{$recommended['actors']->implode('name', ', ')}}</div>
-                <div class="movie-duration">Duration: {{$recommended['data']->duration}}</div>
+                <div class="movie-actors pink">{{$recommended['actors']->implode('name', ', ')}}</div>
+                <div class="movie-duration pink">Duration: {{$recommended['data']->duration}}</div>
             </div>
             <div class="header-bot">
                 <span class="inline">
-                <a href="https://google.com/search?q={{$recommended['data']->title}}watch online"><button class="active-color  button-recommended">WATCH MOVIE</button></a>
-                <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info  button-recommended">VIEW INFO</button></a>
+                    <a href="https://google.com/search?q={{$recommended['data']->title}}watch online"><button class="active-color  button-recommended">WATCH MOVIE</button></a>
+                    <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info  button-recommended pink">VIEW INFO</button></a>
 
-                @auth()
+                    @auth()
 
-                    @if(!auth()->user()->hasProduct($recommended['data']))
+                        @if(!auth()->user()->hasProduct($recommended['data']))
 
-                        <form action="{{route('product.add', $recommended['data']->slug)}}" method="GET">
+                            <form action="{{route('product.add', $recommended['data']->slug)}}" method="GET">
 
-                            @csrf
-                            <button class="btn-wishlist button-recommended">+ ADD TO WISHLIST</button>
+                                @csrf
+                                <button class="btn-wishlist button-recommended pink">+ ADD TO WISHLIST</button>
 
-                        </form>
+                            </form>
 
-                    @else
+                        @else
 
-                        <form action="{{route('product.remove', $recommended['data']->slug)}}">
+                            <form action="{{route('product.remove', $recommended['data']->slug)}}">
 
-                            @csrf
-                            <button class="btn-wishlist button-recommended">REMOVE FROM WISHLIST</button>
+                                @csrf
+                                <button class="btn-wishlist button-recommended pink">REMOVE FROM WISHLIST</button>
 
-                        </form>
+                            </form>
 
-                    @endif
+                        @endif
 
-                @endauth
-</span>
+                    @endauth
+                </span>
 
 
                 <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews">
@@ -117,7 +117,6 @@
     </div>
 
 @endif
-
 <div class="all-movies js-moviesColumn">
 
     @if($errors->any())
@@ -129,6 +128,7 @@
     @if(($data['products']->isNotEmpty()))
 
         @foreach($data['products'] as $product)
+        <div class="additional-flex js-add-flex">
             <div class="box">
                 <a href="{{route('product.single', $product->slug)}}">
                     <img src="{{ $product->image }}" class="box-picture">
@@ -168,7 +168,13 @@
 
                     <div class="box-rating help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</div>
                 </div>
+
             </div>
+            <div class="additional-info js-add-info proba">
+                {{$product->plot}}
+            </div>
+
+        </div>
         @endforeach
 
         @else
@@ -176,6 +182,7 @@
         <p>No movies</p>
 
     @endif
+
 </div>
 
 @if(!empty($data['products']))
@@ -189,20 +196,25 @@
 
 @section('script')
 <script>
+    var x = document.getElementsByClassName('js-add-info')
     var list = document.querySelector(".js-list")
     var grid = document.querySelector(".js-grid")
     var listGrid = document.querySelector(".js-moviesColumn")
+
     function listView() {
         list.classList.add("active-nav");
         grid.classList.remove("active-nav");
         listGrid.style.flexFlow = 'column';
-        listGrid.style.alignItems = 'center';
+        listGrid.style.alignItems = 'centre';
+        x.classList.remove("proba");
+
     }
     function gridView() {
         list.classList.remove("active-nav");
         grid.classList.add("active-nav");
         listGrid.style.flexFlow = 'row wrap';
         listGrid.style.alignItems = 'none';
+        x.classList.add("proba");
     }
 </script>
 @endsection

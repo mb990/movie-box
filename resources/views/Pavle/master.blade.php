@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="header-top">
-            <a class="no-underline" href="{{route('homepage.trending')}}"><div class="web-logo">THE MOVIE BOX</div></a>
+            <a class="no-underline web-logo" href="{{route('homepage.trending')}}"><div>THE MOVIE BOX</div></a>
 
         @guest()
 
@@ -24,10 +24,10 @@
 
             @if(!Request::is('wishlist'))
 
-                <div class="logIn"><a href="{{route('wishlist')}}"><button class="active-color button-recommended">YOUR WISHLIST</button></div></a>
+                <div class="logIn"><a href="{{route('wishlist')}}"><button class=" btn-login button-recommended">YOUR WISHLIST</button></div></a>
 
             @endif
-            <div class="signUp"><a href="{{route('logout')}}"><button class="btn-login button-recommended">LOGOUT</button></div></a>
+            <div class="signUp"><a href="{{route('logout')}}"><button class="active-color button-recommended">LOGOUT</button></div></a>
 
         @endauth
     </div>

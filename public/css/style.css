@@ -204,6 +204,10 @@
   }
 }
 
+.pink {
+  color: #ff0079;
+}
+
 /*SINGLE MOVIE PAGE*/
 
 .single-movie {
@@ -384,6 +388,22 @@
 
 .wishlist-delete {
   content: "/&#xf014";
+}
+
+.additional-flex {
+  display: flex;
+}
+
+.additional-info {
+  display: block;
+  height: 20vh;
+  width: 30vw;
+  margin: 20px;
+  padding: 20px;
+}
+
+.proba {
+  display: none;
 }
 
 .pagination {
