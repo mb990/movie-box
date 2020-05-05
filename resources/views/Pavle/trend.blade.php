@@ -128,7 +128,6 @@
     @if(($data['products']->isNotEmpty()))
 
         @foreach($data['products'] as $product)
-        <div class="additional-flex js-add-flex">
             <div class="box">
                 <a href="{{route('product.single', $product->slug)}}">
                     <img src="{{ $product->image }}" class="box-picture">
@@ -170,11 +169,7 @@
                 </div>
 
             </div>
-            <div class="additional-info js-add-info proba">
-                {{$product->plot}}
-            </div>
 
-        </div>
         @endforeach
 
         @else
@@ -196,25 +191,22 @@
 
 @section('script')
 <script>
-    var x = document.getElementsByClassName('js-add-info')
-    var list = document.querySelector(".js-list")
-    var grid = document.querySelector(".js-grid")
-    var listGrid = document.querySelector(".js-moviesColumn")
-
+    var list = document.querySelector(".js-list");
+    var grid = document.querySelector(".js-grid");
+    var listGrid = document.querySelector(".js-moviesColumn");
     function listView() {
         list.classList.add("active-nav");
         grid.classList.remove("active-nav");
         listGrid.style.flexFlow = 'column';
         listGrid.style.alignItems = 'centre';
-        x.classList.remove("proba");
-
+        listGrid.style.paddingLeft= "40vw";
     }
     function gridView() {
         list.classList.remove("active-nav");
         grid.classList.add("active-nav");
         listGrid.style.flexFlow = 'row wrap';
         listGrid.style.alignItems = 'none';
-        x.classList.add("proba");
+        listGrid.style.paddingLeft= "0px";
     }
 </script>
 @endsection
