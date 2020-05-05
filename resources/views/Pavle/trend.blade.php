@@ -77,41 +77,47 @@
         {{ session()->get('success') }}
     </div>
 @endif
-<div class="filters font-new" >
-    <form method="GET" action="{{route('products.filtered')}}">
-            @csrf
 
-            <label for="per_page">Show</label>
-            <select name="per_page" id="per_page">
-                <option value="4">4</option>
-                <option value="8">8</option>
-                <option value="12">12</option>
-                <option value="20">20</option>
-            </select>
+@if(!Request::is('search'))
 
-            <label for="min_rating">Min rating</label>
-            <input class="search-input" type="number" name="min_rating" id="min_rating" min="1.0" max="9.9" step="0.1">
+    <div class="filters font-new" >
+        <form method="GET" action="{{route('products.filtered')}}">
+                @csrf
 
-            <label for="max_rating">Max rating</label>
-            <input class="search-input" type="number" name="max_rating" id="max_rating" min="1.1" max="10" step="0.1">
+                <label for="per_page">Show</label>
+                <select name="per_page" id="per_page">
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="20">20</option>
+                </select>
 
-            <label for="min_year">Min year</label>
-            <input class="search-input" type="number" name="min_year" id="min_year" min="1900" max="{{date("Y") - 1}}">
+                <label for="min_rating">Min rating</label>
+                <input class="search-input" type="number" name="min_rating" id="min_rating" min="1.0" max="9.9" step="0.1">
 
-            <label for="max_year">Max year</label>
-            <input class="search-input" type="number" name="max_year" id="max_year" min="1960" max="{{date("Y")}}">
+                <label for="max_rating">Max rating</label>
+                <input class="search-input" type="number" name="max_rating" id="max_rating" min="1.1" max="10" step="0.1">
 
-            <select name="sorting" id="sort">
-                <option value="rating desc">Rating descending</option>
-                <option value="rating asc">Rating ascending</option>
-                <option value="year desc">Year descending</option>
-                <option value="year asc">Year ascending</option>
-            </select>
+                <label for="min_year">Min year</label>
+                <input class="search-input" type="number" name="min_year" id="min_year" min="1900" max="{{date("Y") - 1}}">
 
-            <button class="button-recommended active-color" type="submit">Filter</button>
+                <label for="max_year">Max year</label>
+                <input class="search-input" type="number" name="max_year" id="max_year" min="1960" max="{{date("Y")}}">
 
-        </form>
-</div>
+                <select name="sorting" id="sort">
+                    <option value="rating desc">Rating descending</option>
+                    <option value="rating asc">Rating ascending</option>
+                    <option value="year desc">Year descending</option>
+                    <option value="year asc">Year ascending</option>
+                </select>
+
+                <button class="button-recommended active-color" type="submit">Filter</button>
+
+            </form>
+    </div>
+
+@endif
+
 <div class="all-movies js-moviesColumn">
 
     @if($errors->any())
