@@ -25,7 +25,7 @@ class ProductController extends Controller
 
         $title = 'Trending';
 
-        return view('pavle/trend', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'recommended', 'data']));
     }
 
     public function new(GetProductsRequest $request) {
@@ -36,7 +36,7 @@ class ProductController extends Controller
 
         $title = 'New arrivals';
 
-        return view('pavle/trend', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'recommended', 'data']));
     }
 
     public function topRated(GetProductsRequest $request) {
@@ -47,7 +47,7 @@ class ProductController extends Controller
 
         $title = 'Top rated';
 
-        return view('pavle/trend', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'recommended', 'data']));
     }
 
     public function showSingle($slug) {
@@ -56,7 +56,7 @@ class ProductController extends Controller
 
         $title = $product->title;
 
-        return view('pavle.single', compact(['title', 'product']));
+        return view('products.single', compact(['title', 'product']));
     }
 
     public function showFiltered(FilterProductsRequest $request) {
@@ -67,6 +67,6 @@ class ProductController extends Controller
 
         $title = 'Filtered';
 
-        return view('pavle.trend', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'recommended', 'data']));
     }
 }

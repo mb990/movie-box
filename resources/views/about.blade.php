@@ -1,4 +1,4 @@
-@extends('pavle.master')
+@extends('layouts.master')
 @section('title','')
 
 

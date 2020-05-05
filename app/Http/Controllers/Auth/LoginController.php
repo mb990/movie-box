@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     public function showLoginForm() {
         session(['link' => url()->previous()]);
-        return view('pavle.login');
+        return view('auth.custom-login');
     }
 
     protected function authenticated()

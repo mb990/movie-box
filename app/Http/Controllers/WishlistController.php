@@ -30,7 +30,7 @@ class WishlistController extends Controller
     {
         $title = 'Wishlist';
 
-        return view('pavle.wishlist', compact('title'));
+        return view('wishlist', compact('title'));
     }
 
     public function addMovie(AddToWishlistRequest $request, $slug){

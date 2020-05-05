@@ -40,6 +40,6 @@ class ProductSearchController extends Controller
                 ->withErrors(['Type something into search', 'The Message']);
         }
 
-        return view('pavle.trend', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'recommended', 'data']));
     }
 }

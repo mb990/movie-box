@@ -10,6 +10,6 @@ class PageController extends Controller
     {
         $title = 'About';
 
-        return view('pavle.about', compact('title'));
+        return view('about', compact('title'));
     }
 }

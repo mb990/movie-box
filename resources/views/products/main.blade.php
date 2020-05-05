@@ -1,4 +1,4 @@
-@extends('pavle.master')
+@extends('layouts.master')
 
 @section('title', '')
 
@@ -138,7 +138,7 @@
 
                         <span class="actors font-new">
 
-                            @if(!empty($data['actors'][$product->slug]))
+                            @if($data['actors'][$product->slug]->isNotEmpty())
 
                                 {{$data['actors'][$product->slug]->implode('name', ', ')}}
 
