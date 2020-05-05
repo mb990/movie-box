@@ -4,7 +4,7 @@
 
 @section('header')
     <header class="header">
-        <img class="header" src="https://www.filmofilia.com/wp-content/uploads/2012/02/wrath_of_the_titans.jpg">
+        <img class="header" src="{{ $recommended['data']->image }}">
         <div class="header-mid">
             <a href="{{route('product.single', $recommended['data']->slug)}}" class="no-underline" ><div class="movie-name">{{$recommended['data']->title}}</div></a>
             <div class="movie-info">
