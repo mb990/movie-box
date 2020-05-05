@@ -83,9 +83,9 @@
 
             <label for="per_page">Show</label>
             <select name="per_page" id="per_page">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
+                <option value="4">4</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
                 <option value="20">20</option>
             </select>
 
@@ -130,13 +130,13 @@
                 <div class="box-info">
                     <div class="box-name">
                         <label for="boxPicture">{{substr($product->title, 0, 20)}}@if(strlen($product->title) > 20)... @endif <span>({{($product->year)}})</span></label>
-                        
+
                         <span class="actors font-new">
 
                             @if(!empty($data['actors'][$product->slug]))
 
                                 {{$data['actors'][$product->slug]->implode('name', ', ')}}
-                                
+
                             @endif
                         </span>
                     </div>
@@ -150,7 +150,7 @@
                             <button type="submit" class="wishlist-box-btn box-rating" title="Add to wishlist">&#x2764;</button>
                         </form>
                     @else
-                        
+
                         <form method="GET" action="{{route('product.remove', $product->slug)}}">
                             @csrf
                             <button type="submit" title="Remove from wishlist" class="fa fa-trash trash"></button>
@@ -175,7 +175,7 @@
 @if(!empty($data['products']))
 
     <div class="center">
-        {{$data['products']->links()}}
+        {{$data['products']->appends($_GET)->links()}}
     </div>
 
 @endif
