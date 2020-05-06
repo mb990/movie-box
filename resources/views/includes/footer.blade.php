@@ -11,10 +11,10 @@
                     <a class="footer-nav-links" href="{{route('about')}}">Contact</a>
                 </div>
                 <div class="social">
-                    <a href="#" class="fa fa-facebook fa-social"></a>
-                    <a href="#" class="fa fa-pinterest fa-social"></a>
-                    <a href="#" class="fa fa-twitter fa-social"></a>
-                    <a href="#" class="fa fa-linkedin fa-social"></a>
+                    <a href="https://www.facebook.com/QuantoxTechnology/" class="fa fa-facebook fa-social" target="blank"></a>
+                    <a href="https://www.pinterest.com/" class="fa fa-pinterest fa-social" target="blank"></a>
+                    <a href="https://twitter.com/quantoxcom?lang=en" class="fa fa-twitter fa-social" target="blank"></a>
+                    <a href="https://rs.linkedin.com/company/quantoxtechnology" class="fa fa-linkedin fa-social" target="blank"></a>
                 </div>
             </div>
         </footer>

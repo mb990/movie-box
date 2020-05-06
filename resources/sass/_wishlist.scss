@@ -5,11 +5,17 @@
 .movies-list{
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 30px;
     max-height: 60vh;
-    background-color: limegreen;
+    background-color: rgb(187, 187, 187);
 }
-ul{
+.all-movies-list{
     column-count: 8;
     list-style: none;
+}
+.movie-link{
+    color: #ff0079;
+    &:hover{
+        color: black;
+    }
 }

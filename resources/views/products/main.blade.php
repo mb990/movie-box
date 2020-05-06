@@ -13,7 +13,7 @@
             </div>
             <div class="header-bot">
                 <span class="inline">
-                    <a href="https://google.com/search?q={{$recommended['data']->title}}watch online"><button class="active-color  button-recommended">WATCH MOVIE</button></a>
+                    <a target="blank" href="https://google.com/search?q={{$recommended['data']->title}}watch online"><button class="active-color  button-recommended">WATCH MOVIE</button></a>
                     <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info  button-recommended pink">VIEW INFO</button></a>
 
                     @auth()

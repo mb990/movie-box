@@ -3,7 +3,7 @@
 
 @section('main')
 <div class="movies-list">
-Movies List
+<span class="movie-name center">All movies List</span>
 
     @if($errors->any())
         <h4 class="no-results">{{$errors->first()}}</h4>
@@ -11,19 +11,22 @@ Movies List
     @endif
 
 <ul>
+    <ul class="all-movies-list">
 
-    @forelse($products as $product)
+        @forelse($products as $product)
 
-        <a href="{{route('product.single', $product->slug)}}"><li>{{$product->title}}</li></a>
+            <a class="no-underline movie-link" href="{{route('product.single', $product->slug)}}"><li>{{$product->title}}</li></a>
 
-    @empty
+        @empty
 
-        No movies.
+            No movies.
 
-    @endforelse
+        @endforelse
 
-</ul>
-
+    </ul>
+    <div class="center">
+    {{$products->links()}}
+    </div>
 
 </div>
 @endsection

@@ -494,15 +494,23 @@
 .movies-list {
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 30px;
   max-height: 60vh;
-  background-color: limegreen;
+  background-color: #bbbbbb;
 }
 
-ul {
+.all-movies-list {
   -moz-column-count: 8;
        column-count: 8;
   list-style: none;
+}
+
+.movie-link {
+  color: #ff0079;
+}
+
+.movie-link:hover {
+  color: black;
 }
 
 html,
