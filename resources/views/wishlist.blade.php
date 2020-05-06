@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title', '')
-@section('header')
+@section('main-top')
 <h1 class='wishlist'>Your Wishlist</h1>
 @endsection
 
