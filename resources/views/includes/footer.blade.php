@@ -6,7 +6,7 @@
             <div class="footer-right">
                 <div>
                     <a class="footer-nav-links" href="{{route('about')}}">About</a>
-                    <a class="footer-nav-links" href="">Movies</a>
+                    <a class="footer-nav-links" href="{{route('products.list')}}">Movies</a>
                     <a class="footer-nav-links" href="">Rating</a>
                     <a class="footer-nav-links" href="{{route('about')}}">Contact</a>
                 </div>
