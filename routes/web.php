@@ -31,7 +31,7 @@ Route::get('/movies/{slug}/remove', 'WishlistController@removeMovie')->name('pro
 
 Route::get('/wishlist', 'WishlistController@index')->name('wishlist')->middleware('auth');
 
-Route::get('/about', 'PageController@about')->name('about');
+Route::get('/contact', 'PageController@contact')->name('contact');
 
 Route::get("/test", "TestController@test")->name("test");
 Route::post("/test", "TestController@test")->name("test");

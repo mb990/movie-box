@@ -6,7 +6,7 @@
             <div class="footer-right">
                 <div>
                     <a class="footer-nav-links" href="{{route('products.list')}}">Movies</a>
-                    <a class="footer-nav-links" href="{{route('about')}}">Contact</a>
+                    <a class="footer-nav-links" href="{{route('contact')}}">Contact</a>
                 </div>
                 <div class="social">
                     <a href="https://www.facebook.com/QuantoxTechnology/" class="fa fa-facebook fa-social" target="blank"></a>
