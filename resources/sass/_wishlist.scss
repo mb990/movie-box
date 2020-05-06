@@ -2,3 +2,14 @@
     color: #ff0079;
     text-align: center;
 }
+.movies-list{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    max-height: 60vh;
+    background-color: limegreen;
+}
+ul{
+    column-count: 8;
+    list-style: none;
+}
