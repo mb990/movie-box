@@ -2,6 +2,12 @@
 @section('title', "")
 
 @section('main')
+
+    @if($errors->any())
+        <h4 class="no-results">{{$errors->first()}}</h4>
+
+    @endif
+
 @if(session()->has('success'))
 <div class="alert alert-success hide">
     {{ session()->get('success') }}

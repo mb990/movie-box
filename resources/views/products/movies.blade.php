@@ -5,6 +5,11 @@
 <div class="movies-list">
 Movies List
 
+    @if($errors->any())
+        <h4 class="no-results">{{$errors->first()}}</h4>
+
+    @endif
+
 <ul>
 
     @forelse($products as $product)

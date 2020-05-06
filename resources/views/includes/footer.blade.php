@@ -1,7 +1,7 @@
 <footer class="footer">
             <div class="footer-left">
                 <span class="footer-webName">THE MOVIE BOX</span>
-                <span>Designed by Quantox. All rights reserved.</span>
+                <span>Designed by Quantox {{date('Y')}}. All rights reserved.</span>
             </div>
             <div class="footer-right">
                 <div>
