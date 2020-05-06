@@ -50,7 +50,7 @@
     </header>
 @endsection
 @section('main')
-@include('include.navigation')
+@include('includes.navigation')
 @if(session()->has('success'))
     <div class="alert alert-success hide">
         {{ session()->get('success') }}
