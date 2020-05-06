@@ -21,6 +21,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'ProductController@index')->name('homepage.trending');
 Route::get('/new', 'ProductController@new')->name('homepage.new');
 Route::get('/top', 'ProductController@topRated')->name('homepage.top');
+Route::get('/movies', 'ProductController@showList')->name('products.list');
 Route::get('/movies/sorted/{sort}', 'ProductController@sorted')->name('products.sorted');
 Route::get('/search', 'ProductSearchController@index')->name('search');
 Route::get('/movies/{slug}', 'ProductController@showSingle')->name('product.single');

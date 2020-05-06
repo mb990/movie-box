@@ -69,4 +69,15 @@ class ProductController extends Controller
 
         return view('products.main', compact(['title', 'recommended', 'data']));
     }
+
+    public function showList()
+    {
+        $products = $this->productService->allPaginated(112);
+
+        $recommended = $this->productService->getRecommendedMovieData();
+
+        $title = 'All movies';
+
+        return view('products.movies', compact(['products', 'recommended' ,'title']));
+    }
 }
