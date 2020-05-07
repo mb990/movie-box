@@ -42,6 +42,6 @@ class IsInWishlist implements Rule
      */
     public function message()
     {
-        return 'Cannot delete item, it is not in your wishlist';
+        return 'Cannot remove item, it is not in your wishlist';
     }
 }

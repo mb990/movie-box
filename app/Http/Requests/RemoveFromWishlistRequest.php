@@ -54,7 +54,7 @@ class RemoveFromWishlistRequest extends FormRequest
     public function messages()
     {
         return[
-            'product_id.required' => 'Cannot remove item, it is not in your wishlist'
+//            'product_id.required' => 'Cannot remove item, it is not in your wishlist'
         ];
     }
 }

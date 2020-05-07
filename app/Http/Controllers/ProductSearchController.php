@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductSearchRequest;
 use App\Services\ProductSearchService;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class ProductSearchController extends Controller
         $this->productService = $productService;
     }
 
-    public function index(Request $request) {
+    public function index(ProductSearchRequest $request) {
 
         $query = $request->input('search');
 
@@ -33,12 +34,6 @@ class ProductSearchController extends Controller
         $recommended = $this->productService->getRecommendedMovieData();
 
         $title = 'Search results';
-
-        if (empty($query)) { // planning to add a custom request for this purpose
-
-            return Redirect::to('/')
-                ->withErrors(['Type something into search', 'The Message']);
-        }
 
         return view('products.main', compact(['title', 'recommended', 'data']));
     }

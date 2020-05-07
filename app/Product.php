@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Laravelista\Comments\Commentable;
 
 class Product extends Model
 {
-    use Sluggable;
+    use Sluggable, Commentable;
 
     protected $fillable = [
 

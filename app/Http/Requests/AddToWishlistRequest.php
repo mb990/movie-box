@@ -50,7 +50,6 @@ class AddToWishlistRequest extends FormRequest
      */
     public function rules()
     {
-//        $this->product_id;
 
         $rules = [
             'product_id' => [Rule::unique('wishlist', 'product_id')->where(function ($query) {

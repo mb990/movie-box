@@ -73,6 +73,9 @@
         </div>
     </div>
 </div>
+
+    @comments(['model' => $product])
+
 @endsection
 
 @section('script')
