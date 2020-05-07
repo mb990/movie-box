@@ -2,6 +2,7 @@
     <a title="Trending" href="{{route('homepage.trending')}}" class="nav-tab {{ Request::is('/') ? 'active-nav' : ''}}">Trending</a>
     <a title="Top Rated" href="{{route('homepage.top')}}" class="nav-tab {{ Request::is('top') ? 'active-nav' : ''}}">Top Rated</a>
     <a title="New Arrivals" href="{{route('homepage.new')}}" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
+    <button class="nav-tab filter-btn" onclick="filters()">Filters &#8681;</button>
     <!-- SEARCH BUTTON -->
     <form action="{{route('search')}}" class="nav-tab-search">
         @csrf
@@ -20,3 +21,38 @@
         </button>
     </div>
 </div>
+<div class="filters font-new" >
+        <form method="GET" action="{{route('products.filtered')}}">
+                @csrf
+
+                <label for="per_page">Show</label>
+                <select name="per_page" id="per_page">
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="20">20</option>
+                </select>
+
+                <label for="min_rating">Min rating</label>
+                <input class="search-input" type="number" name="min_rating" id="min_rating" min="1.0" max="9.9" step="0.1">
+
+                <label for="max_rating">Max rating</label>
+                <input class="search-input" type="number" name="max_rating" id="max_rating" min="1.1" max="10" step="0.1">
+
+                <label for="min_year">Min year</label>
+                <input class="search-input" type="number" name="min_year" id="min_year" min="1900" max="{{date("Y") - 1}}">
+
+                <label for="max_year">Max year</label>
+                <input class="search-input" type="number" name="max_year" id="max_year" min="1960" max="{{date("Y")}}">
+
+                <select name="sorting" id="sort">
+                    <option value="rating desc">Rating descending</option>
+                    <option value="rating asc">Rating ascending</option>
+                    <option value="year desc">Year descending</option>
+                    <option value="year asc">Year ascending</option>
+                </select>
+
+                <button class="button-recommended active-color" type="submit">Filter</button>
+
+            </form>
+    </div>

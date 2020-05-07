@@ -67,7 +67,7 @@
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe>
                 <span class="close"
-                onclick="myFunction()"
+                onclick="closeTrailer()"
                 >CLOSE &times;</span>
             </div>
         </div>
@@ -80,7 +80,7 @@
 
 @section('script')
 <script>
-    function myFunction() {
+    function closeTrailer() {
         document.getElementById("myFrame").src = document.getElementById("myFrame").src;
         document.getElementById('myModal').style.display='none'
     }

@@ -1,0 +1,22 @@
+.comments{
+    width: 80vw;
+    min-height: 20vh;
+    text-align: center;
+    display: flex;
+    margin: 0 auto;
+    
+
+}
+.new-comment{
+    max-width: 60vw;
+    border: 2px solid #ff0079;
+    border-radius: 4px;
+    padding: 4px;
+    resize: none;
+}
+.popular-comments{
+    padding: 20px;
+}
+.user-comments{
+    background-color: #fd459b;
+}
