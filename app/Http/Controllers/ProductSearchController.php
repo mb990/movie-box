@@ -34,7 +34,7 @@ class ProductSearchController extends Controller
 
         $title = 'Search results';
 
-        if (empty($query)) {
+        if (empty($query)) { // planning to add a custom request for this purpose
 
             return Redirect::to('/')
                 ->withErrors(['Type something into search', 'The Message']);
