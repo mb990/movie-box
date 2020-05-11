@@ -27,7 +27,7 @@ class ProductSearchController extends Controller
 
     public function index(ProductSearchRequest $request) {
 
-        $query = $request->input('search');
+        $query = strtolower($request->input('search'));
 
         $data = $this->productSearchService->getSearchedData($query);
 
