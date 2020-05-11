@@ -31,10 +31,8 @@ class ProductSearchController extends Controller
 
         $data = $this->productSearchService->getSearchedData($query);
 
-        $recommended = $this->productService->getRecommendedMovieData();
-
         $title = 'Search results';
 
-        return view('products.main', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'data']));
     }
 }

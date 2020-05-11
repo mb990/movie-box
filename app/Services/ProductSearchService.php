@@ -61,6 +61,8 @@ class ProductSearchService {
 
         $data['products'] = $this->paginationService->paginate($data['products'], 8);
 
+        $data['recommended'] = $this->productService->getRecommendedMovieData();
+
         return $data;
     }
 
