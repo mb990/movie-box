@@ -51,7 +51,26 @@
     border: none;
     cursor: pointer;
     outline: none;
+    @media screen and (max-width: 800px) {
+        margin-right: 25px;
+        font-size: 1.5rem;
+    }
 }
 .wishlist-delete{
     content: "/&#xf014";
+}
+@media screen and (max-width: 800px) {
+    .all-movies{
+        display: block;
+    }
+    .box-info{
+        width: 80vw;
+    }
+    .box-picture{
+        width: 90vw;
+        padding: 10px 0px;
+    }
+    .box{
+        width: 90vw;
+    }
 }

@@ -53,3 +53,17 @@
     color: #ff0079;
   }
 }
+@media screen and (max-width: 800px) {
+  .footer{
+    display: block;
+    text-align: center;
+  }
+  .footer-right{
+    font-size: 0.8rem;
+    padding-right: 0px;
+    text-align: center;
+  }
+  .footer-left{
+    padding-left: 0px;
+  }
+}

@@ -24,3 +24,22 @@
 .active{
     background-color: #ff0079;
 }
+@media screen and (max-width: 800px) {
+    .pagination{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and ( max-width: 800px ){
+    li.page-item {
+        display: none;
+    }
+    .page-item:first-child,
+    .page-item:nth-child( 3 ),
+    .page-item:nth-last-child( 3 ),
+    .page-item:last-child,
+    .page-item.active,
+    .page-item.disabled {
+        display: block;
+    }
+}

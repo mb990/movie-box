@@ -22,11 +22,11 @@
     </div>
 </div>
 <div class="filters font-new" >
-        <form method="GET" action="{{route('products.filtered')}}">
+        <form class="mobile-view" method="GET" action="{{route('products.filtered')}}">
                 @csrf
 
                 <label for="per_page">Show</label>
-                <select name="per_page" id="per_page">
+                <select class="search-input scale-select" name="per_page" id="per_page">
                     <option value="4">4</option>
                     <option value="8">8</option>
                     <option value="12">12</option>
@@ -34,18 +34,18 @@
                 </select>
 
                 <label for="min_rating">Min rating</label>
-                <input class="search-input" type="number" name="min_rating" id="min_rating" min="1.0" max="10" step="0.1">
+                <input class="search-input scale" type="number" name="min_rating" id="min_rating" min="1.0" max="9.9" step="0.1">
 
                 <label for="max_rating">Max rating</label>
-                <input class="search-input" type="number" name="max_rating" id="max_rating" min="1" max="10" step="0.1">
+                <input class="search-input scale" type="number" name="max_rating" id="max_rating" min="1.1" max="10" step="0.1">
 
                 <label for="min_year">Min year</label>
-                <input class="search-input" type="number" name="min_year" id="min_year" min="1900" max="{{date("Y")}}">
+                <input class="search-input scale" type="number" name="min_year" id="min_year" min="1900" max="{{date("Y") - 1}}">
 
                 <label for="max_year">Max year</label>
-                <input class="search-input" type="number" name="max_year" id="max_year" min="1900" max="{{date("Y")}}">
+                <input class="search-input scale" type="number" name="max_year" id="max_year" min="1960" max="{{date("Y")}}">
 
-                <select name="sorting" id="sort">
+                <select class="search-input scale-sort" name="sorting" id="sort">
                     <option value="rating desc">Rating descending</option>
                     <option value="rating asc">Rating ascending</option>
                     <option value="year desc">Year descending</option>

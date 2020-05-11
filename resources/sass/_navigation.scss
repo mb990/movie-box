@@ -74,3 +74,33 @@
     }
 }
 .show-filters{display: block;}
+@media screen and (max-width: 800px) {
+    .movie-nav{
+        display: grid;
+        padding: 0px;
+    }
+    .nav-grid{
+        display: none;
+    }
+    .nav-tab-search{
+        border: none;
+    }
+    .search-input{
+        width: 70vw;
+    }
+    .scale{
+        width: 20vw;
+    }
+    .scale-select{
+        width: 23vw;
+    }
+    .scale-sort{
+        width: 40vw;
+    }
+    .mobile-view{
+        display: inline-grid;
+    }
+    .show-filters{
+        text-align: -webkit-center;
+    }
+}

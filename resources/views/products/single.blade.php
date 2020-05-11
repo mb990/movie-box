@@ -16,7 +16,7 @@
 <div class="single-movie">
         <img class="box single-box" src="{{ $product->image }}">
     <div class="single-info">
-        <span class="movie-name font-new inline">{{$product->title}} ({{$product->year}})
+        <span class="movie-name font-new inline-single">{{$product->title}} ({{$product->year}})
             <span class=" box-rating-single help" title="based on {{$product->rating_votes}} reviews">{{$product->rating}}</span>
             <span>
             @auth()
@@ -73,9 +73,9 @@
         </div>
     </div>
 </div>
-
+<div class="comments">
     @comments(['model' => $product])
-
+</div>
 @endsection
 
 @section('script')

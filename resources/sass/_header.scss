@@ -35,3 +35,12 @@
 .btn-login {
     background: none;
 }
+@media screen and (max-width: 800px) {
+    .web-logo{
+        padding: 10px;
+        font-size: 1rem;
+    }
+    .signUp{
+        padding-right: 5px;
+    }
+}

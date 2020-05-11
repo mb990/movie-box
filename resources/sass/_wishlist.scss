@@ -12,6 +12,9 @@
 .all-movies-list{
     column-count: 8;
     list-style: none;
+    @media screen and (max-width: 800px) {
+        column-count: 1;
+    }
 }
 .movie-link{
     color: #ff0079;
