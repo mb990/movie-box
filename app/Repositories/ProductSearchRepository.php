@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductSearchRepository {
 
@@ -21,6 +22,7 @@ class ProductSearchRepository {
     public function search($query) {
 
         return $this->product->where('title', 'like', '%' . $query . '%')
+            ->orderBy('year')
             ->get();
     }
 }

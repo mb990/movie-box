@@ -97,12 +97,12 @@ class ProductSearchService {
 
         $dbSearch = $this->search($query);
 
+        foreach ($dbSearch as $movie) {
+
+            $movies[] = $movie;
+        }
+
         if ($this->checkSearchCount($dbSearch)) {
-
-            foreach ($dbSearch as $movie) {
-
-                $movies[] = $movie;
-            }
 
             return $movies;
         }
@@ -131,7 +131,7 @@ class ProductSearchService {
                 $this->actorService->processActors($result, $movie);
             }
 
-            $movies[] = $this->productService->findByImdb($result->id);
+//            $movies[] = $this->productService->findByImdb($result->id);
         }
 
         return $movies;
