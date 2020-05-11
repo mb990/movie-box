@@ -25,6 +25,8 @@ class ProductSearchRepository {
 //            ->orderBy('year')
 //            ->get();
 
-        return $this->product->whereRaw('LOWER(title) like (?)', ["%{$query}%"])->get();
+        return $this->product->whereRaw('LOWER(title) like (?)', ["%{$query}%"]) // done this way because production db cant recognize uppercase values
+            ->orderBy('year')
+            ->get();
     }
 }
