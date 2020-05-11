@@ -14,7 +14,7 @@ class FilterProductsRequest extends FormRequest
     public function __construct(ValidationService $validationService, array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [], $content = null)
     {
         parent::__construct($query, $request, $attributes, $cookies, $files, $server, $content);
-        $this->validationService = $validationService;
+        $this->validationService = $validationService;;
     }
 
     /**
@@ -37,7 +37,21 @@ class FilterProductsRequest extends FormRequest
     {
 
         return [
-            'min_year' => new ValidateFilterData($this, $this->validationService)
+            'min_rating' => 'required_without_all:max_rating,min_year,max_year',
+            'max_rating' => 'required_without_all:min_rating,min_year,max_year',
+            'min_year' => 'required_without_all:min_rating,max_rating,max_year',
+            'max_year' => 'required_without_all:min_rating,max_rating,min_year'
+//            'min_year' => new ValidateFilterData($this, $this->validationService)
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'min_rating.required_without_all' => 'Choose at least one filter',
+            'max_rating.required_without_all' => 'Choose at least one filter',
+            'min_year.required_without_all' => 'Choose at least one filter',
+            'max_year.required_without_all' => 'Choose at least one filter'
         ];
     }
 }

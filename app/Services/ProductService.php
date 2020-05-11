@@ -49,7 +49,7 @@ class ProductService
         return $this->product->filteredData($request, $sortingColumn, $sortingOrder);
     }
 
-    public function getData($dataType, FormRequest $request) {
+    public function getData($dataType, FormRequest $request, $recommended = true) {
 
         $data = [];
 
@@ -58,6 +58,11 @@ class ProductService
         foreach ($data['products'] as $product) {
 
            $data['actors'][$product->slug] = $this->mainActors($product);
+        }
+
+        if ($recommended) {
+
+            $data['recommended'] = $this->getRecommendedMovieData();
         }
 
         return $data;

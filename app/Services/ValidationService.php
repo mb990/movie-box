@@ -38,14 +38,14 @@ class ValidationService
 
     public function validateFilterData(FormRequest $request) {
 
-        if ($this->checkIfEmpty($request)) {
-
-            return false;
-        }
+//        if ($this->checkIfEmpty($request)) {
+//
+//            return false;
+//        }
 
         $this->fixData($request);
 
-        $this->addDefaultValues($request);
+//        $this->addDefaultValues($request);
 
         return true;
     }

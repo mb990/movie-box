@@ -4,23 +4,23 @@
 
 @section('main-top')
     <header class="header">
-        <img class="header-image" src="{{ $recommended['data']->image }}">
+        <img class="header-image" src="{{ $data['recommended']['data']->image }}">
         <div class="header-mid">
-            <a href="{{route('product.single', $recommended['data']->slug)}}" class="no-underline" ><div class="movie-name pink">{{$recommended['data']->title}}</div></a>
+            <a href="{{route('product.single', $data['recommended']['data']->slug)}}" class="no-underline" ><div class="movie-name pink">{{$data['recommended']['data']->title}}</div></a>
             <div class="movie-info">
-                <div class="movie-actors pink">{{$recommended['actors']->implode('name', ', ')}}</div>
-                <div class="movie-duration pink">Duration: {{$recommended['data']->duration}}</div>
+                <div class="movie-actors pink">{{$data['recommended']['actors']->implode('name', ', ')}}</div>
+                <div class="movie-duration pink">Duration: {{$data['recommended']['data']->duration}}</div>
             </div>
             <div class="header-bot">
                 <span class="inline">
-                    <a target="blank" href="https://google.com/search?q={{$recommended['data']->title}}watch online"><button class="active-color  button-recommended">WATCH MOVIE</button></a>
-                    <a href="{{route('product.single', $recommended['data']->slug)}}"><button class="btn-info  button-recommended pink">VIEW INFO</button></a>
+                    <a target="blank" href="https://google.com/search?q={{$data['recommended']['data']->title}}watch online"><button class="active-color  button-recommended">WATCH MOVIE</button></a>
+                    <a href="{{route('product.single', $data['recommended']['data']->slug)}}"><button class="btn-info  button-recommended pink">VIEW INFO</button></a>
 
                     @auth()
 
-                        @if(!auth()->user()->hasProduct($recommended['data']))
+                        @if(!auth()->user()->hasProduct($data['recommended']['data']))
 
-                            <form action="{{route('product.add', $recommended['data']->slug)}}" method="GET">
+                            <form action="{{route('product.add', $data['recommended']['data']->slug)}}" method="GET">
 
                                 @csrf
                                 <button class="btn-wishlist button-recommended pink">+ ADD TO WISHLIST</button>
@@ -29,7 +29,7 @@
 
                         @else
 
-                            <form action="{{route('product.remove', $recommended['data']->slug)}}">
+                            <form action="{{route('product.remove', $data['recommended']['data']->slug)}}">
 
                                 @csrf
                                 <button class="btn-wishlist button-recommended pink">REMOVE FROM WISHLIST</button>
@@ -42,8 +42,8 @@
                 </span>
 
 
-                <div class="header-rating help" title="Based on {{$recommended['data']->rating_votes}} reviews">
-                Rating: {{$recommended['data']->rating}}
+                <div class="header-rating help" title="Based on {{$data['recommended']['data']->rating_votes}} reviews">
+                Rating: {{$data['recommended']['data']->rating}}
                 </div>
             </div>
         </div>

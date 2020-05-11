@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Product;
+use function foo\func;
 
 class ProductRepository {
     protected $product;
@@ -20,7 +21,8 @@ class ProductRepository {
 
     public function allPaginated($perPage) {
 
-        return $this->product->paginate($perPage);
+        return $this->product->orderBy('title')
+            ->paginate($perPage);
     }
 
     public function trending($request) {
@@ -44,10 +46,25 @@ class ProductRepository {
 
     public function filteredData($request, $sortingColumn, $sortingOrder) {
 
-        return $this->product->whereBetween('rating', [floatval($request->min_rating), floatval($request->max_rating)])
-            ->whereBetween('year', [(intval($request->min_year)), (intval($request->max_year))])
+        return $this->product->when($request->min_rating, function ($q, $minRating) {
+            $q->where('rating', '>=', $minRating);
+        })
+            ->when($request->max_rating, function ($q, $maxRating) {
+                $q->where('rating', '<=', $maxRating);
+        })
+            ->when($request->min_year, function ($q, $minYear) {
+                $q->where('year', '>=', $minYear);
+        })
+            ->when($request->max_year, function ($q, $maxYear) {
+                $q->where('year', '<=', $maxYear);
+        })
             ->orderBy($sortingColumn, $sortingOrder)
             ->paginate(intval($request['per_page']));
+
+//        return $this->product->whereBetween('rating', [floatval($request->min_rating), floatval($request->max_rating)])
+//            ->whereBetween('year', [(intval($request->min_year)), (intval($request->max_year))])
+//            ->orderBy($sortingColumn, $sortingOrder)
+//            ->paginate(intval($request['per_page']));
     }
 
     public function find($id) {

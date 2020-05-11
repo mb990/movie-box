@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,6 +40,16 @@ Route::get('/contact', 'PageController@contact')->name('contact');
 
 Route::get("/test", "TestController@test")->name("test");
 Route::post("/test", "TestController@test")->name("test");
+
+Route::get('/cache', function()
+{
+    Cache::put( 'cachekey', 'I am in the cache baby!', 1 );
+});
+Route::get('/cache2', function()
+{
+    return Cache::get( 'cachekey' );
+});
+
 
 // front-end testing purposes
 Route::get("/pavle/{route}", function () {

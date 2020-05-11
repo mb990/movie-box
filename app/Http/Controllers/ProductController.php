@@ -21,33 +21,27 @@ class ProductController extends Controller
 
         $data = $this->productService->getData( 'trending', $request);
 
-        $recommended = $this->productService->getRecommendedMovieData();
-
         $title = 'Trending';
 
-        return view('products.main', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'data']));
     }
 
     public function new(GetProductsRequest $request) {
 
         $data = $this->productService->getData('new', $request);
 
-        $recommended = $this->productService->getRecommendedMovieData();
-
         $title = 'New arrivals';
 
-        return view('products.main', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'data']));
     }
 
     public function topRated(GetProductsRequest $request) {
 
         $data = $this->productService->getData('topRated', $request);
 
-        $recommended = $this->productService->getRecommendedMovieData();
-
         $title = 'Top rated';
 
-        return view('products.main', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'data']));
     }
 
     public function showSingle($slug) {
@@ -63,21 +57,17 @@ class ProductController extends Controller
 
         $data = $this->productService->getData( 'filteredData', $request);
 
-        $recommended = $this->productService->getRecommendedMovieData();
-
         $title = 'Filtered';
 
-        return view('products.main', compact(['title', 'recommended', 'data']));
+        return view('products.main', compact(['title', 'data']));
     }
 
     public function showList()
     {
         $products = $this->productService->allPaginated(112);
 
-        $recommended = $this->productService->getRecommendedMovieData();
-
         $title = 'All movies';
 
-        return view('products.movies', compact(['products', 'recommended' ,'title']));
+        return view('products.movies', compact(['products' ,'title']));
     }
 }

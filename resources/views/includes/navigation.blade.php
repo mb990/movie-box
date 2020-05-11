@@ -4,7 +4,7 @@
     <a title="New Arrivals" href="{{route('homepage.new')}}" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
     <button class="nav-tab filter-btn" onclick="filters()">Filters &#8681;</button>
     <!-- SEARCH BUTTON -->
-    <form action="{{route('search')}}" class="nav-tab-search">
+    <form method="GET" action="{{route('search')}}" class="nav-tab-search">
         @csrf
         <input type="text" class="search-input" placeholder="Search movie.." name="search">
         <button type="submit" class='button-recommended'><i class="fa fa-search"></i></button>
@@ -34,16 +34,16 @@
                 </select>
 
                 <label for="min_rating">Min rating</label>
-                <input class="search-input" type="number" name="min_rating" id="min_rating" min="1.0" max="9.9" step="0.1">
+                <input class="search-input" type="number" name="min_rating" id="min_rating" min="1.0" max="10" step="0.1">
 
                 <label for="max_rating">Max rating</label>
-                <input class="search-input" type="number" name="max_rating" id="max_rating" min="1.1" max="10" step="0.1">
+                <input class="search-input" type="number" name="max_rating" id="max_rating" min="1" max="10" step="0.1">
 
                 <label for="min_year">Min year</label>
-                <input class="search-input" type="number" name="min_year" id="min_year" min="1900" max="{{date("Y") - 1}}">
+                <input class="search-input" type="number" name="min_year" id="min_year" min="1900" max="{{date("Y")}}">
 
                 <label for="max_year">Max year</label>
-                <input class="search-input" type="number" name="max_year" id="max_year" min="1960" max="{{date("Y")}}">
+                <input class="search-input" type="number" name="max_year" id="max_year" min="1900" max="{{date("Y")}}">
 
                 <select name="sorting" id="sort">
                     <option value="rating desc">Rating descending</option>
