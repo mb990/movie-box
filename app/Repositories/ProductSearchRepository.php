@@ -21,8 +21,10 @@ class ProductSearchRepository {
 
     public function search($query) {
 
-        return $this->product->where('title', 'like', '%' . $query . '%')
-            ->orderBy('year')
-            ->get();
+//        return $this->product->where('title', 'like', '%' . $query . '%')
+//            ->orderBy('year')
+//            ->get();
+
+        return $this->product->whereRaw('LOWER(title) like (?)', ["%{$query}%"])->get();
     }
 }
