@@ -57,6 +57,8 @@ class ProductSearchService {
         foreach ($data['products'] as $product) {
 
             $data['actors'][$product->slug] = $this->productService->mainActors($product);
+
+            $data['short_title'][$product->slug] = $this->productService->getShortTitle($product);
         }
 
         $data['products'] = $this->paginationService->paginate($data['products'], 8);

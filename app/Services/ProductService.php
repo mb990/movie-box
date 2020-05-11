@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Repositories\ProductRepository;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class ProductService
 {
@@ -58,6 +59,8 @@ class ProductService
         foreach ($data['products'] as $product) {
 
            $data['actors'][$product->slug] = $this->mainActors($product);
+
+           $data['short_title'][$product->slug] = $this->getShortTitle($product);
         }
 
         if ($recommended) {
@@ -127,5 +130,11 @@ class ProductService
         $sorting ['order'] = $first = ltrim(strstr($request['sorting'], " ", false), ' ');
 
         return $sorting;
+    }
+
+    public function getShortTitle($product)
+    {
+
+        return Str::of($product->title)->limit(20);
     }
 }
