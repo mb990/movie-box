@@ -592,15 +592,9 @@
 }
 
 @media screen and (max-width: 800px) {
-  .pagination {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-
-@media screen and (max-width: 800px) {
   li.page-item {
     display: none;
+    padding: 0px;
   }
 
   .page-item:first-child,
