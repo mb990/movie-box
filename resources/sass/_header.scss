@@ -3,6 +3,9 @@
     display: -ms-flexbox;
     display: flex;
     background-image: linear-gradient(rgb(216, 216, 216), rgb(197, 197, 197), rgb(117, 117, 117));
+    position: absolute;
+    width: 100vw;
+    top: 0px;
 }
 .web-logo {
     -webkit-box-flex: 4;
@@ -12,6 +15,7 @@
     padding-left: 10vh;
     font-size: 1.5rem;
     color: white;
+    z-index: +1;
 }
 .no-underline{
     text-decoration: none;
@@ -23,10 +27,12 @@
             flex: 2;
     padding: 5px;
     text-align: right;
+    z-index: +1;
 }
 .signUp {
     padding: 5px;
     padding-right: 10vh;
+    z-index: +1;
 }
 .active-color{
     background-color: #ff0079;

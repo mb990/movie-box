@@ -71,6 +71,9 @@
 .header-top {
   display: flex;
   background-image: linear-gradient(#d8d8d8, #c5c5c5, #757575);
+  position: absolute;
+  width: 100vw;
+  top: 0px;
 }
 
 .web-logo {
@@ -79,6 +82,7 @@
   padding-left: 10vh;
   font-size: 1.5rem;
   color: white;
+  z-index: 1;
 }
 
 .no-underline {
@@ -90,11 +94,13 @@
   flex: 2;
   padding: 5px;
   text-align: right;
+  z-index: 1;
 }
 
 .signUp {
   padding: 5px;
   padding-right: 10vh;
+  z-index: 1;
 }
 
 .active-color {
@@ -731,6 +737,7 @@
 .wishlist {
   color: #ff0079;
   text-align: center;
+  padding-top: 5vh;
 }
 
 .movies-list {

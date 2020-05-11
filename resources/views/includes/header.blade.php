@@ -5,7 +5,7 @@
 
             <div class="logIn"><a href="{{route('login')}}"><button class="btn-login button-recommended">LOG IN</button></div></a>
             <div class="signUp"><a href="{{route('register')}}"><button class="active-color button-recommended">SIGN UP</button></div></a>
-            
+
         @endguest
 
         @auth()
@@ -18,4 +18,4 @@
             <div class="signUp"><a href="{{route('logout')}}"><button class="active-color button-recommended">LOGOUT</button></div></a>
 
         @endauth
-    </div>
+</div>
