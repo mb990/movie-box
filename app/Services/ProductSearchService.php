@@ -129,9 +129,9 @@ class ProductSearchService {
                 $movie = $this->productService->store($result);
 
                 $this->actorService->processActors($result, $movie);
-            }
 
-//            $movies[] = $this->productService->findByImdb($result->id);
+                $movies[] = $this->productService->findByImdb($result->id);
+            }
         }
 
         return $movies;
