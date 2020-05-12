@@ -55,7 +55,7 @@
         <span>
             @foreach($product->actors as $actor)
 
-                <span class="commas font-new"> <strong>{{$actor->name}}</strong> as {{$actor->pivot->character}}</span>
+                <span class="commas font-new"> <a href="{{route('actor.show', $actor->slug)}}"><strong>{{$actor->name}}</strong></a> as {{$actor->pivot->character}}</span>
 
             @endforeach
         </span>

@@ -8,7 +8,7 @@
         <div class="header-mid">
             <a href="{{route('product.single', $data['recommended']['data']->slug)}}" class="no-underline" ><div class="movie-name pink">{{$data['recommended']['data']->title}}</div></a>
             <div class="movie-info">
-                <div class="movie-actors pink">{{$data['recommended']['actors']->implode('name', ', ')}}</div>
+                <div class="movie-actors pink"><?php echo $data['recommended']['actors']->implode('name', ', ')?></div>
                 <div class="movie-duration pink">Duration: {{$data['recommended']['data']->duration}}</div>
             </div>
             <div class="header-bot">
@@ -85,7 +85,7 @@
 
                             @if($data['actors'][$product->slug]->isNotEmpty())
 
-                                {{$data['actors'][$product->slug]->implode('name', ', ')}}
+                                <?php echo $data['actors'][$product->slug]->implode('name', ',') ?>
 
                             @endif
                         </span>

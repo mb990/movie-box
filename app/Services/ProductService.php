@@ -58,7 +58,7 @@ class ProductService
 
         foreach ($data['products'] as $product) {
 
-           $data['actors'][$product->slug] = $this->mainActors($product);
+           $data['actors'][$product->slug] = collect($this->linkToActors($this->mainActors($product)));
 
            $data['short_title'][$product->slug] = $this->getShortTitle($product);
         }
@@ -77,7 +77,7 @@ class ProductService
 
         $movie['data'] = $this->recommendedMovie();
 
-        $movie['actors'] = $this->mainActors($movie['data']);
+        $movie['actors'] = collect($this->linkToActors($this->mainActors($movie['data'])));
 
         return $movie;
     }
@@ -136,5 +136,16 @@ class ProductService
     {
 
         return Str::of($product->title)->limit(20);
+    }
+
+    public function linkToActors($actors)
+    {
+
+        foreach($actors as $actor) {
+
+            $actor->name = '<a href=' . route('actor.show', $actor->slug) . '>' . $actor->name . '</a>';
+        }
+
+        return $actors;
     }
 }

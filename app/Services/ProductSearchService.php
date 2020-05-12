@@ -56,7 +56,7 @@ class ProductSearchService {
 
         foreach ($data['products'] as $product) {
 
-            $data['actors'][$product->slug] = $this->productService->mainActors($product);
+            $data['actors'][$product->slug] = collect($this->productService->linkToActors($this->productService->mainActors($product)));
 
             $data['short_title'][$product->slug] = $this->productService->getShortTitle($product);
         }
