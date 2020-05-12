@@ -12,14 +12,19 @@
 
     <ul class="all-movies-list">
 
+        @forelse($actors as $actor)
 
+            <a class="no-underline movie-link" href="{{route('actor.show', $actor->slug)}}"><li>{{$actor->name}}</li></a>
 
-        <a class="no-underline movie-link" href="/"><li>Actor name</li></a>
+        @empty
 
+            <p>No actors.</p>
+
+        @endforelse
 
     </ul>
     <div class="center">
-    {{$products->links()}}
+    {{$actors->links()}}
     </div>
 
 </div>

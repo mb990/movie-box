@@ -19,9 +19,19 @@ class ActorService
         return $this->actor->all();
     }
 
+    public function allPaginated($perPage)
+    {
+        return $this->actor->allPaginated($perPage);
+    }
+
     public function findByImdb($id) {
 
         return $this->actor->findByImdb($id);
+    }
+
+    public function findBySlug($slug) {
+
+        return $this->actor->findBySlug($slug);
     }
 
     public function store($data) {

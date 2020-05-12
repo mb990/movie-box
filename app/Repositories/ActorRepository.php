@@ -19,9 +19,20 @@ class ActorRepository
         return $this->actor->all();
     }
 
+    public function allPaginated($perPage)
+    {
+        return $this->actor->orderBy('name')
+            ->paginate($perPage);
+    }
+
     public function findByImdb($id) {
 
         return $this->actor->where('imdb_id', '=', $id)->first();
+    }
+
+    public function findBySlug($slug) {
+
+        return $this->actor->where('slug', '=', $slug)->first();
     }
 
     public function store($data) {

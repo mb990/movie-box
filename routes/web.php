@@ -34,6 +34,9 @@ Route::get('/movies/filtered/results', 'ProductController@showFiltered')->name('
 Route::get('/movies/{slug}/add', 'WishlistController@addMovie')->name('product.add');
 Route::get('/movies/{slug}/remove', 'WishlistController@removeMovie')->name('product.remove');
 
+Route::get('/actors', 'ActorController@index')->name('actors');
+Route::get('/actors/{slug}', 'ActorController@show')->name('actor.show');
+
 Route::get('/wishlist', 'WishlistController@index')->name('wishlist')->middleware('auth');
 
 Route::get('/contact', 'PageController@contact')->name('contact');
