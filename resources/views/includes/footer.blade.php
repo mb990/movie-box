@@ -5,6 +5,7 @@
             </div>
             <div class="footer-right">
                 <div>
+                    <a class="footer-nav-links" href="/">Actors</a>
                     <a class="footer-nav-links" href="{{route('products.list')}}">Movies</a>
                     <a class="footer-nav-links" href="{{route('contact')}}">Contact</a>
                 </div>
