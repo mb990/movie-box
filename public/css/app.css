@@ -418,6 +418,7 @@
 
 .form-control {
   width: 40vw;
+  max-width: 550px;
   resize: none;
   border: 3px solid lightgray;
   border-radius: 4px;
