@@ -8,11 +8,11 @@
     <span>List of movies this actor is acting: </span>
     <br>
 
-    @forelse($actor->movies as $movie)
 
         <span>
+            @forelse($actor->movies as $movie)
 
-            <span class="commas font-new">{{$movie->name}}</span>
+            <span class="commas font-new"><a href="{{route('product.single', $movie->slug)}}">{{$movie->title}}</a></span>
 
         @empty
 
@@ -22,7 +22,10 @@
 
     @endforelse
 
-    <a href="https://google.com/search?q={{$actor->name}} wikipedia.org" class="center">Click here for more info about Actor name</a>
 
 </div>
+<span class="center">
+    <a href="https://google.com/search?q={{$actor->name}} wikipedia.org" class="center" target="blank">Click here for more info about Actor name</a>
+</span>
+
 @endsection
