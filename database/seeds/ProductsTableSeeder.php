@@ -44,7 +44,7 @@ class ProductsTableSeeder extends Seeder
 
         foreach ($queries as $query) {
 
-            $this->productSearchService->processSearch($query);
+            $this->productSearchService->processSearch($query, 'title');
         }
     }
 }

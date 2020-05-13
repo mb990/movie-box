@@ -3,7 +3,7 @@
     <a title="Top Rated" href="{{route('homepage.top')}}" class="nav-tab {{ Request::is('top') ? 'active-nav' : ''}}">Top Rated</a>
     <a title="New Arrivals" href="{{route('homepage.new')}}" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
     <button class="nav-tab filter-btn" onclick="filters()">Filters &#8681;</button>
-    
+
 
 
     <!-- SEARCH BUTTON -->
@@ -11,7 +11,7 @@
 
         @csrf
 
-            <select id="type" class="select-dropdown">
+            <select name="search-type" id="type" class="select-dropdown">
                 <option value="title">By title</option>
                 <option value="actor">By actor</option>
             </select>

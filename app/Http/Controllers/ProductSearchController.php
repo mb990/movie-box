@@ -29,7 +29,7 @@ class ProductSearchController extends Controller
 
         $query = strtolower($request->input('search'));
 
-        $data = $this->productSearchService->getSearchedData($query);
+        $data = $this->productSearchService->getSearchedData($query, $request->input('search-type'));
 
         $title = 'Search results';
 

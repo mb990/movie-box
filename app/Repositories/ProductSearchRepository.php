@@ -29,4 +29,13 @@ class ProductSearchRepository {
             ->orderBy('year')
             ->get();
     }
+
+    public function searchByActor($query)
+    {
+        return $this->product->whereHas('actors' , function ($q) use ($query) {
+            $q->whereRaw('LOWER(name) = ?', [$query]);
+            })
+            ->orderBy('year')
+            ->get();
+    }
 }

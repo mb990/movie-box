@@ -48,11 +48,16 @@ class ProductSearchService {
         return $this->productSearchRepository->search($query);
     }
 
-    public function getSearchedData($query) {
+    public function searchByActor($query)
+    {
+        return $this->productSearchRepository->searchByActor($query);
+    }
+
+    public function getSearchedData($query, $type) {
 
         $data = [];
 
-        $data['products'] = $this->processSearch($query);
+        $data['products'] = $this->processSearch($query, $type);
 
         foreach ($data['products'] as $product) {
 
@@ -93,9 +98,21 @@ class ProductSearchService {
         return $results;
     }
 
-    public function processSearch($query) {
+    public function processSearch($query, $type) {
 
         $movies = [];
+
+        if ($type == 'actor') {
+
+            $dbSearch = $this->searchByActor($query);
+
+            foreach ($dbSearch as $movie) {
+
+                $movies[] = $movie;
+            }
+
+            return $movies;
+        }
 
         $dbSearch = $this->search($query);
 
