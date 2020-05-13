@@ -12,7 +12,7 @@
         <span>
             @forelse($actor->movies as $movie)
 
-            <span class="commas font-new"><a href="{{route('product.single', $movie->slug)}}">{{$movie->title}}</a></span>
+            <span class="commas font-new "><a class="pink no-underline" href="{{route('product.single', $movie->slug)}}">{{$movie->title}}</a></span>
 
         @empty
 

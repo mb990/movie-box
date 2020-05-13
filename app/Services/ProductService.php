@@ -143,7 +143,7 @@ class ProductService
 
         foreach($actors as $actor) {
 
-            $actor->name = '<a href=' . route('actor.show', $actor->slug) . '>' . $actor->name . '</a>';
+            $actor->name = '<a class="pink no-underline" href=' . route('actor.show', $actor->slug) . '>' . $actor->name . '</a>';
         }
 
         return $actors;
