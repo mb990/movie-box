@@ -9,7 +9,7 @@
     @endif
 
 @if(session()->has('success'))
-<div class="alert alert-success hide">
+<div class="alert alert-success hide hide-single">
     {{ session()->get('success') }}
 </div>
 @endif

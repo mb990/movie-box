@@ -226,6 +226,10 @@
   font-size: 1.5rem;
 }
 
+.hide-single {
+  margin-top: 50px;
+}
+
 @keyframes cssAnimation {
   to {
     width: 0;
