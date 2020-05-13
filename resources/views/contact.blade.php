@@ -3,7 +3,7 @@
 
 
 @section('main')
-<div style="height:50vh">
+<div style="height:50vh; margin-top: 50px;">
     <p class="center">This site is made as intern project.</p>
     <div class="center">
         <h5>For any additional information, contact us:</h5>
