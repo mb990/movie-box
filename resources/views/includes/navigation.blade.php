@@ -4,16 +4,18 @@
     <a title="New Arrivals" href="{{route('homepage.new')}}" class="nav-tab {{ Request::is('new') ? 'active-nav' : ''}}">New Arrivals</a>
     <button class="nav-tab filter-btn" onclick="filters()">Filters &#8681;</button>
     
-    <div class="search-type">
-        <select id="type" class="select-dropdown">
-            <option value="title">By title</option>
-            <option value="actor">By actor</option>
-        </select>
-    </div>
+
 
     <!-- SEARCH BUTTON -->
     <form method="GET" action="{{route('search')}}" class="nav-tab-search">
+
         @csrf
+
+            <select id="type" class="select-dropdown">
+                <option value="title">By title</option>
+                <option value="actor">By actor</option>
+            </select>
+
         <input type="text" class="search-input" placeholder="Search movie.." name="search">
         <button type="submit" class='button-recommended'><i class="fa fa-search"></i></button>
     </form>
