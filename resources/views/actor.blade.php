@@ -24,8 +24,8 @@
 
 
 </div>
-<span class="center">
-    <a href="https://google.com/search?q={{$actor->name}} wikipedia.org" class="center" target="blank">Click here for more info about Actor name</a>
-</span>
+<div class="center">
+    <a href="https://google.com/search?q={{$actor->name}} wikipedia.org" class="no-underline pink" target="blank">Click here for more info about {{$actor->name}}</a>
+</div>
 
 @endsection
