@@ -132,6 +132,8 @@
   position: absolute;
   height: 70vh;
   width: 100vw;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .header-mid {
@@ -273,6 +275,8 @@
   box-shadow: none;
   background-color: black;
   margin-left: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .single-info {
@@ -498,6 +502,8 @@
 .box-picture {
   height: 45vh;
   width: 20vw;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .box-info {
