@@ -98,40 +98,29 @@ class ProductSearchService {
         return $results;
     }
 
-    public function processSearch($query, $type) {
-
+    public function processSearch($query, $type)
+    {
         $movies = [];
 
         if ($type == 'actor') {
-
             $dbSearch = $this->searchByActor($query);
-
-            foreach ($dbSearch as $movie) {
-
-                $movies[] = $movie;
-            }
-
-            return $movies;
+        } else {
+            $dbSearch = $this->search($query);
         }
 
-        $dbSearch = $this->search($query);
-
         foreach ($dbSearch as $movie) {
-
             $movies[] = $movie;
         }
 
         if ($this->checkSearchCount($dbSearch)) {
-
             return $movies;
         }
 
-        if ($this->getSearchResults($query) !== null) {
+        $searchResults = $this->getSearchResults($query);
 
-            foreach ($this->getSearchResults($query)->titles as $movie) {
-
+        if ($searchResults !== null) {
+            foreach ($searchResults->titles as $movie) {
                 $result = $this->apiService->find($movie->id);
-
                 $movies = $this->processResults($movies, $result);
             }
         }
@@ -140,13 +129,13 @@ class ProductSearchService {
     }
 
     public function processResults(array $movies, $result) {
+        if (!$result) {
+            return $movies;
+        }
 
         if ($this->validationService->validateFile($result)) {
-
             if (!$this->productService->findByImdb($result->id)) {
-
                 $movie = $this->productService->store($result);
-
                 $this->actorService->processActors($result, $movie);
 
                 $movies[] = $this->productService->findByImdb($result->id);

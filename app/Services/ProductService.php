@@ -105,10 +105,17 @@ class ProductService
     }
 
     public function embedVideo($url) {
+        $parts = parse_url($url);
 
-        $link = substr_replace($url,"embed",26, 6);
+        if (!empty($parts['query'])) {
+            parse_str($parts['query'], $query);
 
-        return $link;
+            if (!empty($query['v'])) {
+                return 'https://www.youtube.com/embed/' . $query['v'];
+            }
+        }
+
+        return $url;
     }
 
     public function mainActors($product) {

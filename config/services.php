@@ -33,6 +33,9 @@ return [
     'rapid_api' => [
         'key' => env('RAPID_API_KEY'),
         'host' => env('RAPID_IMDB_API_HOST'),
-    ]
+    ],
 
+    'tmdb' => [
+        'token' => env('TMDB_API_TOKEN'),
+    ],
 ];

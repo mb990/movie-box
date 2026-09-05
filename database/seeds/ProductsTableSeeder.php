@@ -24,7 +24,7 @@ class ProductsTableSeeder extends Seeder
     {
 //        factory(App\Product::class, 100)->create();
 
-        $queries = ['teminator', 'hulk', 'matrix', 'rambo', 'titanic', 'disaster movie', 'The Perks of Being a Wallflower',
+        $queries = ['terminator', 'hulk', 'matrix', 'rambo', 'titanic', 'disaster movie', 'The Perks of Being a Wallflower',
                     'rocky', 'avatar', 'saw', 'the parent trap', 'booksmart', 'The Sixth Sense', 'Edward Scissorhands', 'Harry Potter',
                     'Bridesmaids', 'Love Actually', 'e.t.', 'ocean', 'signs', 'Crazy Rich Asians', 'Jumanji', 'Coyote Ugly',
                     'The Boy In The Striped Pajamas', 'Hocus Pocus', 'tarzan', 'The Fault In Our Stars', 'Water For Elephants',
@@ -40,7 +40,7 @@ class ProductsTableSeeder extends Seeder
                     'the incredibles', 'the village', 'serendipity', 'inception', 'van helsing', 'the skeleton key', 'black panther', 'avengers',
                     'us', 'toy story', 'lady bird', 'mission: impossible', 'the irishman', 'citizen kane', 'get out', 'spiderman', 'batman', 'robocop',
                     'mad max', 'a star is born', 'casablanca', 'booksmart', 'nosferatu', 'moonlight', 'wonder woman', 'the farewell', 'dunkirk',
-                    'inside out', 'modern times', 'roma', 'coco', 'spotlight', 'rubber', 'deadpool', ''];
+                    'inside out', 'modern times', 'roma', 'coco', 'spotlight', 'rubber', 'deadpool', 'bruno'];
 
         foreach ($queries as $query) {
 
